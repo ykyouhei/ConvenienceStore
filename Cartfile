@@ -1,0 +1,11 @@
+# App
+github "Instagram/IGListKit" ~> 2.0.0
+github "SwiftyBeaver/SwiftyBeaver"
+github "SwiftyJSON/SwiftyJSON"
+github "onevcat/Kingfisher"
+github "lkzhao/Hero"
+
+# Batch
+github "tid-kijyun/Kanna"    ~> 2.1.0
+github "crossroadlabs/Regex" ~> 1.0.0
+
