@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import Core_iOS
 
 import Firebase
 import FirebaseInstanceID
@@ -25,7 +26,7 @@ let log: SwiftyBeaver.Type = {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var  window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
     
     let gcmMessageIDKey = "gcm.message_id"
 
@@ -34,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerUserNotification(for: application)
         
         setupFirebase()
+        
+        setupRootViewController()
         
         return true
     }
@@ -55,11 +58,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRDatabase.database().persistenceEnabled = true
     }
     
+    private func setupRootViewController() {
+        let rootTabBarController = RootTabBarController()
+        
+        self.window?.makeKeyAndVisible()
+        
+        self.window?.rootViewController = rootTabBarController
+        
+    }
+    
 }
 
 
 // MARK: - Notification
 extension AppDelegate: UNUserNotificationCenterDelegate, FIRMessagingDelegate {
+    
+    // MARK: Types
+    
+    enum Topics: String {
+        case newItems = "/topics/newItems"
+    }
     
     // MARK: ApplicationDelegate
     
@@ -167,6 +185,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, FIRMessagingDelegate {
             log.info("InstanceID token: \(refreshedToken)")
         }
         
+        
         connectToFcm()
     }
     
@@ -182,6 +201,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, FIRMessagingDelegate {
                 log.error("Unable to connect with FCM. \(error)")
             } else {
                 log.info("Connected to FCM.")
+                FIRMessaging.messaging().subscribe(toTopic: Topics.newItems.rawValue)
             }
         }
     }

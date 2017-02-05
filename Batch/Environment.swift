@@ -15,6 +15,7 @@ public class Environment {
         case firebaseAPIKe     = "FIREBASE_API_KEY"
         case firebaseSecret    = "FIREBASE_SECRET"
         case firebaseEndpoint  = "FIREBASE_ENDPOINT"
+        case firebaseServerKey = "FIREBASE_SERVER_KEY"
     }
     
     static func get(_ name: EnvironmentName) -> String {

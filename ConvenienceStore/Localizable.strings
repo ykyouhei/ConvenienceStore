@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ConvenienceStore
+
+  Created by kyo__hei on 2017/02/04.
+  Copyright © 2017年 kyo__hei. All rights reserved.
+*/
+"common.title.seveneleven" = "ｾﾌﾞﾝｲﾚﾌﾞ";
+"common.title.familymart"  = "FamilyMart";
+
+"template.label.includeTaxPrice"  = "%d円(税込)";

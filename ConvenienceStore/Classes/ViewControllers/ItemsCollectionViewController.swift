@@ -8,18 +8,24 @@
 
 import UIKit
 import Firebase
-import SwiftyJSON
 import Hero
+import Core_iOS
+import SVProgressHUD
 
-internal final class ItemsCollectionViewController: UIViewController {
+internal final class ItemsCollectionViewController<T: Item>:
+    XibBaseViewController,
+    UICollectionViewDelegate,
+    UICollectionViewDataSource where T: StoreInformation
+{
+    
+    // MAKR: Constant
+    
+    private let cellName = ItemCollectionViewCell.className
+    
     
     // MARK: Properties
     
-    fileprivate lazy var sevenItems = [SevenItem]()
-    
-    fileprivate lazy var fbReference: FIRDatabaseReference = {
-        return FIRDatabase.database().reference()
-    }()
+    let itemList: ItemListViewModel<T>
     
     
     // MARK: Outlet
@@ -27,33 +33,33 @@ internal final class ItemsCollectionViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     
+    // MARK: Initializer
+    
+    init(itemList: ItemListViewModel<T>) {
+        self.itemList = itemList
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarItem = UITabBarItem(
-            title: "7 ELEVEN",
-            image: #imageLiteral(resourceName: "icon_seven_eleven"),
-            selectedImage: #imageLiteral(resourceName: "icon_seven_eleven").withRenderingMode(.alwaysOriginal))
+        navigationItem.titleView = UIImageView(image: T.logoImage)
         
         updateCollectionViewLayout()
         
-        fbReference
-            .child("seven_items/thisweek")
-            .observeSingleEvent(
-                of: .value,
-                with: { snapshot in
-                    let json = JSON(snapshot.value!)
-                    
-                    self.sevenItems = json.map { SevenItem(json: $1) }
-                    
-                    self.collectionView.reloadData()
-                    
-                },
-                withCancel: { error in
-                    log.error(error)
-                })
+        collectionView.register(UINib(nibName: cellName, bundle: nil),
+                                forCellWithReuseIdentifier: cellName)
+        
+        setupRefreshControl()
+        
+        reloadList()
     }
     
     
@@ -80,45 +86,68 @@ internal final class ItemsCollectionViewController: UIViewController {
         
         collectionView.setCollectionViewLayout(layout, animated: true)
     }
+    
+    private func setupRefreshControl() {
+        let refreshControl: UIRefreshControl = {
+            let r = UIRefreshControl()
+            r.addTarget(self,
+                        action: #selector(reloadList(sender:)),
+                        for: .valueChanged)
+            return r
+        }()
+        
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+    }
+    
+    
+    func reloadList(sender: UIRefreshControl? = nil) {
+        SVProgressHUD.show()
+        sender?.beginRefreshing()
+        
+        itemList
+            .fetch()
+            .onError(showError)
+            .finally{
+                SVProgressHUD.dismiss()
+                sender?.endRefreshing()
+                self.collectionView.reloadData()
+        }
+    }
 
-}
-
-
-extension ItemsCollectionViewController: UICollectionViewDataSource {
+    
+    // MARK: - UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sevenItems.count
+        return itemList.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sevenItem = sevenItems[indexPath.item]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell",
-                                                      for: indexPath) as! ItemCell
+        let item = itemList.items[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName,
+                                                      for: indexPath) as! ItemCollectionViewCell
         
-        cell.apply(sevenItem)
+        cell.apply(item)
         
         return cell
     }
     
-}
-
-
-extension ItemsCollectionViewController: UICollectionViewDelegate {
+    
+    // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sevenItem = sevenItems[indexPath.item]
-        let detailVC = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "ItemDetailViewController") as! ItemDetailViewController
-        
-        detailVC.sevenItem = sevenItem
+        let item = itemList.items[indexPath.item]
+        let detailVC = ItemDetailViewController(item: item)
         
         navigationController?.isHeroEnabled = true
-        
-        navigationController?.show(detailVC, sender: nil)
+        navigationController?.pushViewController(detailVC, animated: true)
         
         collectionView.deselectItem(at: indexPath, animated: false)
     }

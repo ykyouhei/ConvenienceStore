@@ -9,17 +9,25 @@
 import UIKit
 import Hero
 import Kingfisher
+import Core_iOS
 
-internal final class ItemDetailViewController: UIViewController {
+internal final class ItemDetailViewController<T: Item>:
+    XibBaseViewController,
+    UITableViewDelegate where T: StoreInformation
+{
     
     // MARK: Properties
     
-    var sevenItem: SevenItem!
+    let item: T
+    
+    private var isTransition = false
     
     
     // MARK: Outlets
     
     @IBOutlet private weak var tableView: UITableView!
+    
+    @IBOutlet private weak var headerView: UIView!
     
     @IBOutlet private weak var detailImageView: UIImageView!
     
@@ -32,11 +40,23 @@ internal final class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var textLabel: UILabel!
     
     
+    // MARK: Initializer
+    
+    init(item: T) {
+        self.item = item
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     // MARK: Actions
     
     @IBAction func handlePan(_ sender: UIScreenEdgePanGestureRecognizer) {
         let translation = sender.translation(in: nil)
-        let progress = translation.x / (view.bounds.width * 0.5)
+        let progress = translation.x / (view.bounds.width * 0.75)
         switch sender.state {
         case .began:
            _ = navigationController?.popViewController(animated: true)
@@ -45,13 +65,12 @@ internal final class ItemDetailViewController: UIViewController {
             Hero.shared.update(progress: Double(progress))
             
         default:
-            progress + sender.velocity(in: nil).x / view.bounds.width > 0.15 ?
+            progress + sender.velocity(in: nil).x / view.bounds.width > 0.3 ?
                 Hero.shared.end() :
                 Hero.shared.cancel()
         }
         
     }
-    
     
     
     // MARK: Life Cycle
@@ -61,33 +80,98 @@ internal final class ItemDetailViewController: UIViewController {
         
         isHeroEnabled = true
         
+        tableView.delegate = self
+        
+        navigationItem.titleView = UIImageView(image: T.logoImage)
+        
         setupViews()
+        
+        setupGesture()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateHeaderViewSize()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     
     // MARK: Private Method
     
     private func setupViews() {
-        let springModifier: HeroModifier = .spring(stiffness: 1000, damping: 45)
+        detailImageView.kf.setImage(with: item.imageURL)
+        titleLabel.text = item.title
+        priceLabel.text = item.taxIncludedPriceString
+        launchLabel.text = item.launchDateString
+        textLabel.text = item.text
         
-        detailImageView.kf.setImage(with: sevenItem.image)
-        detailImageView.heroID = "image" + sevenItem.id
-        detailImageView.heroModifiers = [springModifier]
+        detailImageView.heroID = "image" + item.id
+        titleLabel.heroID = "title" + item.id
+        priceLabel.heroID = "price" + item.id
+        launchLabel.heroID = "launch" + item.id
         
-        titleLabel.text = sevenItem.title
-        titleLabel.heroID = "title" + sevenItem.id
-        titleLabel.heroModifiers = [springModifier]
+        detailImageView.heroModifiers = [.defaultSpring()]
+        titleLabel.heroModifiers = [.defaultSpring()]
+        priceLabel.heroModifiers = [.defaultSpring()]
+        launchLabel.heroModifiers = [.defaultSpring()]
+        textLabel.heroModifiers = [.translate(x:0, y:100), .scale(0.5), .defaultSpring()]
+    }
+    
+    private func updateHeaderViewSize() {
+        tableView.tableHeaderView = headerView
         
-        priceLabel.text = sevenItem.priceText
-        priceLabel.heroID = "price" + sevenItem.id
-        priceLabel.heroModifiers = [springModifier]
+        headerView.setNeedsLayout()
+        headerView.layoutIfNeeded()
         
-        launchLabel.text = sevenItem.launchText
-        launchLabel.heroID = "launch" + sevenItem.id
-        launchLabel.heroModifiers = [springModifier]
+        let height = CGRect(
+            origin: .zero,
+            size: headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)).height
+        var frame = headerView.frame
         
-        textLabel.text = sevenItem.text
-        textLabel.heroModifiers = [.translate(x:0, y:100), .scale(0.5), springModifier]
+        frame.size.height = height
+        headerView.frame = frame
+        
+        tableView.tableHeaderView = headerView
+    }
+    
+    private func setupGesture() {
+        let screenEdge = UIScreenEdgePanGestureRecognizer(
+            target: self,
+            action: #selector(handlePan(_:)))
+        screenEdge.edges = .left
+        view.addGestureRecognizer(screenEdge)
+    }
+    
+    
+    // MARK: - UITableViewDelegate
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < -topLayoutGuide.length {
+            if isTransition {
+                log.debug("--- isTransition ---")
+                let progress = (-scrollView.contentOffset.y - topLayoutGuide.length) / (scrollView.bounds.height * 0.75)
+                Hero.shared.update(progress: Double(progress))
+            } else if !scrollView.isDecelerating && scrollView.isDragging {
+                log.debug("---- start ----")
+                isTransition = true
+                _ = navigationController?.popViewController(animated: true)
+            }
+        } else if isTransition {
+            log.debug("---- cancel ----")
+            isTransition = false
+            Hero.shared.cancel()
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if isTransition {
+            log.debug("---- end ----")
+            isTransition = false
+            Hero.shared.end()
+        }
     }
 
 }

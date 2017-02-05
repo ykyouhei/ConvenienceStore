@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4104FCFD1E4718CC00BB9573 /* HeroModifier+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104FCFC1E4718CC00BB9573 /* HeroModifier+Default.swift */; };
 		410728441E436A4C00F530B3 /* GenerateFamilyMartItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410728431E436A4C00F530B3 /* GenerateFamilyMartItems.swift */; };
 		410728461E4380A300F530B3 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410728451E4380A300F530B3 /* CommonFunctions.swift */; };
+		41385A5B1E46E8F6009C24C6 /* ItemsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41385A5A1E46E8F6009C24C6 /* ItemsCollectionViewController.xib */; };
+		41385A5D1E46F104009C24C6 /* XibBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41385A5C1E46F104009C24C6 /* XibBaseViewController.swift */; };
+		41385A5F1E46F79D009C24C6 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41385A5E1E46F79D009C24C6 /* SVProgressHUD.framework */; };
+		41385A621E46FAD0009C24C6 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41385A601E46FAD0009C24C6 /* ItemCollectionViewCell.swift */; };
+		41385A631E46FAD0009C24C6 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41385A611E46FAD0009C24C6 /* ItemCollectionViewCell.xib */; };
+		41385A651E46FD45009C24C6 /* ItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41385A641E46FD45009C24C6 /* ItemDetailViewController.xib */; };
+		41385A671E470193009C24C6 /* ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41385A661E470193009C24C6 /* ClassName.swift */; };
 		41402EBF1E44D48B00031B4D /* Core_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 41402EBD1E44D48B00031B4D /* Core_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		41402EC21E44D48B00031B4D /* Core_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41402EBB1E44D48A00031B4D /* Core_iOS.framework */; };
 		41402EC31E44D48B00031B4D /* Core_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41402EBB1E44D48A00031B4D /* Core_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -23,7 +31,11 @@
 		41402EDE1E44D53D00031B4D /* FamilyMartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402EDC1E44D53D00031B4D /* FamilyMartItem.swift */; };
 		41402EE01E44D97600031B4D /* SevenElevenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402EDF1E44D97600031B4D /* SevenElevenItem.swift */; };
 		41402EE11E44D97600031B4D /* SevenElevenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41402EDF1E44D97600031B4D /* SevenElevenItem.swift */; };
-		41DB233D1E3C831B00FDD28D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB233B1E3C831B00FDD28D /* Main.storyboard */; };
+		414A19E61E454A3800AEE6D2 /* then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414A19E51E454A3800AEE6D2 /* then.framework */; };
+		414A19E91E4551B400AEE6D2 /* StoreInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19E81E4551B400AEE6D2 /* StoreInformation.swift */; };
+		414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 414A19EA1E45590300AEE6D2 /* Localizable.strings */; };
+		414A19F01E455BC800AEE6D2 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19EF1E455BC800AEE6D2 /* L10n.swift */; };
+		419026C91E4724AF008EB18A /* Item+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419026C81E4724AF008EB18A /* Item+Presentation.swift */; };
 		41DB233F1E3C831B00FDD28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DB233E1E3C831B00FDD28D /* Assets.xcassets */; };
 		41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB23401E3C831B00FDD28D /* LaunchScreen.storyboard */; };
 		41DB23671E3C86E000FDD28D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41DB23661E3C86E000FDD28D /* GoogleService-Info.plist */; };
@@ -41,7 +53,6 @@
 		41DB23DE1E3DA47800FDD28D /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */; };
 		41DB23E11E3DD70500FDD28D /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23E01E3DD70500FDD28D /* ItemListViewModel.swift */; };
 		41DB23E41E3DD8C100FDD28D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */; };
-		41DB23E61E3DDEA200FDD28D /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23E51E3DDEA200FDD28D /* ItemCell.swift */; };
 		41DB23E81E3DE6DD00FDD28D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */; };
 		41DB23EA1E3F7E5200FDD28D /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E91E3F7E5200FDD28D /* Hero.framework */; };
 		41DB23EC1E3F7ECA00FDD28D /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */; };
@@ -94,10 +105,18 @@
 
 /* Begin PBXFileReference section */
 		1AF88D65C027C878A70CCD2E /* Pods-ConvenienceStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenienceStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConvenienceStore/Pods-ConvenienceStore.release.xcconfig"; sourceTree = "<group>"; };
+		4104FCFC1E4718CC00BB9573 /* HeroModifier+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroModifier+Default.swift"; sourceTree = "<group>"; };
 		410728431E436A4C00F530B3 /* GenerateFamilyMartItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateFamilyMartItems.swift; sourceTree = "<group>"; };
 		410728451E4380A300F530B3 /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		4134EA1F1E4235560092A6EF /* development.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = development.entitlements; sourceTree = "<group>"; };
 		4134EA201E4237EF0092A6EF /* production.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = production.entitlements; sourceTree = "<group>"; };
+		41385A5A1E46E8F6009C24C6 /* ItemsCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsCollectionViewController.xib; sourceTree = "<group>"; };
+		41385A5C1E46F104009C24C6 /* XibBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibBaseViewController.swift; sourceTree = "<group>"; };
+		41385A5E1E46F79D009C24C6 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		41385A601E46FAD0009C24C6 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		41385A611E46FAD0009C24C6 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		41385A641E46FD45009C24C6 /* ItemDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailViewController.xib; sourceTree = "<group>"; };
+		41385A661E470193009C24C6 /* ClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassName.swift; sourceTree = "<group>"; };
 		41402E9F1E44D0D900031B4D /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		41402EA21E44D13000031B4D /* CustomStringConvertible+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CustomStringConvertible+Default.swift"; sourceTree = "<group>"; };
 		41402EBB1E44D48A00031B4D /* Core_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,8 +127,12 @@
 		41402ECF1E44D4B500031B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41402EDC1E44D53D00031B4D /* FamilyMartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMartItem.swift; sourceTree = "<group>"; };
 		41402EDF1E44D97600031B4D /* SevenElevenItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenElevenItem.swift; sourceTree = "<group>"; };
+		414A19E51E454A3800AEE6D2 /* then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = then.framework; path = Carthage/Build/iOS/then.framework; sourceTree = "<group>"; };
+		414A19E81E4551B400AEE6D2 /* StoreInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreInformation.swift; sourceTree = "<group>"; };
+		414A19EA1E45590300AEE6D2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		414A19EF1E455BC800AEE6D2 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		419026C81E4724AF008EB18A /* Item+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+Presentation.swift"; sourceTree = "<group>"; };
 		41DB23341E3C831B00FDD28D /* ConvenienceStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvenienceStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		41DB233C1E3C831B00FDD28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		41DB233E1E3C831B00FDD28D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41DB23411E3C831B00FDD28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41DB23611E3C868900FDD28D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,7 +151,6 @@
 		41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		41DB23E01E3DD70500FDD28D /* ItemListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListViewModel.swift; sourceTree = "<group>"; };
 		41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		41DB23E51E3DDEA200FDD28D /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		41DB23E91E3F7E5200FDD28D /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 		41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
@@ -156,10 +178,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				41DB23E81E3DE6DD00FDD28D /* Kingfisher.framework in Frameworks */,
+				414A19E61E454A3800AEE6D2 /* then.framework in Frameworks */,
 				41402EC21E44D48B00031B4D /* Core_iOS.framework in Frameworks */,
 				41DB23E41E3DD8C100FDD28D /* SwiftyJSON.framework in Frameworks */,
 				41DB23EA1E3F7E5200FDD28D /* Hero.framework in Frameworks */,
 				41DB23DD1E3DA47800FDD28D /* IGListKit.framework in Frameworks */,
+				41385A5F1E46F79D009C24C6 /* SVProgressHUD.framework in Frameworks */,
 				41DB23DE1E3DA47800FDD28D /* SwiftyBeaver.framework in Frameworks */,
 				D8AFA0DF5B91750298304E77 /* Pods_ConvenienceStore.framework in Frameworks */,
 			);
@@ -182,11 +206,13 @@
 			isa = PBXGroup;
 			children = (
 				41DB23E91E3F7E5200FDD28D /* Hero.framework */,
-				41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */,
-				41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */,
 				41DB23DB1E3DA47800FDD28D /* IGListKit.framework */,
-				41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */,
+				41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */,
 				8D7D2737311F8460A97D56A9 /* Pods_ConvenienceStore.framework */,
+				41385A5E1E46F79D009C24C6 /* SVProgressHUD.framework */,
+				41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */,
+				41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */,
+				414A19E51E454A3800AEE6D2 /* then.framework */,
 			);
 			name = Frameworks;
 			path = ..;
@@ -199,6 +225,15 @@
 				1AF88D65C027C878A70CCD2E /* Pods-ConvenienceStore.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4104FCFB1E47188300BB9573 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4104FCFC1E4718CC00BB9573 /* HeroModifier+Default.swift */,
+				419026C81E4724AF008EB18A /* Item+Presentation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		41402E9E1E44D0A000031B4D /* CoreSources */ = {
@@ -228,6 +263,14 @@
 				41402ECF1E44D4B500031B4D /* Info.plist */,
 			);
 			path = Core_macOS;
+			sourceTree = "<group>";
+		};
+		414A19E71E45516700AEE6D2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				414A19E81E4551B400AEE6D2 /* StoreInformation.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		41DB232B1E3C831B00FDD28D = {
@@ -260,9 +303,10 @@
 				41DB23491E3C840300FDD28D /* Classes */,
 				01D67F93010082E14706732D /* Frameworks */,
 				41DB23601E3C865000FDD28D /* SupportingFiles */,
-				41DB233B1E3C831B00FDD28D /* Main.storyboard */,
+				414A19EF1E455BC800AEE6D2 /* L10n.swift */,
 				41DB233E1E3C831B00FDD28D /* Assets.xcassets */,
 				41DB23401E3C831B00FDD28D /* LaunchScreen.storyboard */,
+				414A19EA1E45590300AEE6D2 /* Localizable.strings */,
 			);
 			path = ConvenienceStore;
 			sourceTree = "<group>";
@@ -271,10 +315,13 @@
 			isa = PBXGroup;
 			children = (
 				41DB23A21E3C8C6300FDD28D /* AppDelegate.swift */,
-				41DB234D1E3C842D00FDD28D /* ViewModels */,
+				41385A661E470193009C24C6 /* ClassName.swift */,
+				4104FCFB1E47188300BB9573 /* Extensions */,
 				41DB234C1E3C842800FDD28D /* Models */,
-				41DB234B1E3C841F00FDD28D /* Views */,
+				414A19E71E45516700AEE6D2 /* Protocols */,
 				41DB234A1E3C841100FDD28D /* ViewControllers */,
+				41DB234D1E3C842D00FDD28D /* ViewModels */,
+				41DB234B1E3C841F00FDD28D /* Views */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -282,9 +329,12 @@
 		41DB234A1E3C841100FDD28D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				41385A5C1E46F104009C24C6 /* XibBaseViewController.swift */,
 				41DB23D71E3D9AEE00FDD28D /* ItemsCollectionViewController.swift */,
+				41385A5A1E46E8F6009C24C6 /* ItemsCollectionViewController.xib */,
 				41DB23D91E3DA32A00FDD28D /* RootTabBarController.swift */,
 				41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */,
+				41385A641E46FD45009C24C6 /* ItemDetailViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,7 +342,8 @@
 		41DB234B1E3C841F00FDD28D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				41DB23E51E3DDEA200FDD28D /* ItemCell.swift */,
+				41385A601E46FAD0009C24C6 /* ItemCollectionViewCell.swift */,
+				41385A611E46FAD0009C24C6 /* ItemCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -409,6 +460,7 @@
 			buildConfigurationList = 41DB23461E3C831B00FDD28D /* Build configuration list for PBXNativeTarget "ConvenienceStore" */;
 			buildPhases = (
 				3D261744E33D9F425847ACFC /* [CP] Check Pods Manifest.lock */,
+				414A19EC1E455AB900AEE6D2 /* Swiftgen */,
 				41DB23301E3C831B00FDD28D /* Sources */,
 				41DB23311E3C831B00FDD28D /* Frameworks */,
 				41DB23321E3C831B00FDD28D /* Resources */,
@@ -524,10 +576,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */,
+				41385A5B1E46E8F6009C24C6 /* ItemsCollectionViewController.xib in Resources */,
 				41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */,
+				41385A631E46FAD0009C24C6 /* ItemCollectionViewCell.xib in Resources */,
 				41DB23671E3C86E000FDD28D /* GoogleService-Info.plist in Resources */,
 				41DB233F1E3C831B00FDD28D /* Assets.xcassets in Resources */,
-				41DB233D1E3C831B00FDD28D /* Main.storyboard in Resources */,
+				41385A651E46FD45009C24C6 /* ItemDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +611,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		414A19EC1E455AB900AEE6D2 /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/swiftgen strings -t dot-syntax-swift3 \"${SRCROOT}/ConvenienceStore/Localizable.strings\" > \"${SRCROOT}/ConvenienceStore/L10n.swift\"";
+		};
 		41DB23DF1E3DC40500FDD28D /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -567,6 +636,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/then.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -634,12 +705,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414A19F01E455BC800AEE6D2 /* L10n.swift in Sources */,
 				41DB23A31E3C8C6300FDD28D /* AppDelegate.swift in Sources */,
+				4104FCFD1E4718CC00BB9573 /* HeroModifier+Default.swift in Sources */,
 				41DB23E11E3DD70500FDD28D /* ItemListViewModel.swift in Sources */,
+				41385A5D1E46F104009C24C6 /* XibBaseViewController.swift in Sources */,
 				41DB23EC1E3F7ECA00FDD28D /* ItemDetailViewController.swift in Sources */,
+				41385A621E46FAD0009C24C6 /* ItemCollectionViewCell.swift in Sources */,
 				41DB23DA1E3DA32A00FDD28D /* RootTabBarController.swift in Sources */,
+				419026C91E4724AF008EB18A /* Item+Presentation.swift in Sources */,
+				41385A671E470193009C24C6 /* ClassName.swift in Sources */,
+				414A19E91E4551B400AEE6D2 /* StoreInformation.swift in Sources */,
 				41DB23D81E3D9AEE00FDD28D /* ItemsCollectionViewController.swift in Sources */,
-				41DB23E61E3DDEA200FDD28D /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,14 +748,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		41DB233B1E3C831B00FDD28D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				41DB233C1E3C831B00FDD28D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		41DB23401E3C831B00FDD28D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -694,7 +763,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EC83W22VX;
@@ -703,6 +772,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.Core-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -717,7 +787,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EC83W22VX;
@@ -726,6 +796,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.Core-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -990,6 +1061,7 @@
 				41402EC61E44D48B00031B4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41402ED51E44D4B500031B4D /* Build configuration list for PBXNativeTarget "Core_macOS" */ = {
 			isa = XCConfigurationList;
@@ -998,6 +1070,7 @@
 				41402ED71E44D4B500031B4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41DB232F1E3C831B00FDD28D /* Build configuration list for PBXProject "ConvenienceStore" */ = {
 			isa = XCConfigurationList;

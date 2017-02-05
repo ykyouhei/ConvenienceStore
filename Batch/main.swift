@@ -10,7 +10,7 @@ import Foundation
 import Regex
 
 let familyMartItems  = generateFamilyMartItems()
-//let sevenElevenItems = generateSevenItems()
+let sevenElevenItems = generateSevenItems()
 
 sendJSON(with: familyMartItems)
-//sendJSON(with: sevenElevenItems)
+sendJSON(with: sevenElevenItems)

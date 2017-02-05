@@ -4,6 +4,8 @@ github "SwiftyBeaver/SwiftyBeaver"
 github "SwiftyJSON/SwiftyJSON"
 github "onevcat/Kingfisher"
 github "lkzhao/Hero"
+github "freshOS/then" ~> 2.0
+github "SVProgressHUD/SVProgressHUD"
 
 # Batch
 github "tid-kijyun/Kanna"    ~> 2.1.0

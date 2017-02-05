@@ -13,7 +13,7 @@ public struct FamilyMartItem: Item {
     
     // MARK: Constants
     
-    public static let dataBasePath = "/familymart_items/thisweek.json"
+    public static let dataBasePath = "/familymart_items/thisweek"
     
     
     // MARK: Properties

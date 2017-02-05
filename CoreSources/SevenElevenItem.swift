@@ -13,7 +13,7 @@ public struct SevenElevenItem: Item {
     
     // MARK: Constants
     
-    public static let dataBasePath = "/seven_items/thisweek.json"
+    public static let dataBasePath = "/seven_items/thisweek"
     
     
     // MARK: Types
@@ -98,7 +98,7 @@ public struct SevenElevenItem: Item {
         self.taxIncludedPrice  = json["taxIncludedPrice"] as! Int
         self.taxExcludedPrice  = json["taxExcludedPrice"] as! Int
         self.launchDate        = json["launchDate"] as! Int
-        self.area              = Area(rawValue: (json["category"] as! Int))!
+        self.area              = Area(rawValue: (json["area"] as! Int))!
     }
     
 }
