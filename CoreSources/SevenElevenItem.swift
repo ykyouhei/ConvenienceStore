@@ -55,14 +55,14 @@ public struct SevenElevenItem: Item {
     public let taxIncludedPrice: Int
     public let taxExcludedPrice: Int
     public let launchDate: Int
-    public let area: Area
+    public let areas: Set<Area>
     
     
     // MARK: Computed Properties
     
     public var json: [String : Any] {
         var builder = baseJSON
-        builder["area"] = area.rawValue
+        builder["areas"] = areas.map { $0.rawValue }
         return builder
     }
     
@@ -77,8 +77,8 @@ public struct SevenElevenItem: Item {
                 taxIncludedPrice: Int,
                 taxExcludedPrice: Int,
                 launchDate: Int,
-                area: Area) {
-        self.id                = id              
+                areas: Set<Area>) {
+        self.id                = id
         self.title             = title           
         self.text              = text            
         self.imageURL          = imageURL        
@@ -86,7 +86,7 @@ public struct SevenElevenItem: Item {
         self.taxIncludedPrice  = taxIncludedPrice
         self.taxExcludedPrice  = taxExcludedPrice
         self.launchDate        = launchDate      
-        self.area              = area
+        self.areas             = areas
     }
     
     public init(json: [String : Any]) {
@@ -98,7 +98,7 @@ public struct SevenElevenItem: Item {
         self.taxIncludedPrice  = json["taxIncludedPrice"] as! Int
         self.taxExcludedPrice  = json["taxExcludedPrice"] as! Int
         self.launchDate        = json["launchDate"] as! Int
-        self.area              = Area(rawValue: (json["area"] as! Int))!
+        self.areas             = Set((json["areas"] as! [Int]).map({ Area(rawValue: $0)! }))
     }
     
 }

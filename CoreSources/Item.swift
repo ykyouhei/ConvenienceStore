@@ -9,7 +9,7 @@
 import Foundation
 
 /// コンビニの商品用プロトコル
-public protocol Item: CustomStringConvertible {
+public protocol Item: CustomStringConvertible, Hashable {
     
     /// Firebase Realtime Database のパス
     static var dataBasePath: String { get }
@@ -63,4 +63,12 @@ public extension Item {
         ]
     }
     
+    public var hashValue: Int {
+        return Int(id)!
+    }
+    
+}
+
+public func ==<T: Item>(lhs: T, rhs: T) -> Bool {
+    return lhs.id == rhs.id
 }

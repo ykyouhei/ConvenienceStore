@@ -4,8 +4,10 @@ github "SwiftyBeaver/SwiftyBeaver"
 github "SwiftyJSON/SwiftyJSON"
 github "onevcat/Kingfisher"
 github "lkzhao/Hero"
-github "freshOS/then" ~> 2.0
+github "marketplacer/Cosmos" ~> 8.0
+github "ykyouhei/then" ~> 2.0
 github "SVProgressHUD/SVProgressHUD"
+github "radex/SwiftyUserDefaults"
 
 # Batch
 github "tid-kijyun/Kanna"    ~> 2.1.0

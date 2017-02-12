@@ -13,7 +13,8 @@ import Core_iOS
 
 internal final class ItemDetailViewController<T: Item>:
     XibBaseViewController,
-    UITableViewDelegate where T: StoreInformation
+    UITableViewDelegate,
+    UITableViewDataSource where T: StoreInformation
 {
     
     // MARK: Properties
@@ -80,8 +81,6 @@ internal final class ItemDetailViewController<T: Item>:
         
         isHeroEnabled = true
         
-        tableView.delegate = self
-        
         navigationItem.titleView = UIImageView(image: T.logoImage)
         
         setupViews()
@@ -131,7 +130,7 @@ internal final class ItemDetailViewController<T: Item>:
             size: headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)).height
         var frame = headerView.frame
         
-        frame.size.height = height
+        frame.size.height = 300
         headerView.frame = frame
         
         tableView.tableHeaderView = headerView
@@ -151,7 +150,7 @@ internal final class ItemDetailViewController<T: Item>:
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < -topLayoutGuide.length {
             if isTransition {
-                log.debug("--- isTransition ---")
+                log.debug("--- isTransition\(scrollView.contentSize) ---")
                 let progress = (-scrollView.contentOffset.y - topLayoutGuide.length) / (scrollView.bounds.height * 0.75)
                 Hero.shared.update(progress: Double(progress))
             } else if !scrollView.isDecelerating && scrollView.isDragging {
@@ -172,6 +171,17 @@ internal final class ItemDetailViewController<T: Item>:
             isTransition = false
             Hero.shared.end()
         }
+    }
+    
+    
+    // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 
 }

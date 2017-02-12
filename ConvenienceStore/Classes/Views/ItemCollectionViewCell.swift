@@ -30,7 +30,7 @@ internal final class ItemCollectionViewCell: UICollectionViewCell {
         cardView.layer.cornerRadius  = 2
     }
     
-    func apply(_ item: Item) {
+    func apply<T: Item>(_ item: T) {
         imageView.kf.setImage(with: item.imageURL)
         
         titleLabel.text  = item.title

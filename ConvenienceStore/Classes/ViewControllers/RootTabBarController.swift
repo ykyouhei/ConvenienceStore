@@ -9,14 +9,13 @@
 import UIKit
 import Firebase
 import Core_iOS
+import SwiftyUserDefaults
 
 internal final class RootTabBarController: UITabBarController {
     
     private(set) lazy var sevenElevenViewController: ItemsCollectionViewController<SevenElevenItem> = {
         let itemList = ItemListViewModel<SevenElevenItem>()
         let vc = ItemsCollectionViewController(itemList: itemList)
-        let navigation = UINavigationController(rootViewController: vc)
-        navigation.navigationItem.titleView = UIImageView(image: SevenElevenItem.logoImage)
         vc.tabBarItem = self.tabBarItem(with: SevenElevenItem.self)
         return vc
     }()
@@ -36,9 +35,26 @@ internal final class RootTabBarController: UITabBarController {
             log.debug("\(error)")
         }
         
+        setupViewControllers()
+    }
+    
+    private func setupViewControllers() {
+        let sevenList = ItemListViewModel<SevenElevenItem>()
+        sevenList.queryBlock = { ref in
+            return ref.queryOrdered(byChild: "taxIncludedPrice")
+        }
+        let sevenVC = ItemsCollectionViewController(itemList: sevenList)
+        let sevenNavigation = UINavigationController(rootViewController: sevenVC)
+        sevenVC.tabBarItem = tabBarItem(with: SevenElevenItem.self)
+        
+        let famimaList = ItemListViewModel<FamilyMartItem>()
+        let famimaVC = ItemsCollectionViewController(itemList: famimaList)
+        let famimaNavigation = UINavigationController(rootViewController: famimaVC)
+        famimaVC.tabBarItem = tabBarItem(with: FamilyMartItem.self)
+        
         let viewControllers: [UIViewController] = [
-            UINavigationController(rootViewController: sevenElevenViewController),
-            UINavigationController(rootViewController: familyMartViewController)
+            sevenNavigation,
+            famimaNavigation
         ]
         
         setViewControllers(viewControllers, animated: false)

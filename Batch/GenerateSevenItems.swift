@@ -21,21 +21,25 @@ func generateSevenItems() -> [SevenElevenItem] {
     let areas      = doc.xpath("//*[@id='main']//h2")
     let categories = doc.xpath("//*[@id='main']/div[@class='subCategory']")
     
-    var items = [SevenElevenItem]()
+    var items = Set<SevenElevenItem>()
     
     for (index, category) in categories.enumerated() {
         let area = SevenElevenItem.Area(string: areas[index].text!)
         
-        print("=================== \(area) ====================")
+        print("=================== \(area)\(area.rawValue) ====================")
         
-        for item in category.xpath("//li[@class='item']") {
-            let img   = item.at_xpath("div[@class='image']/a/img")?.toHTML ?? ""
-            let link  = item.at_xpath("div/div[@class='itemName']/strong/a")?.toHTML ?? ""
+        for item in category.xpath("div/ul/li[@class='item']") {
+            let img   = item.at_xpath("div[@class='image']/a/img")!.toHTML!
+            let link  = item.at_xpath("div/div[@class='itemName']/strong/a")!.toHTML!
             let price = item.at_xpath("div/ul[@class='itemPrice']")!
             
-            let id    = "([0-9]+)".r!.findFirst(in: link)!.group(at: 1)!
+            // 先頭2桁は地域コードのため削除
+            let idRaw = "([0-9]+)".r!.findFirst(in: link)!.group(at: 1)!
+            let id = idRaw.substring(from: idRaw.index(idRaw.startIndex, offsetBy: 2))
+            
             let title = ">(.+)<".r!.findFirst(in: link)!.group(at: 1)!
             let imagePath = "\"([^\"]*)\"".r!.findFirst(in: img)!.group(at: 1)!
+            let detailURL = URL(string: baseURL + "href=\"([^\"]+)\"".r!.findFirst(in: link)!.group(at: 1)!)!
             
             let priceText   = price.at_xpath("li[@class='price']")!.text!
             var nonTaxPrice = 0
@@ -62,9 +66,17 @@ func generateSevenItems() -> [SevenElevenItem] {
                                      nanosecond: 0)
             let unixTime = date?.timeIntervalSince1970
             
-            let detailURL = URL(string: "\(baseURL)/i/item/\(id).html")!
             let detailDoc = HTML(url: detailURL, encoding: .utf8)
             let text      = detailDoc!.at_xpath("//div[@class='text']")!.text!
+            
+            var areas = Set<SevenElevenItem.Area>()
+            
+            if let oldItem = items.filter({ $0.id == id }).first {
+                areas = oldItem.areas
+                areas.insert(area)
+            } else {
+                areas.insert(area)
+            }
             
             let item = SevenElevenItem(
                 id: id,
@@ -75,14 +87,14 @@ func generateSevenItems() -> [SevenElevenItem] {
                 taxIncludedPrice: taxPrice,
                 taxExcludedPrice: nonTaxPrice,
                 launchDate: Int(unixTime!),
-                area: area)
+                areas: areas)
             
             print(item)
             
-            items.append(item)
+            items.update(with: item)
         }
     }
     
-    return items
+    return Array(items)
     
 }
