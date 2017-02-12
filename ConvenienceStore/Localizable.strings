@@ -7,5 +7,11 @@
 */
 "common.title.seveneleven" = "ｾﾌﾞﾝｲﾚﾌﾞ";
 "common.title.familymart"  = "FamilyMart";
+"common.label.close"  = "閉じる";
+
+"review.label.send" = "送信";
+"review.label.reviewHelp" = "星をタップして評価してください";
+"review.label.writeReview" = "レビューを書く";
+"review.template.reviewCount" = "評価件数：%d";
 
 "template.label.includeTaxPrice"  = "%d円(税込)";

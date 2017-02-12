@@ -10,35 +10,51 @@ import UIKit
 import Hero
 import Kingfisher
 import Core_iOS
+import SVProgressHUD
+
+private struct CellId {
+    static let detail = "detailCell"
+    static let review = "reviewCell"
+}
+
+private enum Section: Int {
+    case itemDetail
+    case reviews
+}
 
 internal final class ItemDetailViewController<T: Item>:
     XibBaseViewController,
     UITableViewDelegate,
-    UITableViewDataSource where T: StoreInformation
+    UITableViewDataSource,
+    ItemDetailTableViewCellDelegate,
+    ReviewViewControllerDelegate where T: StoreInformation
 {
     
     // MARK: Properties
     
     let item: T
     
+    private lazy var reviewList: ReviewListViewModel<T> = {
+        return ReviewListViewModel(item: self.item)
+    }()
+    
     private var isTransition = false
     
     
-    // MARK: Outlets
+    // MARK: Outlets / UI
     
     @IBOutlet private weak var tableView: UITableView!
     
-    @IBOutlet private weak var headerView: UIView!
+    private var detailCell: ItemDetailTableViewCell!
     
-    @IBOutlet private weak var detailImageView: UIImageView!
-    
-    @IBOutlet private weak var titleLabel: UILabel!
-    
-    @IBOutlet private weak var priceLabel: UILabel!
-    
-    @IBOutlet private weak var launchLabel: UILabel!
-    
-    @IBOutlet private weak var textLabel: UILabel!
+    private lazy var closeButton: UIBarButtonItem = {
+        let b = UIBarButtonItem(
+            title: L10n.Common.Label.close,
+            style: .done,
+            target: self,
+            action: #selector(ItemDetailViewController.didTapCloseButton(_:)))
+        return b
+    }()
     
     
     // MARK: Initializer
@@ -60,6 +76,7 @@ internal final class ItemDetailViewController<T: Item>:
         let progress = translation.x / (view.bounds.width * 0.75)
         switch sender.state {
         case .began:
+            Hero.shared.setDefaultAnimationForNextTransition(.fade)
            _ = navigationController?.popViewController(animated: true)
             
         case .changed:
@@ -70,7 +87,10 @@ internal final class ItemDetailViewController<T: Item>:
                 Hero.shared.end() :
                 Hero.shared.cancel()
         }
-        
+    }
+    
+    func didTapCloseButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
     
     
@@ -82,59 +102,20 @@ internal final class ItemDetailViewController<T: Item>:
         isHeroEnabled = true
         
         navigationItem.titleView = UIImageView(image: T.logoImage)
+        navigationItem.leftBarButtonItem = closeButton
         
-        setupViews()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        
+        registerCells()
         
         setupGesture()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        updateHeaderViewSize()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
+        reloadList()
     }
     
     
     // MARK: Private Method
-    
-    private func setupViews() {
-        detailImageView.kf.setImage(with: item.imageURL)
-        titleLabel.text = item.title
-        priceLabel.text = item.taxIncludedPriceString
-        launchLabel.text = item.launchDateString
-        textLabel.text = item.text
-        
-        detailImageView.heroID = "image" + item.id
-        titleLabel.heroID = "title" + item.id
-        priceLabel.heroID = "price" + item.id
-        launchLabel.heroID = "launch" + item.id
-        
-        detailImageView.heroModifiers = [.defaultSpring()]
-        titleLabel.heroModifiers = [.defaultSpring()]
-        priceLabel.heroModifiers = [.defaultSpring()]
-        launchLabel.heroModifiers = [.defaultSpring()]
-        textLabel.heroModifiers = [.translate(x:0, y:100), .scale(0.5), .defaultSpring()]
-    }
-    
-    private func updateHeaderViewSize() {
-        tableView.tableHeaderView = headerView
-        
-        headerView.setNeedsLayout()
-        headerView.layoutIfNeeded()
-        
-        let height = CGRect(
-            origin: .zero,
-            size: headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)).height
-        var frame = headerView.frame
-        
-        frame.size.height = 300
-        headerView.frame = frame
-        
-        tableView.tableHeaderView = headerView
-    }
     
     private func setupGesture() {
         let screenEdge = UIScreenEdgePanGestureRecognizer(
@@ -142,6 +123,32 @@ internal final class ItemDetailViewController<T: Item>:
             action: #selector(handlePan(_:)))
         screenEdge.edges = .left
         view.addGestureRecognizer(screenEdge)
+    }
+    
+    private func registerCells() {
+        let detailNib = UINib(nibName: ItemDetailTableViewCell.className, bundle: nil)
+        let reviewNib = UINib(nibName: ReviewTableViewCell.className, bundle: nil)
+        
+        tableView.register(detailNib, forCellReuseIdentifier: CellId.detail)
+        tableView.register(reviewNib, forCellReuseIdentifier: CellId.review)
+        
+        detailCell = tableView.dequeueReusableCell(withIdentifier: CellId.detail) as! ItemDetailTableViewCell
+        detailCell.update(item: item, reviewList: reviewList)
+        detailCell.delegate = self
+    }
+    
+    func reloadList(sender: UIRefreshControl? = nil) {
+        SVProgressHUD.show()
+        sender?.beginRefreshing()
+        
+        reviewList
+            .fetch()
+            .onError(showError)
+            .finally{
+                SVProgressHUD.dismiss()
+                sender?.endRefreshing()
+                self.tableView.reloadData()
+        }
     }
     
     
@@ -156,7 +163,7 @@ internal final class ItemDetailViewController<T: Item>:
             } else if !scrollView.isDecelerating && scrollView.isDragging {
                 log.debug("---- start ----")
                 isTransition = true
-                _ = navigationController?.popViewController(animated: true)
+                dismiss(animated: true)
             }
         } else if isTransition {
             log.debug("---- cancel ----")
@@ -176,12 +183,58 @@ internal final class ItemDetailViewController<T: Item>:
     
     // MARK: - UITableViewDelegate
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let section = Section(rawValue: section)!
+        switch section {
+        case .itemDetail: return 1
+        case .reviews:    return reviewList.reviews.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let section = Section(rawValue: indexPath.section)!
+        switch section {
+        case .itemDetail:
+            detailCell.update(item: item, reviewList: reviewList)
+            return detailCell
+        case .reviews:
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: CellId.review,
+                for: indexPath) as! ReviewTableViewCell
+            
+            cell.update(review: reviewList.reviews[indexPath.row])
+            
+            return cell
+        }
+    }
+    
+    
+    // MARK: - ItemDetailTableViewCellDelegate
+    
+    func itemDetailTableViewCellDidTapReview(_ cell: ItemDetailTableViewCell) {
+        let reviewVC = ReviewViewController(review: reviewList.reviewForCurrentUser())
+        let navigation = UINavigationController(rootViewController: reviewVC)
+        reviewVC.delegate = self
+        present(navigation, animated: true)
+    }
+    
+    
+    // MARK: - ReviewViewControllerDelegate
+    
+    func reviewViewControllerDidTapCancel(_ vc: ReviewViewController) {
+        vc.dismiss(animated: true)
+    }
+    
+    func reviewViewController(_ vc: ReviewViewController, shouldSendReview review: Review) {
+        ReviewManager.set(review: review, for: item)
+            .onError(showError)
+            .finally{
+                self.dismiss(animated: true)
+            }
     }
 
 }

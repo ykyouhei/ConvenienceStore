@@ -8,6 +8,7 @@ github "marketplacer/Cosmos" ~> 8.0
 github "ykyouhei/then" ~> 2.0
 github "SVProgressHUD/SVProgressHUD"
 github "radex/SwiftyUserDefaults"
+github "totocaster/Typist"
 
 # Batch
 github "tid-kijyun/Kanna"    ~> 2.1.0

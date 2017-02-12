@@ -14,6 +14,14 @@
 		41199A4F1E476AE300559A2D /* SelectRegionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41199A4D1E476AE300559A2D /* SelectRegionViewController.xib */; };
 		41199A511E476E6700559A2D /* DefaultsKeys+AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41199A501E476E6700559A2D /* DefaultsKeys+AppData.swift */; };
 		41199A531E476E8300559A2D /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41199A521E476E8300559A2D /* SwiftyUserDefaults.framework */; };
+		412288BD1E504EB0009F0AD5 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288BB1E504EB0009F0AD5 /* ReviewViewController.swift */; };
+		412288BE1E504EB0009F0AD5 /* ReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412288BC1E504EB0009F0AD5 /* ReviewViewController.xib */; };
+		412288C01E505FB2009F0AD5 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288BF1E505FB2009F0AD5 /* Review.swift */; };
+		412288C21E5063A3009F0AD5 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288C11E5063A3009F0AD5 /* ReviewManager.swift */; };
+		412288C41E506B42009F0AD5 /* Typist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412288C31E506B42009F0AD5 /* Typist.framework */; };
+		412288C61E506F22009F0AD5 /* ReviewListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288C51E506F22009F0AD5 /* ReviewListViewModel.swift */; };
+		412288C91E507D8C009F0AD5 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288C71E507D8C009F0AD5 /* ReviewTableViewCell.swift */; };
+		412288CA1E507D8C009F0AD5 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412288C81E507D8C009F0AD5 /* ReviewTableViewCell.xib */; };
 		41385A5B1E46E8F6009C24C6 /* ItemsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41385A5A1E46E8F6009C24C6 /* ItemsCollectionViewController.xib */; };
 		41385A5D1E46F104009C24C6 /* XibBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41385A5C1E46F104009C24C6 /* XibBaseViewController.swift */; };
 		41385A5F1E46F79D009C24C6 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41385A5E1E46F79D009C24C6 /* SVProgressHUD.framework */; };
@@ -40,6 +48,8 @@
 		414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 414A19EA1E45590300AEE6D2 /* Localizable.strings */; };
 		414A19F01E455BC800AEE6D2 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19EF1E455BC800AEE6D2 /* L10n.swift */; };
 		417FFDED1E4FEAB900C6F6CD /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */; };
+		417FFDF01E4FECED00C6F6CD /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */; };
+		417FFDF11E4FECED00C6F6CD /* ItemDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */; };
 		419026C91E4724AF008EB18A /* Item+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419026C81E4724AF008EB18A /* Item+Presentation.swift */; };
 		41DB233F1E3C831B00FDD28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DB233E1E3C831B00FDD28D /* Assets.xcassets */; };
 		41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB23401E3C831B00FDD28D /* LaunchScreen.storyboard */; };
@@ -117,6 +127,14 @@
 		41199A4D1E476AE300559A2D /* SelectRegionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectRegionViewController.xib; sourceTree = "<group>"; };
 		41199A501E476E6700559A2D /* DefaultsKeys+AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+AppData.swift"; sourceTree = "<group>"; };
 		41199A521E476E8300559A2D /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
+		412288BB1E504EB0009F0AD5 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		412288BC1E504EB0009F0AD5 /* ReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewViewController.xib; sourceTree = "<group>"; };
+		412288BF1E505FB2009F0AD5 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		412288C11E5063A3009F0AD5 /* ReviewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
+		412288C31E506B42009F0AD5 /* Typist.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Typist.framework; path = Carthage/Build/iOS/Typist.framework; sourceTree = "<group>"; };
+		412288C51E506F22009F0AD5 /* ReviewListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewListViewModel.swift; sourceTree = "<group>"; };
+		412288C71E507D8C009F0AD5 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		412288C81E507D8C009F0AD5 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		4134EA1F1E4235560092A6EF /* development.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = development.entitlements; sourceTree = "<group>"; };
 		4134EA201E4237EF0092A6EF /* production.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = production.entitlements; sourceTree = "<group>"; };
 		41385A5A1E46E8F6009C24C6 /* ItemsCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsCollectionViewController.xib; sourceTree = "<group>"; };
@@ -141,6 +159,8 @@
 		414A19EA1E45590300AEE6D2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		414A19EF1E455BC800AEE6D2 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
+		417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
+		417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailTableViewCell.xib; sourceTree = "<group>"; };
 		419026C81E4724AF008EB18A /* Item+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+Presentation.swift"; sourceTree = "<group>"; };
 		41DB23341E3C831B00FDD28D /* ConvenienceStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvenienceStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DB233E1E3C831B00FDD28D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +216,7 @@
 				41DB23EA1E3F7E5200FDD28D /* Hero.framework in Frameworks */,
 				41DB23DD1E3DA47800FDD28D /* IGListKit.framework in Frameworks */,
 				41385A5F1E46F79D009C24C6 /* SVProgressHUD.framework in Frameworks */,
+				412288C41E506B42009F0AD5 /* Typist.framework in Frameworks */,
 				41DB23DE1E3DA47800FDD28D /* SwiftyBeaver.framework in Frameworks */,
 				D8AFA0DF5B91750298304E77 /* Pods_ConvenienceStore.framework in Frameworks */,
 			);
@@ -217,6 +238,7 @@
 		01D67F93010082E14706732D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				412288C31E506B42009F0AD5 /* Typist.framework */,
 				417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */,
 				41199A521E476E8300559A2D /* SwiftyUserDefaults.framework */,
 				41DB23E91E3F7E5200FDD28D /* Hero.framework */,
@@ -352,6 +374,8 @@
 				41385A641E46FD45009C24C6 /* ItemDetailViewController.xib */,
 				41199A4C1E476AE300559A2D /* SelectRegionViewController.swift */,
 				41199A4D1E476AE300559A2D /* SelectRegionViewController.xib */,
+				412288BB1E504EB0009F0AD5 /* ReviewViewController.swift */,
+				412288BC1E504EB0009F0AD5 /* ReviewViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -361,6 +385,10 @@
 			children = (
 				41385A601E46FAD0009C24C6 /* ItemCollectionViewCell.swift */,
 				41385A611E46FAD0009C24C6 /* ItemCollectionViewCell.xib */,
+				417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */,
+				417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */,
+				412288C71E507D8C009F0AD5 /* ReviewTableViewCell.swift */,
+				412288C81E507D8C009F0AD5 /* ReviewTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -368,6 +396,8 @@
 		41DB234C1E3C842800FDD28D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				412288BF1E505FB2009F0AD5 /* Review.swift */,
+				412288C11E5063A3009F0AD5 /* ReviewManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				41DB23E01E3DD70500FDD28D /* ItemListViewModel.swift */,
+				412288C51E506F22009F0AD5 /* ReviewListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -595,12 +626,15 @@
 			files = (
 				414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */,
 				41385A5B1E46E8F6009C24C6 /* ItemsCollectionViewController.xib in Resources */,
+				412288BE1E504EB0009F0AD5 /* ReviewViewController.xib in Resources */,
 				41199A4F1E476AE300559A2D /* SelectRegionViewController.xib in Resources */,
 				41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */,
+				417FFDF11E4FECED00C6F6CD /* ItemDetailTableViewCell.xib in Resources */,
 				41385A631E46FAD0009C24C6 /* ItemCollectionViewCell.xib in Resources */,
 				41DB23671E3C86E000FDD28D /* GoogleService-Info.plist in Resources */,
 				41DB233F1E3C831B00FDD28D /* Assets.xcassets in Resources */,
 				41385A651E46FD45009C24C6 /* ItemDetailViewController.xib in Resources */,
+				412288CA1E507D8C009F0AD5 /* ReviewTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +692,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Cosmos.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Typist.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -727,18 +762,24 @@
 			files = (
 				414A19F01E455BC800AEE6D2 /* L10n.swift in Sources */,
 				41199A511E476E6700559A2D /* DefaultsKeys+AppData.swift in Sources */,
+				412288C01E505FB2009F0AD5 /* Review.swift in Sources */,
 				41DB23A31E3C8C6300FDD28D /* AppDelegate.swift in Sources */,
 				4104FCFD1E4718CC00BB9573 /* HeroModifier+Default.swift in Sources */,
 				41DB23E11E3DD70500FDD28D /* ItemListViewModel.swift in Sources */,
 				41385A5D1E46F104009C24C6 /* XibBaseViewController.swift in Sources */,
+				412288BD1E504EB0009F0AD5 /* ReviewViewController.swift in Sources */,
 				41199A4E1E476AE300559A2D /* SelectRegionViewController.swift in Sources */,
 				41DB23EC1E3F7ECA00FDD28D /* ItemDetailViewController.swift in Sources */,
 				41385A621E46FAD0009C24C6 /* ItemCollectionViewCell.swift in Sources */,
 				41DB23DA1E3DA32A00FDD28D /* RootTabBarController.swift in Sources */,
+				417FFDF01E4FECED00C6F6CD /* ItemDetailTableViewCell.swift in Sources */,
 				419026C91E4724AF008EB18A /* Item+Presentation.swift in Sources */,
 				41385A671E470193009C24C6 /* ClassName.swift in Sources */,
+				412288C21E5063A3009F0AD5 /* ReviewManager.swift in Sources */,
 				414A19E91E4551B400AEE6D2 /* StoreInformation.swift in Sources */,
+				412288C91E507D8C009F0AD5 /* ReviewTableViewCell.swift in Sources */,
 				41DB23D81E3D9AEE00FDD28D /* ItemsCollectionViewController.swift in Sources */,
+				412288C61E506F22009F0AD5 /* ReviewListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

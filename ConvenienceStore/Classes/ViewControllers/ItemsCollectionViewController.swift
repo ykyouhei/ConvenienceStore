@@ -145,9 +145,11 @@ internal final class ItemsCollectionViewController<T: Item>:
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = itemList.items[indexPath.item]
         let detailVC = ItemDetailViewController(item: item)
+        let navigation = UINavigationController(rootViewController: detailVC)
         
-        navigationController?.isHeroEnabled = true
-        navigationController?.pushViewController(detailVC, animated: true)
+        navigation.isHeroEnabled = true
+        
+        present(navigation, animated: true)
         
         collectionView.deselectItem(at: indexPath, animated: false)
     }

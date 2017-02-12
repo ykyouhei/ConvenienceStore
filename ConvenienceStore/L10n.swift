@@ -14,11 +14,35 @@ enum L10n {
 
   enum Common {
 
+    enum Label {
+      /// 閉じる
+      static let close = L10n.tr("common.label.close")
+    }
+
     enum Title {
       /// FamilyMart
       static let familymart = L10n.tr("common.title.familymart")
       /// ｾﾌﾞﾝｲﾚﾌﾞ
       static let seveneleven = L10n.tr("common.title.seveneleven")
+    }
+  }
+
+  enum Review {
+
+    enum Label {
+      /// 星をタップして評価してください
+      static let reviewHelp = L10n.tr("review.label.reviewHelp")
+      /// 送信
+      static let send = L10n.tr("review.label.send")
+      /// レビューを書く
+      static let writeReview = L10n.tr("review.label.writeReview")
+    }
+
+    enum Template {
+      /// 評価件数：%d
+      static func reviewCount(_ p1: Int) -> String {
+        return L10n.tr("review.template.reviewCount", p1)
+      }
     }
   }
 
