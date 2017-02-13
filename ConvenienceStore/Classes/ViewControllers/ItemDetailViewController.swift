@@ -27,7 +27,8 @@ internal final class ItemDetailViewController<T: Item>:
     UITableViewDelegate,
     UITableViewDataSource,
     ItemDetailTableViewCellDelegate,
-    ReviewViewControllerDelegate where T: StoreInformation
+    ReviewViewControllerDelegate,
+    AdPresentable where T: StoreInformation
 {
     
     // MARK: Properties
@@ -55,6 +56,13 @@ internal final class ItemDetailViewController<T: Item>:
             action: #selector(ItemDetailViewController.didTapCloseButton(_:)))
         return b
     }()
+    
+    
+    // MARK: Computed Properties
+    
+    var scrollView: UIScrollView? {
+        return tableView
+    }
     
     
     // MARK: Initializer
@@ -110,6 +118,8 @@ internal final class ItemDetailViewController<T: Item>:
         registerCells()
         
         setupGesture()
+        
+        addBannerView()
         
         reloadList()
     }

@@ -34,5 +34,9 @@ internal final class ReviewManager {
         }
     }
     
+    static func report(for review: Review) {
+        
+    }
+    
     
 }

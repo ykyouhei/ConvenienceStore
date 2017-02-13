@@ -17,6 +17,10 @@ enum L10n {
     enum Label {
       /// 閉じる
       static let close = L10n.tr("common.label.close")
+      /// いいえ
+      static let no = L10n.tr("common.label.no")
+      /// はい
+      static let yes = L10n.tr("common.label.yes")
     }
 
     enum Title {
@@ -24,6 +28,16 @@ enum L10n {
       static let familymart = L10n.tr("common.title.familymart")
       /// ｾﾌﾞﾝｲﾚﾌﾞ
       static let seveneleven = L10n.tr("common.title.seveneleven")
+    }
+  }
+
+  enum Itemdetail {
+
+    enum Label {
+      /// 違反報告
+      static let report = L10n.tr("itemDetail.label.report")
+      /// このコメントに対して違反報告をしますか？
+      static let reportMessage = L10n.tr("itemDetail.label.reportMessage")
     }
   }
 

@@ -9,6 +9,7 @@ github "ykyouhei/then" ~> 2.0
 github "SVProgressHUD/SVProgressHUD"
 github "radex/SwiftyUserDefaults"
 github "totocaster/Typist"
+github "ykyouhei/SwiftyConfiguration"
 
 # Batch
 github "tid-kijyun/Kanna"    ~> 2.1.0

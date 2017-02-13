@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import GoogleMobileAds
 
 internal class XibBaseViewController: UIViewController {
     

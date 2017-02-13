@@ -15,7 +15,8 @@ import SVProgressHUD
 internal final class ItemsCollectionViewController<T: Item>:
     XibBaseViewController,
     UICollectionViewDelegate,
-    UICollectionViewDataSource where T: StoreInformation
+    UICollectionViewDataSource,
+    AdPresentable where T: StoreInformation
 {
     
     // MAKR: Constant
@@ -31,6 +32,13 @@ internal final class ItemsCollectionViewController<T: Item>:
     // MARK: Outlet
     
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    
+    // MARK: Computed Properties
+    
+    var scrollView: UIScrollView? {
+        return collectionView
+    }
     
     
     // MARK: Initializer
@@ -58,6 +66,8 @@ internal final class ItemsCollectionViewController<T: Item>:
                                 forCellWithReuseIdentifier: cellName)
         
         setupRefreshControl()
+        
+        addBannerView()
         
         reloadList()
     }

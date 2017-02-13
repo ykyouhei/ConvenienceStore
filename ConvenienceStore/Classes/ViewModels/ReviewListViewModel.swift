@@ -16,7 +16,13 @@ internal final class ReviewListViewModel<T: Item> {
     
     private let reference: FIRDatabaseReference
     
-    private(set) var reviews: [Review]
+    private(set) var allReviews: [Review] {
+        didSet {
+            self.reviews = allReviews.filter{ !$0.onlyRating }
+        }
+    }
+    
+    private(set) var reviews: [Review] 
     
     
     // MARK: Initializer
@@ -25,7 +31,8 @@ internal final class ReviewListViewModel<T: Item> {
         self.reference = FIRDatabase.database().reference()
             .child("reviews")
             .child(item.id)
-        self.reviews = []
+        self.allReviews = []
+        self.reviews    = []
     }
     
     
@@ -37,13 +44,14 @@ internal final class ReviewListViewModel<T: Item> {
                 of: .value,
                 with: { snapshot in
                     guard let json = snapshot.value as? [String : [String : Any]] else {
-                        self.reviews = []
-                        resolve([])
+                        self.allReviews = []
+                        resolve(self.reviews)
                         return
                     }
-                    let reviews = json.map { Review(json: $1) }
-                    self.reviews = reviews
-                    resolve(reviews)
+                    
+                    self.allReviews = json.map { Review(json: $1) }
+                    
+                    resolve(self.reviews)
                 },
                 withCancel: { error in
                     reject(error)
@@ -53,25 +61,25 @@ internal final class ReviewListViewModel<T: Item> {
     
     func reviewForCurrentUser() -> Review? {
         guard let currentUid = FIRAuth.auth()?.currentUser?.uid else { return nil }
-        return reviews.filter{ $0.uid == currentUid }.first
+        return allReviews.filter{ $0.uid == currentUid }.first
     }
     
     func averageRating() -> Double {
-        guard !reviews.isEmpty else { return 0 }
-        return reviews.reduce(0){ $0 + $1.rating} / Double(reviews.count)
+        guard !allReviews.isEmpty else { return 0 }
+        return allReviews.reduce(0){ $0 + $1.rating} / Double(allReviews.count)
     }
     
     func numberOfAllReviews() -> Int {
-        return reviews.count
+        return allReviews.count
     }
     
     func numberOfReviews(forRating rating: Double) -> Int {
-        return reviews.filter{ Int($0.rating) == Int(rating) }.count
+        return allReviews.filter{ Int($0.rating) == Int(rating) }.count
     }
     
     func progress(forRating rating: Double) -> Float {
-        guard !reviews.isEmpty else { return 0 }
-        return Float(numberOfReviews(forRating: rating)) / Float(reviews.count)
+        guard !allReviews.isEmpty else { return 0 }
+        return Float(numberOfReviews(forRating: rating)) / Float(allReviews.count)
     }
     
 }

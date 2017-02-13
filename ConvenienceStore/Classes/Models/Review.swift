@@ -22,6 +22,9 @@ internal struct Review {
     
     let updateTime = FIRServerValue.timestamp()
     
+    var onlyRating: Bool {
+        return title.isEmpty && text.isEmpty
+    }
     
     init(uid: String, rating: Double, title: String, text: String) {
         self.uid    = uid
