@@ -26,9 +26,10 @@ internal final class ReviewTableViewCell: UITableViewCell {
     }
     
     func update(review: Review) {
+        let timeInterval    = review.createTime.flatMap{ $0/1000 } ?? Date().timeIntervalSince1970
         titleLabel.text     = review.title
         cosmosView.rating   = review.rating
-        dateLabel.text      = "YYYY/MM/dd"
+        dateLabel.text      = timeInterval.string(with: .ymd)
         textView.text       = review.text
     }
     

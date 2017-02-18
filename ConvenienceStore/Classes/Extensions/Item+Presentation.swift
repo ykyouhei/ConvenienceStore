@@ -13,14 +13,7 @@ import Core_iOS
 extension Item {
     
     var launchDateString: String {
-        let date = Date(timeIntervalSince1970: TimeInterval(launchDate))
-        let format = "yyyy年MM月dd日"
-        let formatter = DateFormatter()
-        
-        formatter.calendar = Calendar(identifier: .gregorian)
-        formatter.dateFormat = format
-        
-        return formatter.string(from: date)
+        return TimeInterval(launchDate).string(with: .ymd)
     }
     
     var taxIncludedPriceString: String {

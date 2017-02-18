@@ -10,29 +10,35 @@ import Firebase
 import Core_iOS
 import then
 
+/// レビュー一覧を表すViewModel
 internal final class ReviewListViewModel<T: Item> {
     
     // MARK: Properties
     
     private let reference: FIRDatabaseReference
     
+    private let reportedReviewIds: [String]
+    
     private(set) var allReviews: [Review] {
         didSet {
-            self.reviews = allReviews.filter{ !$0.onlyRating }
+            self.reviews = allReviews
+                .filter{ !($0.onlyRating || reportedReviewIds.contains($0.reviewId)) }
         }
     }
     
-    private(set) var reviews: [Review] 
+    private(set) var reviews: [Review]
     
     
     // MARK: Initializer
     
-    init(item: T) {
+    init(item: T, reportedReviewIds: [String]) {
         self.reference = FIRDatabase.database().reference()
             .child("reviews")
             .child(item.id)
+        self.reference.keepSynced(true)
         self.allReviews = []
         self.reviews    = []
+        self.reportedReviewIds = reportedReviewIds
     }
     
     
@@ -40,16 +46,15 @@ internal final class ReviewListViewModel<T: Item> {
     
     func fetch() -> Promise<[Review]> {
         return Promise { resolve, reject in
-            self.reference.observeSingleEvent(
+            self.reference.queryOrdered(byChild: "createDate").observeSingleEvent(
                 of: .value,
                 with: { snapshot in
-                    guard let json = snapshot.value as? [String : [String : Any]] else {
-                        self.allReviews = []
-                        resolve(self.reviews)
-                        return
+                    self.allReviews = snapshot.children.reversed().flatMap { snap -> Review? in
+                        guard let json = (snap as? FIRDataSnapshot)?.value as? [String : Any] else {
+                            return nil
+                        }
+                        return Review(json: json)
                     }
-                    
-                    self.allReviews = json.map { Review(json: $1) }
                     
                     resolve(self.reviews)
                 },
@@ -58,6 +63,23 @@ internal final class ReviewListViewModel<T: Item> {
                 })
         }
     }
+    
+    // MARK: Operation
+    
+    func remove(at index: Int) -> Review {
+        return reviews.remove(at: index)
+    }
+    
+    /// 同一レビューがある場合は更新、ない場合は新規追加
+    func insert(review: Review) {
+        if let index = allReviews.index(of: review) {
+            allReviews[index] = review
+        } else {
+            allReviews.insert(review, at: 0)
+        }
+    }
+    
+    // MARK: Presentation
     
     func reviewForCurrentUser() -> Review? {
         guard let currentUid = FIRAuth.auth()?.currentUser?.uid else { return nil }

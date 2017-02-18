@@ -17,17 +17,12 @@ internal final class ItemListViewModel<T: Item> {
     
     typealias QueryBlock = (_ ref: FIRDatabaseReference) -> FIRDatabaseQuery
     
-    typealias SortBlock = (T, T) -> Bool
-    
     typealias FilterBlock = (T) -> Bool
-    
     
     // MARK: Properties
     
-    var queryBlock: QueryBlock?
-    
-    var sortBlock: SortBlock = { l, r in
-        return l.launchDate < r.launchDate
+    var queryBlock: QueryBlock = { ref in
+        return ref.queryOrdered(byChild: "launchDate") 
     }
     
     var filterBlock: FilterBlock = { _ in
@@ -35,7 +30,11 @@ internal final class ItemListViewModel<T: Item> {
     }
     
     private lazy var fbReference: FIRDatabaseReference = {
-        return FIRDatabase.database().reference()
+        let index = T.dataBasePath.index(after: T.dataBasePath.startIndex)
+        let path  = T.dataBasePath.substring(from: index)
+        let ref   =  FIRDatabase.database().reference().child(path)
+        ref.keepSynced(true)
+        return ref
     }()
     
     private(set) var items: [T]
@@ -52,22 +51,21 @@ internal final class ItemListViewModel<T: Item> {
     
     func fetch() -> Promise<[T]> {
         return Promise { resolve, reject in
-            let index = T.dataBasePath.index(after: T.dataBasePath.startIndex)
-            let path  = T.dataBasePath.substring(from: index)
-            let ref   = self.fbReference.child(path).queryOrdered(byChild: "taxIncludedPrice")  
+            let ref   = self.queryBlock(self.fbReference)
             
             ref.observeSingleEvent(
                 of: .value,
                 with: { snapshot in
-                    let json  = snapshot.value as! [String : [String : Any]]
-                    let items = json
-                        .map { T(json: $1) }
+                    self.items = snapshot.children.flatMap { snap -> T? in
+                        guard let json = (snap as? FIRDataSnapshot)?.value as? [String : Any] else {
+                            return nil
+                        }
+                        return T(json: json)
+                    }
                     
-                    log.info(items)
+                    log.verbose(self.items)
                     
-                    self.items = items
-                    
-                    resolve(items)
+                    resolve(self.items)
                 },
                 withCancel: { error in
                     log.error(error)

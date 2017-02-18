@@ -9,21 +9,32 @@
 import Firebase
 import Core_iOS
 import then
+import RealmSwift
 
 internal final class ReviewManager {
     
     // MARK: Constants
     
-    static let baseReference = FIRDatabase.database().reference().child("reviews")
+    static let baseReference: FIRDatabaseReference = {
+        let ref = FIRDatabase.database().reference().child("reviews")
+        ref.keepSynced(true)
+        return ref
+    }()
     
     
     // MARK: Public 
     
-    static func set<T: Item>(review: Review, for item: T) -> Promise<Review> {
+    /// レビューを送信する
+    ///
+    /// - Parameters:
+    ///   - review: 送信するレビュー
+    ///   - item:   レビュー対象のアイテム
+    /// - Returns:  Promise<Review>
+    static func send<T: Item>(review: Review, for item: T) -> Promise<Review> {
         return Promise { resolve, reject in
             self.baseReference
                 .child(item.id)
-                .child(review.uid)
+                .child(review.reviewId)
                 .setValue(review.json) { error, reference in
                     if let error = error {
                         reject(error)
@@ -34,8 +45,15 @@ internal final class ReviewManager {
         }
     }
     
+    /// 対象のレビューを違反報告する
+    ///
+    /// - Parameter review: 報告するレビュー
     static func report(for review: Review) {
-        
+        let realm = try! Realm()
+        let reportedReview = ReportedReview(review: review)
+        try! realm.write {
+            realm.add(reportedReview, update: true)
+        }
     }
     
     

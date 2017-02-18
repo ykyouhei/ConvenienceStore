@@ -85,11 +85,19 @@ internal final class ReviewViewController: XibBaseViewController {
             return
         }
         
-        let review = Review(
-            uid: uid,
-            rating: cosmosView.rating,
-            title: titleTextField.text ?? "",
-            text: textView.text)
+        let review : Review
+        
+        if let defaultReview = defaultReview {
+            review  = defaultReview.updated(rating: cosmosView.rating,
+                                           title: titleTextField.text ?? "",
+                                           text: textView.text)
+        } else {
+            review  = Review(
+                uid: uid,
+                rating: cosmosView.rating,
+                title: titleTextField.text ?? "",
+                text: textView.text)
+        }
         
         delegate?.reviewViewController(self, shouldSendReview: review)
     }

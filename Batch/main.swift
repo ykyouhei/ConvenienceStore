@@ -9,10 +9,8 @@
 import Foundation
 import Regex
 
-pushNotification(title: "テスト", body: "メッセージ")
-
-//let familyMartItems  = generateFamilyMartItems()
+let familyMartItems  = generateFamilyMartItems()
 let sevenElevenItems = generateSevenItems()
-//
-//sendJSON(with: familyMartItems)
+
+sendJSON(with: familyMartItems)
 sendJSON(with: sevenElevenItems)

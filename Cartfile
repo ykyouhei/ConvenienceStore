@@ -10,6 +10,7 @@ github "SVProgressHUD/SVProgressHUD"
 github "radex/SwiftyUserDefaults"
 github "totocaster/Typist"
 github "ykyouhei/SwiftyConfiguration"
+github "realm/realm-cocoa"
 
 # Batch
 github "tid-kijyun/Kanna"    ~> 2.1.0

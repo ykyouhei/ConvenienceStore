@@ -11,6 +11,7 @@ import Hero
 import Kingfisher
 import Core_iOS
 import SVProgressHUD
+import RealmSwift
 
 private struct CellId {
     static let detail = "detailCell"
@@ -36,7 +37,8 @@ internal final class ItemDetailViewController<T: Item>:
     let item: T
     
     private lazy var reviewList: ReviewListViewModel<T> = {
-        return ReviewListViewModel(item: self.item)
+        let reportedReviewIds = try! Realm().objects(ReportedReview.self).map { $0.reviewId }
+        return ReviewListViewModel(item: self.item, reportedReviewIds: Array(reportedReviewIds))
     }()
     
     private var isTransition = false
@@ -84,7 +86,6 @@ internal final class ItemDetailViewController<T: Item>:
         let progress = translation.x / (view.bounds.width * 0.75)
         switch sender.state {
         case .began:
-            Hero.shared.setDefaultAnimationForNextTransition(.fade)
            _ = navigationController?.popViewController(animated: true)
             
         case .changed:
@@ -145,6 +146,27 @@ internal final class ItemDetailViewController<T: Item>:
         detailCell = tableView.dequeueReusableCell(withIdentifier: CellId.detail) as! ItemDetailTableViewCell
         detailCell.update(item: item, reviewList: reviewList)
         detailCell.delegate = self
+    }
+    
+    private func showReportAlert(_ reportHandler: @escaping () -> Void) {
+        let yesAction = UIAlertAction(
+            title: L10n.Common.Label.yes,
+            style: .destructive) { _ in
+                reportHandler()
+            }
+        let noAction = UIAlertAction(
+            title: L10n.Common.Label.no,
+            style: .default)
+        
+        let alert = UIAlertController(
+            title: L10n.Itemdetail.Label.report,
+            message: L10n.Itemdetail.Label.reportMessage,
+            preferredStyle: .alert)
+        
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        
+        present(alert, animated: true)
     }
     
     func reloadList(sender: UIRefreshControl? = nil) {
@@ -222,6 +244,25 @@ internal final class ItemDetailViewController<T: Item>:
         }
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let section = Section(rawValue: indexPath.section)!
+        switch section {
+        case .itemDetail:
+            return nil
+            
+        case .reviews:
+            return [
+                UITableViewRowAction(
+                    style: .destructive,
+                    title: L10n.Itemdetail.Label.report) { _, indexPath in
+                        self.showReportAlert{
+                            ReviewManager.report(for: self.reviewList.remove(at: indexPath.row))
+                            tableView.deleteRows(at: [indexPath], with: .automatic)
+                        }
+                }
+            ]
+        }
+    }
     
     // MARK: - ItemDetailTableViewCellDelegate
     
@@ -240,10 +281,12 @@ internal final class ItemDetailViewController<T: Item>:
     }
     
     func reviewViewController(_ vc: ReviewViewController, shouldSendReview review: Review) {
-        ReviewManager.set(review: review, for: item)
+        ReviewManager.send(review: review, for: item)
             .onError(showError)
             .finally{
                 self.dismiss(animated: true)
+                self.reviewList.insert(review: review)
+                self.tableView.reloadData()
             }
     }
 

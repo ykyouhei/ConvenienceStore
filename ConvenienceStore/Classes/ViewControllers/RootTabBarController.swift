@@ -42,9 +42,6 @@ internal final class RootTabBarController: UITabBarController {
     
     private func setupViewControllers() {
         let sevenList = ItemListViewModel<SevenElevenItem>()
-        sevenList.queryBlock = { ref in
-            return ref.queryOrdered(byChild: "taxIncludedPrice")
-        }
         let sevenVC = ItemsCollectionViewController(itemList: sevenList)
         let sevenNavigation = UINavigationController(rootViewController: sevenVC)
         sevenVC.tabBarItem = tabBarItem(with: SevenElevenItem.self)

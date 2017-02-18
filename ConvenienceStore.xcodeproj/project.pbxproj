@@ -47,10 +47,14 @@
 		414966B71E50A26100259AD1 /* SwiftyConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414966B61E50A26100259AD1 /* SwiftyConfiguration.framework */; };
 		414966B91E50A2A000259AD1 /* PlistKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414966B81E50A2A000259AD1 /* PlistKeys.swift */; };
 		414966BB1E50A4F400259AD1 /* AdPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414966BA1E50A4F400259AD1 /* AdPresentable.swift */; };
+		414966BE1E52010E00259AD1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414966BC1E52010E00259AD1 /* Realm.framework */; };
+		414966BF1E52010E00259AD1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414966BD1E52010E00259AD1 /* RealmSwift.framework */; };
+		414966C21E52023200259AD1 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414966C11E52023200259AD1 /* Report.swift */; };
 		414A19E61E454A3800AEE6D2 /* then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414A19E51E454A3800AEE6D2 /* then.framework */; };
 		414A19E91E4551B400AEE6D2 /* StoreInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19E81E4551B400AEE6D2 /* StoreInformation.swift */; };
 		414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 414A19EA1E45590300AEE6D2 /* Localizable.strings */; };
 		414A19F01E455BC800AEE6D2 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19EF1E455BC800AEE6D2 /* L10n.swift */; };
+		416E164E1E58308D00D683EE /* TimeInterval+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416E164D1E58308D00D683EE /* TimeInterval+Format.swift */; };
 		417FFDED1E4FEAB900C6F6CD /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */; };
 		417FFDF01E4FECED00C6F6CD /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */; };
 		417FFDF11E4FECED00C6F6CD /* ItemDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */; };
@@ -161,10 +165,14 @@
 		414966B61E50A26100259AD1 /* SwiftyConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyConfiguration.framework; path = Carthage/Build/iOS/SwiftyConfiguration.framework; sourceTree = "<group>"; };
 		414966B81E50A2A000259AD1 /* PlistKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistKeys.swift; sourceTree = "<group>"; };
 		414966BA1E50A4F400259AD1 /* AdPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdPresentable.swift; sourceTree = "<group>"; };
+		414966BC1E52010E00259AD1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		414966BD1E52010E00259AD1 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		414966C11E52023200259AD1 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		414A19E51E454A3800AEE6D2 /* then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = then.framework; path = Carthage/Build/iOS/then.framework; sourceTree = "<group>"; };
 		414A19E81E4551B400AEE6D2 /* StoreInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreInformation.swift; sourceTree = "<group>"; };
 		414A19EA1E45590300AEE6D2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		414A19EF1E455BC800AEE6D2 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		416E164D1E58308D00D683EE /* TimeInterval+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Format.swift"; sourceTree = "<group>"; };
 		417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
 		417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
 		417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -225,10 +233,12 @@
 				41DB23E41E3DD8C100FDD28D /* SwiftyJSON.framework in Frameworks */,
 				41DB23EA1E3F7E5200FDD28D /* Hero.framework in Frameworks */,
 				41DB23DD1E3DA47800FDD28D /* IGListKit.framework in Frameworks */,
+				414966BE1E52010E00259AD1 /* Realm.framework in Frameworks */,
 				41385A5F1E46F79D009C24C6 /* SVProgressHUD.framework in Frameworks */,
 				412288C41E506B42009F0AD5 /* Typist.framework in Frameworks */,
 				41DB23DE1E3DA47800FDD28D /* SwiftyBeaver.framework in Frameworks */,
 				D8AFA0DF5B91750298304E77 /* Pods_ConvenienceStore.framework in Frameworks */,
+				414966BF1E52010E00259AD1 /* RealmSwift.framework in Frameworks */,
 				26BA86A6A0498C1E26E98EB5 /* Pods_ConvenienceStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +259,8 @@
 		01D67F93010082E14706732D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				414966BC1E52010E00259AD1 /* Realm.framework */,
+				414966BD1E52010E00259AD1 /* RealmSwift.framework */,
 				414966B61E50A26100259AD1 /* SwiftyConfiguration.framework */,
 				412288C31E506B42009F0AD5 /* Typist.framework */,
 				417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */,
@@ -291,6 +303,7 @@
 				419026C81E4724AF008EB18A /* Item+Presentation.swift */,
 				41199A501E476E6700559A2D /* DefaultsKeys+AppData.swift */,
 				414966B81E50A2A000259AD1 /* PlistKeys.swift */,
+				416E164D1E58308D00D683EE /* TimeInterval+Format.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -322,6 +335,14 @@
 				41402ECF1E44D4B500031B4D /* Info.plist */,
 			);
 			path = Core_macOS;
+			sourceTree = "<group>";
+		};
+		414966C01E5201D500259AD1 /* RealmEntity */ = {
+			isa = PBXGroup;
+			children = (
+				414966C11E52023200259AD1 /* Report.swift */,
+			);
+			path = RealmEntity;
 			sourceTree = "<group>";
 		};
 		414A19E71E45516700AEE6D2 /* Protocols */ = {
@@ -377,6 +398,7 @@
 			children = (
 				41DB23A21E3C8C6300FDD28D /* AppDelegate.swift */,
 				41385A661E470193009C24C6 /* ClassName.swift */,
+				414966C01E5201D500259AD1 /* RealmEntity */,
 				4104FCFB1E47188300BB9573 /* Extensions */,
 				41DB234C1E3C842800FDD28D /* Models */,
 				414A19E71E45516700AEE6D2 /* Protocols */,
@@ -718,6 +740,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Cosmos.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Typist.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyConfiguration.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -789,11 +813,13 @@
 				41199A511E476E6700559A2D /* DefaultsKeys+AppData.swift in Sources */,
 				412288C01E505FB2009F0AD5 /* Review.swift in Sources */,
 				41DB23A31E3C8C6300FDD28D /* AppDelegate.swift in Sources */,
+				416E164E1E58308D00D683EE /* TimeInterval+Format.swift in Sources */,
 				4104FCFD1E4718CC00BB9573 /* HeroModifier+Default.swift in Sources */,
 				41DB23E11E3DD70500FDD28D /* ItemListViewModel.swift in Sources */,
 				41385A5D1E46F104009C24C6 /* XibBaseViewController.swift in Sources */,
 				412288BD1E504EB0009F0AD5 /* ReviewViewController.swift in Sources */,
 				41199A4E1E476AE300559A2D /* SelectRegionViewController.swift in Sources */,
+				414966C21E52023200259AD1 /* Report.swift in Sources */,
 				41DB23EC1E3F7ECA00FDD28D /* ItemDetailViewController.swift in Sources */,
 				41385A621E46FAD0009C24C6 /* ItemCollectionViewCell.swift in Sources */,
 				414966B91E50A2A000259AD1 /* PlistKeys.swift in Sources */,
