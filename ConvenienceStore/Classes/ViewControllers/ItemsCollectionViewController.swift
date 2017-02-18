@@ -72,18 +72,23 @@ internal final class ItemsCollectionViewController<T: Item>:
         reloadList()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard isViewLoaded else { return }
+        updateCollectionViewLayout(frameWidth: size.width)
+    }
+    
     
     // MARK: Private Method
     
-    private func updateCollectionViewLayout() {
-        let frameWidth  = UIScreen.main.bounds.width
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+    private func updateCollectionViewLayout(frameWidth: CGFloat = UIScreen.main.bounds.width) {
+        let isLargeWidth = frameWidth > 414
+        let layout       = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
-        let numberOfItemForLine = CGFloat(2)
-        let space = CGFloat(8)
+        let numberOfItemForLine: CGFloat = isLargeWidth ? 3 : 2
+        let space: CGFloat = 8
         
         let itemWidth  = (frameWidth - (space * (numberOfItemForLine + 1))) / numberOfItemForLine
-        let itemHeight = itemWidth * 1.4
+        let itemHeight = isLargeWidth ? itemWidth : itemWidth * 1.4
         
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = space

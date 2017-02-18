@@ -52,12 +52,17 @@ internal final class ItemDetailViewController<T: Item>:
     private var detailCell: ItemDetailTableViewCell!
     
     private lazy var closeButton: UIBarButtonItem = {
-        let b = UIBarButtonItem(
+        return UIBarButtonItem(
             title: L10n.Common.Label.close,
             style: .done,
             target: self,
             action: #selector(ItemDetailViewController.didTapCloseButton(_:)))
-        return b
+    }()
+    
+    private lazy var writeReviewButton: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .compose,
+                                target: self,
+                                action: #selector(ItemDetailViewController.didTapWriteButton(_:)))
     }()
     
     
@@ -106,8 +111,26 @@ internal final class ItemDetailViewController<T: Item>:
         }
     }
     
+    func reloadList(sender: UIRefreshControl? = nil) {
+        SVProgressHUD.show()
+        sender?.beginRefreshing()
+        
+        reviewList
+            .fetch()
+            .onError(showError)
+            .finally{
+                SVProgressHUD.dismiss()
+                sender?.endRefreshing()
+                self.tableView.reloadData()
+        }
+    }
+    
     func didTapCloseButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
+    }
+    
+    func didTapWriteButton(_ sender: UIBarButtonItem) {
+        showReviewVC()
     }
     
     
@@ -119,10 +142,12 @@ internal final class ItemDetailViewController<T: Item>:
         isHeroEnabled = true
         
         navigationItem.titleView = UIImageView(image: T.logoImage)
-        navigationItem.leftBarButtonItem = closeButton
+        navigationItem.leftBarButtonItem  = closeButton
+        navigationItem.rightBarButtonItem = writeReviewButton
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.tableFooterView = UIView()
         
         registerCells()
         
@@ -156,12 +181,23 @@ internal final class ItemDetailViewController<T: Item>:
         detailCell.delegate = self
     }
     
+    
+    // MARK: Navigation
+    
+    private func showReviewVC() {
+        let reviewVC = ReviewViewController(review: reviewList.reviewForCurrentUser())
+        let navigation = UINavigationController(rootViewController: reviewVC)
+        navigation.modalPresentationStyle = .formSheet
+        reviewVC.delegate = self
+        present(navigation, animated: true)
+    }
+    
     private func showReportAlert(_ reportHandler: @escaping () -> Void) {
         let yesAction = UIAlertAction(
             title: L10n.Common.Label.yes,
             style: .destructive) { _ in
                 reportHandler()
-            }
+        }
         let noAction = UIAlertAction(
             title: L10n.Common.Label.no,
             style: .default)
@@ -175,20 +211,6 @@ internal final class ItemDetailViewController<T: Item>:
         alert.addAction(yesAction)
         
         present(alert, animated: true)
-    }
-    
-    func reloadList(sender: UIRefreshControl? = nil) {
-        SVProgressHUD.show()
-        sender?.beginRefreshing()
-        
-        reviewList
-            .fetch()
-            .onError(showError)
-            .finally{
-                SVProgressHUD.dismiss()
-                sender?.endRefreshing()
-                self.tableView.reloadData()
-        }
     }
     
     
@@ -272,13 +294,11 @@ internal final class ItemDetailViewController<T: Item>:
         }
     }
     
+    
     // MARK: - ItemDetailTableViewCellDelegate
     
     func itemDetailTableViewCellDidTapReview(_ cell: ItemDetailTableViewCell) {
-        let reviewVC = ReviewViewController(review: reviewList.reviewForCurrentUser())
-        let navigation = UINavigationController(rootViewController: reviewVC)
-        reviewVC.delegate = self
-        present(navigation, animated: true)
+        showReviewVC()
     }
     
     

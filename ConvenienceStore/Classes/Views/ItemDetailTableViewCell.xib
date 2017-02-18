@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,43 +15,58 @@
             <rect key="frame" x="0.0" y="0.0" width="377" height="594"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="377" height="593"/>
+                <rect key="frame" x="0.0" y="0.0" width="377" height="593.66666666666663"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="req-C9-R7K">
-                        <rect key="frame" x="0.0" y="0.0" width="377" height="593"/>
+                        <rect key="frame" x="0.0" y="0.0" width="377" height="408"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OMi-7y-tNw">
-                                <rect key="frame" x="16" y="16" width="345" height="266"/>
+                                <rect key="frame" x="16" y="16" width="164.66666666666666" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="800" constant="265" id="0hP-cy-Euk"/>
+                                    <constraint firstAttribute="height" constant="280" id="Mdd-Cv-9oc">
+                                        <variation key="widthClass=regular" constant="240"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" secondItem="OMi-7y-tNw" secondAttribute="height" multiplier="35:27" id="ZwY-Jb-aeH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Mdd-Cv-9oc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="0hP-cy-Euk"/>
+                                        <include reference="Mdd-Cv-9oc"/>
+                                        <exclude reference="ZwY-Jb-aeH"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXE-yi-VhP" userLabel="Information View">
-                                <rect key="frame" x="16" y="298" width="345" height="143"/>
+                                <rect key="frame" x="196.66666666666663" y="16" width="164.33333333333337" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSR-46-EX9">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="164.33333333333334" height="24"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHy-WK-38l">
-                                        <rect key="frame" x="0.0" y="60.5" width="345" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="40" width="164.33333333333334" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Rb-c8-FBz">
-                                        <rect key="frame" x="0.0" y="88" width="345" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="67.333333333333343" width="164.33333333333334" height="19.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfW-Pq-XA4">
-                                        <rect key="frame" x="0.0" y="123" width="345" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="tfW-Pq-XA4">
+                                        <rect key="frame" x="0.0" y="102.66666666666666" width="164.33333333333334" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -65,6 +80,9 @@
                                     <constraint firstItem="6Rb-c8-FBz" firstAttribute="top" secondItem="sHy-WK-38l" secondAttribute="bottom" constant="8" id="Gye-Hh-sdD"/>
                                     <constraint firstItem="tfW-Pq-XA4" firstAttribute="top" secondItem="6Rb-c8-FBz" secondAttribute="bottom" constant="16" id="JJG-2Q-dKS"/>
                                     <constraint firstItem="HSR-46-EX9" firstAttribute="leading" secondItem="tXE-yi-VhP" secondAttribute="leading" id="Lq0-pa-ZAo"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="280" id="Lsg-0D-t0s">
+                                        <variation key="widthClass=regular" constant="240"/>
+                                    </constraint>
                                     <constraint firstItem="tfW-Pq-XA4" firstAttribute="leading" secondItem="tXE-yi-VhP" secondAttribute="leading" id="OYZ-BX-JGm"/>
                                     <constraint firstItem="sHy-WK-38l" firstAttribute="top" secondItem="HSR-46-EX9" secondAttribute="bottom" constant="16" id="Wwm-cq-iUO"/>
                                     <constraint firstItem="sHy-WK-38l" firstAttribute="leading" secondItem="tXE-yi-VhP" secondAttribute="leading" id="X1Z-WJ-b4b"/>
@@ -73,22 +91,32 @@
                                     <constraint firstItem="6Rb-c8-FBz" firstAttribute="leading" secondItem="tXE-yi-VhP" secondAttribute="leading" id="qr2-Og-wI5"/>
                                     <constraint firstAttribute="trailing" secondItem="6Rb-c8-FBz" secondAttribute="trailing" id="z6O-nT-1fD"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Lsg-0D-t0s"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Lsg-0D-t0s"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8hi-HE-jnd">
-                                <rect key="frame" x="16" y="457" width="345" height="120"/>
+                                <rect key="frame" x="16" y="272" width="209" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMu-Ur-ZuL">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="209" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z84-bc-2jX" customClass="CosmosView" customModule="Cosmos">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="iLs-r4-ru0"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcY-Dv-zj8">
-                                                <rect key="frame" x="68" y="-1.5" width="277" height="13.5"/>
+                                                <rect key="frame" x="68" y="14.666666666666686" width="141" height="13.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -106,7 +134,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hd0-2D-IRg">
-                                        <rect key="frame" x="0.0" y="18" width="345" height="14"/>
+                                        <rect key="frame" x="0.0" y="50" width="209" height="14"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPv-Cm-kHn" customClass="CosmosView" customModule="Cosmos">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="14"/>
@@ -116,7 +144,7 @@
                                                 </constraints>
                                             </view>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="X3c-HB-sT9">
-                                                <rect key="frame" x="68" y="5" width="277" height="2"/>
+                                                <rect key="frame" x="68" y="5" width="141" height="2"/>
                                                 <color key="progressTintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </progressView>
@@ -133,7 +161,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5k-kT-O4N">
-                                        <rect key="frame" x="0.0" y="32" width="345" height="14"/>
+                                        <rect key="frame" x="0.0" y="64" width="209" height="14"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gz2-O0-bVZ" customClass="CosmosView" customModule="Cosmos">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="14"/>
@@ -143,7 +171,7 @@
                                                 </constraints>
                                             </view>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5He-ux-Z9O">
-                                                <rect key="frame" x="68" y="5" width="277" height="2"/>
+                                                <rect key="frame" x="68" y="5" width="141" height="2"/>
                                                 <color key="progressTintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </progressView>
@@ -160,7 +188,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlq-0p-LVY">
-                                        <rect key="frame" x="0.0" y="46" width="345" height="14"/>
+                                        <rect key="frame" x="0.0" y="78" width="209" height="14"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGg-5m-6w4" customClass="CosmosView" customModule="Cosmos">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="14"/>
@@ -170,7 +198,7 @@
                                                 </constraints>
                                             </view>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SSg-Fz-nd8">
-                                                <rect key="frame" x="68" y="5" width="277" height="2"/>
+                                                <rect key="frame" x="68" y="5" width="141" height="2"/>
                                                 <color key="progressTintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </progressView>
@@ -187,7 +215,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2E-Mq-oc0">
-                                        <rect key="frame" x="0.0" y="60" width="345" height="14"/>
+                                        <rect key="frame" x="0.0" y="92" width="209" height="14"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZP-5o-blv" customClass="CosmosView" customModule="Cosmos">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="14"/>
@@ -197,7 +225,7 @@
                                                 </constraints>
                                             </view>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Qg-BB-UkR">
-                                                <rect key="frame" x="68" y="5" width="277" height="2"/>
+                                                <rect key="frame" x="68" y="5" width="141" height="2"/>
                                                 <color key="progressTintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </progressView>
@@ -214,7 +242,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAB-ZF-rSE">
-                                        <rect key="frame" x="0.0" y="74" width="345" height="14"/>
+                                        <rect key="frame" x="0.0" y="106" width="209" height="14"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ee9-pF-u9k" customClass="CosmosView" customModule="Cosmos">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="14"/>
@@ -224,7 +252,7 @@
                                                 </constraints>
                                             </view>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mb5-Hr-XPS">
-                                                <rect key="frame" x="68" y="5" width="277" height="2"/>
+                                                <rect key="frame" x="68" y="5" width="141" height="2"/>
                                                 <color key="progressTintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </progressView>
@@ -240,33 +268,94 @@
                                             <constraint firstItem="Ee9-pF-u9k" firstAttribute="leading" secondItem="WAB-ZF-rSE" secondAttribute="leading" id="ztA-Lk-d2I"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhD-Gs-fcZ">
-                                        <rect key="frame" x="0.0" y="88" width="345" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="O1V-c5-dFe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                        <state key="normal" title="レビューを書く"/>
-                                        <connections>
-                                            <action selector="didTapReviewButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qpI-tj-xZH"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhD-Gs-fcZ">
+                                <rect key="frame" x="241" y="272" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="O1V-c5-dFe"/>
+                                    <constraint firstAttribute="width" constant="120" id="fMT-he-sd7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="レビューを書く"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fMT-he-sd7"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="O1V-c5-dFe"/>
+                                        <include reference="fMT-he-sd7"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="didTapReviewButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qpI-tj-xZH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tXE-yi-VhP" firstAttribute="top" secondItem="req-C9-R7K" secondAttribute="top" constant="16" id="0r2-4B-ffb"/>
                             <constraint firstAttribute="trailing" secondItem="OMi-7y-tNw" secondAttribute="trailing" constant="16" id="2eA-h9-dJS"/>
                             <constraint firstItem="tXE-yi-VhP" firstAttribute="leading" secondItem="req-C9-R7K" secondAttribute="leading" constant="16" id="6ud-aR-T5Y"/>
+                            <constraint firstItem="MhD-Gs-fcZ" firstAttribute="bottom" secondItem="8hi-HE-jnd" secondAttribute="bottom" id="9Ki-zY-Eo4"/>
+                            <constraint firstItem="8hi-HE-jnd" firstAttribute="top" secondItem="OMi-7y-tNw" secondAttribute="bottom" constant="145" id="IeE-cp-4lr">
+                                <variation key="widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="MhD-Gs-fcZ" firstAttribute="top" secondItem="8hi-HE-jnd" secondAttribute="top" id="Kvz-rI-ejr"/>
                             <constraint firstItem="OMi-7y-tNw" firstAttribute="leading" secondItem="req-C9-R7K" secondAttribute="leading" constant="16" id="MUV-cW-GuY"/>
                             <constraint firstItem="OMi-7y-tNw" firstAttribute="top" secondItem="req-C9-R7K" secondAttribute="top" constant="16" id="O4A-wZ-WsD"/>
-                            <constraint firstAttribute="bottom" secondItem="8hi-HE-jnd" secondAttribute="bottom" constant="16" id="PVP-h9-bTH"/>
+                            <constraint firstAttribute="bottom" secondItem="8hi-HE-jnd" secondAttribute="bottom" constant="16" id="Q99-53-25I"/>
                             <constraint firstItem="8hi-HE-jnd" firstAttribute="top" secondItem="tXE-yi-VhP" secondAttribute="bottom" constant="16" id="StD-s7-wYJ"/>
+                            <constraint firstItem="tXE-yi-VhP" firstAttribute="leading" secondItem="OMi-7y-tNw" secondAttribute="trailing" constant="126.66666666666674" id="Tzk-GE-WfG">
+                                <variation key="widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="tXE-yi-VhP" firstAttribute="width" secondItem="OMi-7y-tNw" secondAttribute="width" id="Xgf-90-Kgl"/>
+                            <constraint firstItem="MhD-Gs-fcZ" firstAttribute="leading" secondItem="req-C9-R7K" secondAttribute="leading" constant="16" id="Y5c-Ri-wm0"/>
                             <constraint firstItem="tXE-yi-VhP" firstAttribute="top" secondItem="OMi-7y-tNw" secondAttribute="bottom" constant="16" id="ZnA-p1-6eu"/>
+                            <constraint firstItem="MhD-Gs-fcZ" firstAttribute="leading" secondItem="8hi-HE-jnd" secondAttribute="trailing" constant="-115" id="aQl-DH-KvX">
+                                <variation key="widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="MhD-Gs-fcZ" firstAttribute="top" secondItem="8hi-HE-jnd" secondAttribute="bottom" constant="16" id="hcb-6B-c3Z"/>
+                            <constraint firstAttribute="bottom" secondItem="MhD-Gs-fcZ" secondAttribute="bottom" constant="16" id="q69-UX-94g"/>
                             <constraint firstItem="8hi-HE-jnd" firstAttribute="leading" secondItem="req-C9-R7K" secondAttribute="leading" constant="16" id="qVq-bR-V4k"/>
                             <constraint firstAttribute="trailing" secondItem="8hi-HE-jnd" secondAttribute="trailing" constant="16" id="sLH-Bu-FgH"/>
+                            <constraint firstAttribute="trailing" secondItem="MhD-Gs-fcZ" secondAttribute="trailing" constant="16" id="uI2-pv-Ezw"/>
                             <constraint firstAttribute="trailing" secondItem="tXE-yi-VhP" secondAttribute="trailing" constant="16" id="v12-65-vIx"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0r2-4B-ffb"/>
+                                <exclude reference="Tzk-GE-WfG"/>
+                                <exclude reference="Xgf-90-Kgl"/>
+                                <exclude reference="IeE-cp-4lr"/>
+                                <exclude reference="Q99-53-25I"/>
+                                <exclude reference="9Ki-zY-Eo4"/>
+                                <exclude reference="Kvz-rI-ejr"/>
+                                <exclude reference="aQl-DH-KvX"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="2eA-h9-dJS"/>
+                                <include reference="0r2-4B-ffb"/>
+                                <exclude reference="6ud-aR-T5Y"/>
+                                <include reference="Tzk-GE-WfG"/>
+                                <include reference="Xgf-90-Kgl"/>
+                                <exclude reference="ZnA-p1-6eu"/>
+                                <include reference="IeE-cp-4lr"/>
+                                <include reference="Q99-53-25I"/>
+                                <exclude reference="StD-s7-wYJ"/>
+                                <exclude reference="sLH-Bu-FgH"/>
+                                <include reference="9Ki-zY-Eo4"/>
+                                <include reference="Kvz-rI-ejr"/>
+                                <exclude reference="Y5c-Ri-wm0"/>
+                                <include reference="aQl-DH-KvX"/>
+                                <exclude reference="hcb-6B-c3Z"/>
+                                <exclude reference="q69-UX-94g"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <constraints>

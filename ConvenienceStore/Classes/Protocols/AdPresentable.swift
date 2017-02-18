@@ -39,7 +39,12 @@ extension AdPresentable where Self: UIViewController {
             return v
         }()
         
-        let bannerHeight = CGFloat(50)
+        let bannerHeight: CGFloat
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:   bannerHeight = 90
+        case .phone: bannerHeight = 50
+        default:     bannerHeight = 50
+        }
         
         view.addSubview(bannerView)
         
