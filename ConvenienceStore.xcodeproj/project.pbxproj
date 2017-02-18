@@ -55,6 +55,7 @@
 		414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 414A19EA1E45590300AEE6D2 /* Localizable.strings */; };
 		414A19F01E455BC800AEE6D2 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19EF1E455BC800AEE6D2 /* L10n.swift */; };
 		416E164E1E58308D00D683EE /* TimeInterval+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416E164D1E58308D00D683EE /* TimeInterval+Format.swift */; };
+		416E16501E58475F00D683EE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 416E164F1E58475F00D683EE /* Settings.bundle */; };
 		417FFDED1E4FEAB900C6F6CD /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */; };
 		417FFDF01E4FECED00C6F6CD /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */; };
 		417FFDF11E4FECED00C6F6CD /* ItemDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */; };
@@ -173,6 +174,7 @@
 		414A19EA1E45590300AEE6D2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		414A19EF1E455BC800AEE6D2 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		416E164D1E58308D00D683EE /* TimeInterval+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Format.swift"; sourceTree = "<group>"; };
+		416E164F1E58475F00D683EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
 		417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
 		417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				4134EA1F1E4235560092A6EF /* development.entitlements */,
 				41DB23661E3C86E000FDD28D /* GoogleService-Info.plist */,
 				41DB23611E3C868900FDD28D /* Info.plist */,
+				416E164F1E58475F00D683EE /* Settings.bundle */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				B5954B7C2D1BA24055847704 /* [CP] Embed Pods Frameworks */,
 				D3615B35C7BEE8762FB0BBA7 /* [CP] Copy Pods Resources */,
 				41DB23DF1E3DC40500FDD28D /* Carthage */,
+				416E16511E58481400D683EE /* Settings.bundle */,
 			);
 			buildRules = (
 			);
@@ -674,6 +678,7 @@
 				41385A5B1E46E8F6009C24C6 /* ItemsCollectionViewController.xib in Resources */,
 				412288BE1E504EB0009F0AD5 /* ReviewViewController.xib in Resources */,
 				41199A4F1E476AE300559A2D /* SelectRegionViewController.xib in Resources */,
+				416E16501E58475F00D683EE /* Settings.bundle in Resources */,
 				41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */,
 				417FFDF11E4FECED00C6F6CD /* ItemDetailTableViewCell.xib in Resources */,
 				41385A631E46FAD0009C24C6 /* ItemCollectionViewCell.xib in Resources */,
@@ -722,6 +727,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/swiftgen strings -t dot-syntax-swift3 \"${SRCROOT}/ConvenienceStore/Localizable.strings\" > \"${SRCROOT}/ConvenienceStore/L10n.swift\"";
+		};
+		416E16511E58481400D683EE /* Settings.bundle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Settings.bundle;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/thankios \"${SRCROOT}\" \"${SRCROOT}/ConvenienceStore/SupportingFiles/Settings.bundle\"\n\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nBUILD_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${BUILD_NUMBER}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"";
 		};
 		41DB23DF1E3DC40500FDD28D /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
