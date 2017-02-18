@@ -83,7 +83,7 @@ internal final class ItemsCollectionViewController<T: Item>:
         let space = CGFloat(8)
         
         let itemWidth  = (frameWidth - (space * (numberOfItemForLine + 1))) / numberOfItemForLine
-        let itemHeight = itemWidth * 1.3
+        let itemHeight = itemWidth * 1.4
         
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = space

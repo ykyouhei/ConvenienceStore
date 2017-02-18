@@ -11,6 +11,7 @@ import Firebase
 import SVProgressHUD
 import Cosmos
 import Typist
+import FirebaseAnalytics
 
 internal protocol ReviewViewControllerDelegate: class {
     

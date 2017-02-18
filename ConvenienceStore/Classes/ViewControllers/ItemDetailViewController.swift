@@ -12,6 +12,7 @@ import Kingfisher
 import Core_iOS
 import SVProgressHUD
 import RealmSwift
+import FirebaseAnalytics
 
 private struct CellId {
     static let detail = "detailCell"
@@ -71,6 +72,13 @@ internal final class ItemDetailViewController<T: Item>:
     
     init(item: T) {
         self.item = item
+        
+        FIRAnalytics.logEvent(withName: kFIREventViewItem,
+                              parameters: [
+                                kFIRParameterItemID   : NSString(string: item.id),
+                                kFIRParameterItemName : NSString(string: item.title)
+                              ])
+        
         super.init()
     }
     
@@ -281,6 +289,13 @@ internal final class ItemDetailViewController<T: Item>:
     }
     
     func reviewViewController(_ vc: ReviewViewController, shouldSendReview review: Review) {
+        FIRAnalytics.logEvent(withName: kFIREventPostScore,
+                              parameters: [
+                                kFIRParameterItemID   : NSString(string: item.id),
+                                kFIRParameterItemName : NSString(string: item.title),
+                                kFIRParameterScore : NSNumber(value: review.rating)
+                              ])
+        
         ReviewManager.send(review: review, for: item)
             .onError(showError)
             .finally{
