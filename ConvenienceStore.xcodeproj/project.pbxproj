@@ -80,6 +80,9 @@
 		41DB23E81E3DE6DD00FDD28D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */; };
 		41DB23EA1E3F7E5200FDD28D /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E91E3F7E5200FDD28D /* Hero.framework */; };
 		41DB23EC1E3F7ECA00FDD28D /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */; };
+		41E5DAB11E5992AE00E7999A /* GenerateLawsonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5DAB01E5992AE00E7999A /* GenerateLawsonItems.swift */; };
+		41E5DAB41E59955D00E7999A /* LawsonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5DAB21E59932800E7999A /* LawsonItem.swift */; };
+		41E5DAB51E59955D00E7999A /* LawsonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5DAB21E59932800E7999A /* LawsonItem.swift */; };
 		D8AFA0DF5B91750298304E77 /* Pods_ConvenienceStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7D2737311F8460A97D56A9 /* Pods_ConvenienceStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -201,6 +204,8 @@
 		41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		41DB23E91E3F7E5200FDD28D /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 		41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		41E5DAB01E5992AE00E7999A /* GenerateLawsonItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateLawsonItems.swift; sourceTree = "<group>"; };
+		41E5DAB21E59932800E7999A /* LawsonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawsonItem.swift; sourceTree = "<group>"; };
 		7E8257D6735767DE09E26FFF /* Pods-ConvenienceStore.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenienceStore.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ConvenienceStore/Pods-ConvenienceStore.adhoc.xcconfig"; sourceTree = "<group>"; };
 		8D7D2737311F8460A97D56A9 /* Pods_ConvenienceStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvenienceStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8547EBAD7C18C58A8B4FFF /* Pods_ConvenienceStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvenienceStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +321,7 @@
 				41402E9F1E44D0D900031B4D /* Item.swift */,
 				41402EDC1E44D53D00031B4D /* FamilyMartItem.swift */,
 				41402EDF1E44D97600031B4D /* SevenElevenItem.swift */,
+				41E5DAB21E59932800E7999A /* LawsonItem.swift */,
 				41402EA21E44D13000031B4D /* CustomStringConvertible+Default.swift */,
 			);
 			path = CoreSources;
@@ -478,6 +484,7 @@
 				41DB23821E3C8B5000FDD28D /* Info.plist */,
 				41DB23861E3C8B8000FDD28D /* main.swift */,
 				41DB23C01E3CD5BF00FDD28D /* Environment.swift */,
+				41E5DAB01E5992AE00E7999A /* GenerateLawsonItems.swift */,
 				41DB23D51E3D8B5100FDD28D /* GenerateSevenItems.swift */,
 				410728431E436A4C00F530B3 /* GenerateFamilyMartItems.swift */,
 				410728451E4380A300F530B3 /* CommonFunctions.swift */,
@@ -566,6 +573,7 @@
 				D3615B35C7BEE8762FB0BBA7 /* [CP] Copy Pods Resources */,
 				41DB23DF1E3DC40500FDD28D /* Carthage */,
 				416E16511E58481400D683EE /* Settings.bundle */,
+				41E5DAAA1E588C8A00E7999A /* SymbolUpload */,
 			);
 			buildRules = (
 			);
@@ -769,6 +777,20 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
+		41E5DAAA1E588C8A00E7999A /* SymbolUpload */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SymbolUpload;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE=\"${SRCROOT}/ConvenienceStore-bdd9d84dcd00.json\"\n\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=\"1:924697346732:ios:0ae443e7a2b62ae0\"\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${JSON_FILE}\"";
+		};
 		B5954B7C2D1BA24055847704 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -806,6 +828,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E5DAB41E59955D00E7999A /* LawsonItem.swift in Sources */,
 				41402ED81E44D4BF00031B4D /* Item.swift in Sources */,
 				41402EDD1E44D53D00031B4D /* FamilyMartItem.swift in Sources */,
 				41402ED91E44D4BF00031B4D /* CustomStringConvertible+Default.swift in Sources */,
@@ -817,6 +840,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E5DAB51E59955D00E7999A /* LawsonItem.swift in Sources */,
 				41402EDA1E44D4C000031B4D /* Item.swift in Sources */,
 				41402EDE1E44D53D00031B4D /* FamilyMartItem.swift in Sources */,
 				41402EDB1E44D4C000031B4D /* CustomStringConvertible+Default.swift in Sources */,
@@ -862,6 +886,7 @@
 				410728441E436A4C00F530B3 /* GenerateFamilyMartItems.swift in Sources */,
 				41DB23871E3C8B8000FDD28D /* main.swift in Sources */,
 				410728461E4380A300F530B3 /* CommonFunctions.swift in Sources */,
+				41E5DAB11E5992AE00E7999A /* GenerateLawsonItems.swift in Sources */,
 				41DB23D61E3D8B5100FDD28D /* GenerateSevenItems.swift in Sources */,
 				41DB23C11E3CD5BF00FDD28D /* Environment.swift in Sources */,
 			);
@@ -991,11 +1016,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EC83W22VX;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 3;
+				DYLIB_CURRENT_VERSION = 7;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1015,11 +1040,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EC83W22VX;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 3;
+				DYLIB_CURRENT_VERSION = 7;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Core_macOS/Info.plist;
@@ -1041,11 +1066,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EC83W22VX;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 3;
+				DYLIB_CURRENT_VERSION = 7;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1065,11 +1090,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EC83W22VX;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 3;
+				DYLIB_CURRENT_VERSION = 7;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1089,11 +1114,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EC83W22VX;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 3;
+				DYLIB_CURRENT_VERSION = 7;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Core_macOS/Info.plist;
@@ -1115,11 +1140,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EC83W22VX;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 3;
+				DYLIB_CURRENT_VERSION = 7;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Core_macOS/Info.plist;
@@ -1250,7 +1275,7 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.ConvenienceStore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2329d4f7-7411-4ce7-b1b8-9a8cae0d28b7";
+				PROVISIONING_PROFILE = "de28eafa-d431-43fd-b677-539dc6439c71";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.kyo--hei.ConvenienceStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;

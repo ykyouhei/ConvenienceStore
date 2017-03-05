@@ -13,24 +13,8 @@ import SwiftyUserDefaults
 
 internal final class RootTabBarController: UITabBarController {
     
-    private(set) lazy var sevenElevenViewController: ItemsCollectionViewController<SevenElevenItem> = {
-        let itemList = ItemListViewModel<SevenElevenItem>()
-        let vc = ItemsCollectionViewController(itemList: itemList)
-        vc.tabBarItem = self.tabBarItem(with: SevenElevenItem.self)
-        return vc
-    }()
-    
-    private(set) lazy var familyMartViewController: ItemsCollectionViewController<FamilyMartItem> = {
-        let itemList = ItemListViewModel<FamilyMartItem>()
-        let vc = ItemsCollectionViewController(itemList: itemList)
-        vc.tabBarItem = self.tabBarItem(with: FamilyMartItem.self)
-        return vc
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        isHeroEnabled = true
         
         FIRAuth.auth()?.signInAnonymously { user, error in
             log.debug("\(user?.uid)")
@@ -41,19 +25,25 @@ internal final class RootTabBarController: UITabBarController {
     }
     
     private func setupViewControllers() {
-        let sevenList = ItemListViewModel<SevenElevenItem>()
-        let sevenVC = ItemsCollectionViewController(itemList: sevenList)
-        let sevenNavigation = UINavigationController(rootViewController: sevenVC)
-        sevenVC.tabBarItem = tabBarItem(with: SevenElevenItem.self)
+        let sevenList        = ItemListViewModel<SevenElevenItem>()
+        let sevenVC          = ItemsCollectionViewController(itemList: sevenList)
+        let sevenNavigation  = UINavigationController(rootViewController: sevenVC)
+        sevenVC.tabBarItem   = tabBarItem(with: SevenElevenItem.self)
         
-        let famimaList = ItemListViewModel<FamilyMartItem>()
-        let famimaVC = ItemsCollectionViewController(itemList: famimaList)
+        let famimaList       = ItemListViewModel<FamilyMartItem>()
+        let famimaVC         = ItemsCollectionViewController(itemList: famimaList)
         let famimaNavigation = UINavigationController(rootViewController: famimaVC)
-        famimaVC.tabBarItem = tabBarItem(with: FamilyMartItem.self)
+        famimaVC.tabBarItem  = tabBarItem(with: FamilyMartItem.self)
+        
+        let lawsonList       = ItemListViewModel<LawsonItem>()
+        let lawsonVC         = ItemsCollectionViewController(itemList: lawsonList)
+        let lawsonNavigation = UINavigationController(rootViewController: lawsonVC)
+        lawsonVC.tabBarItem  = tabBarItem(with: LawsonItem.self)
         
         let viewControllers: [UIViewController] = [
             sevenNavigation,
-            famimaNavigation
+            famimaNavigation,
+            lawsonNavigation
         ]
         
         setViewControllers(viewControllers, animated: false)

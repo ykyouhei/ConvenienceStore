@@ -25,11 +25,17 @@ extension FamilyMartItem: PushItem {
     }
 }
 
+extension LawsonItem: PushItem {
+    static var body: String {
+        return "⭐ローソンの新商品情報が更新されました"
+    }
+}
+
 
 /// Firebaseへ商品情報を送る
 ///
 /// - Parameter items: 商品情報
-func sendJSON<T: Item>(with items: [T]) where T: PushItem {
+func sendJSON<T: Item>(with items: [T], pushEnabled: Bool) where T: PushItem {
     
     let request: URLRequest = {
         let secret = Environment.get(.firebaseSecret)
@@ -52,6 +58,8 @@ func sendJSON<T: Item>(with items: [T]) where T: PushItem {
     print("======== Send JSON =========")
     
     let semaphore = DispatchSemaphore(value: 0)
+    var result = false
+    
     URLSession.shared.dataTask(with: request) { data, response, error in
         
         switch (data, response, error) {
@@ -61,7 +69,7 @@ func sendJSON<T: Item>(with items: [T]) where T: PushItem {
             print(response)
             
             if 200..<300 ~= response.statusCode {
-                pushNotification(title: "🏪新商品情報の更新", body: T.body)
+                result = true
             }
             
             
@@ -71,10 +79,13 @@ func sendJSON<T: Item>(with items: [T]) where T: PushItem {
         
         semaphore.signal()
         
-        }.resume()
+    }.resume()
     
     semaphore.wait()
     
+    if result && pushEnabled {
+        pushNotification(title: "🏪新商品情報の更新", body: T.body)
+    }
 }
 
 
@@ -109,7 +120,7 @@ func pushNotification(title: String, body: String) {
         return r
     }()
     
-    print("======== Send JSON =========")
+    print("======== Send Push =========")
     
     let semaphore = DispatchSemaphore(value: 0)
     URLSession.shared.dataTask(with: request) { data, response, error in
@@ -125,7 +136,7 @@ func pushNotification(title: String, body: String) {
         
         semaphore.signal()
         
-        }.resume()
+    }.resume()
     
     semaphore.wait()
 }

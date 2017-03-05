@@ -26,7 +26,9 @@ enum L10n {
     enum Title {
       /// FamilyMart
       static let familymart = L10n.tr("common.title.familymart")
-      /// ｾﾌﾞﾝｲﾚﾌﾞ
+      /// ローソン
+      static let lawson = L10n.tr("common.title.lawson")
+      /// ｾﾌﾞﾝｲﾚﾌﾞﾝ
       static let seveneleven = L10n.tr("common.title.seveneleven")
     }
   }

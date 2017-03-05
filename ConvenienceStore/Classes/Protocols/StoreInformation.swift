@@ -39,3 +39,14 @@ extension FamilyMartItem: StoreInformation {
     
     
 }
+
+extension LawsonItem: StoreInformation {
+    
+    static let iconImage = #imageLiteral(resourceName: "icon_lawson")
+    
+    static let logoImage = #imageLiteral(resourceName: "logo_lawson")
+    
+    static let name = L10n.Common.Title.lawson
+    
+    
+}
