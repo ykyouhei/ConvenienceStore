@@ -60,6 +60,7 @@
                     <connections>
                         <segue destination="1pP-IU-n5L" kind="relationship" relationship="viewControllers" id="m33-3i-ZOj"/>
                         <segue destination="8vl-3b-bRr" kind="relationship" relationship="viewControllers" id="hSS-po-sw0"/>
+                        <segue destination="aJu-Eq-K7w" kind="relationship" relationship="viewControllers" id="j9e-Qm-xU0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPX-yv-zKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,9 +105,48 @@
             </objects>
             <point key="canvasLocation" x="990" y="755"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="hHz-pL-9Bm">
+            <objects>
+                <viewController id="sAw-a4-Oen" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="adN-XV-FK5"/>
+                        <viewControllerLayoutGuide type="bottom" id="VYd-ap-emg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SRg-lV-UOu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9aH-6I-bON"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1E7-Oh-Hyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705" y="1456"/>
+        </scene>
+        <!--ローソン-->
+        <scene sceneID="RL8-fE-UsV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aJu-Eq-K7w" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ローソン" image="icon_lawson" id="cOw-AO-agQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ymB-CQ-xGV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sAw-a4-Oen" kind="relationship" relationship="rootViewController" id="oxR-yb-WL5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCH-yB-CWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="1457"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_familymart" width="30" height="30"/>
+        <image name="icon_lawson" width="30" height="30"/>
         <image name="icon_seven_eleven" width="30" height="30"/>
     </resources>
 </document>

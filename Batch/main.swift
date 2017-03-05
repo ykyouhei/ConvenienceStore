@@ -9,8 +9,13 @@
 import Foundation
 import Regex
 
-let familyMartItems  = generateFamilyMartItems()
-let sevenElevenItems = generateSevenItems()
 
-sendJSON(with: familyMartItems)
-sendJSON(with: sevenElevenItems)
+//let familyMartItems  = generateFamilyMartItems()
+//let sevenElevenItems = generateSevenItems()
+let lawsonItems = generateLawsonItems()
+//
+//sendJSON(with: sevenElevenItems)
+//sendJSON(with: familyMartItems)
+sendJSON(with: lawsonItems, pushEnabled: false)
+
+print("~~~~~ end ~~~~~~~")

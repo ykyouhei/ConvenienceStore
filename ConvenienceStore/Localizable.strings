@@ -5,8 +5,9 @@
   Created by kyo__hei on 2017/02/04.
   Copyright © 2017年 kyo__hei. All rights reserved.
 */
-"common.title.seveneleven" = "ｾﾌﾞﾝｲﾚﾌﾞ";
+"common.title.seveneleven" = "ｾﾌﾞﾝｲﾚﾌﾞﾝ";
 "common.title.familymart"  = "FamilyMart";
+"common.title.lawson"      = "ローソン";
 "common.label.close" = "閉じる";
 "common.label.yes" = "はい";
 "common.label.no" = "いいえ";
