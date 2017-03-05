@@ -16,8 +16,6 @@ internal final class RootTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        isHeroEnabled = true
-        
         FIRAuth.auth()?.signInAnonymously { user, error in
             log.debug("\(user?.uid)")
             log.debug("\(error)")
