@@ -30,34 +30,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let gcmMessageIDKey = "gcm.message_id"
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         log.info(googleService.get(.adUnitIdForBanner)!)
         
-        registerUserNotification(for: application)
-        
         setupFirebase()
+        
+        registerUserNotification(for: application)
         
         setupRootViewController()
         
         return true
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        FIRMessaging.messaging().disconnect()
-        log.info("Disconnected from FCM.")
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        connectToFcm()
-    }
-
     
     // MARK: Private Method
     
     private func setupFirebase() {
-        FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
     }
     
     private func setupRootViewController() {
@@ -73,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 // MARK: - Notification
-extension AppDelegate: UNUserNotificationCenterDelegate, FIRMessagingDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     // MARK: Types
     
@@ -149,63 +141,35 @@ extension AppDelegate: UNUserNotificationCenterDelegate, FIRMessagingDelegate {
     
     // MARK: FIRMessagingDelegate
     
-    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-        log.info(remoteMessage.appData)
-    } 
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("Received data message: \(remoteMessage.appData)")
+    }
     
     
     // MARK: Private
     
-    fileprivate func registerUserNotification(for application: UIApplication) {
+    private func registerUserNotification(for application: UIApplication) {
+        
+         Messaging.messaging().delegate = self
+        
         if #available(iOS 10.0, *) {
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-            
             UNUserNotificationCenter.current().delegate = self
             
-            FIRMessaging.messaging().remoteMessageDelegate = self
-            
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: [.alert, .badge, .sound],
+                completionHandler: {_, _ in })
         } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound],
+                                                      categories: nil)
+            
             application.registerUserNotificationSettings(settings)
         }
         
         application.registerForRemoteNotifications()
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.tokenRefreshNotification),
-                                               name: .firInstanceIDTokenRefresh,
-                                               object: nil)
     }
     
-    func tokenRefreshNotification(_ notification: Notification) {
-        if let refreshedToken = FIRInstanceID.instanceID().token() {
-            log.info("InstanceID token: \(refreshedToken)")
-        }
-        
-        
-        connectToFcm()
-    }
-    
-    fileprivate func connectToFcm() {
-        guard FIRInstanceID.instanceID().token() != nil else {
-            return;
-        }
-        
-        FIRMessaging.messaging().disconnect()
-        
-        FIRMessaging.messaging().connect { error in
-            if let error = error {
-                log.error("Unable to connect with FCM. \(error)")
-            } else {
-                log.info("Connected to FCM.")
-                FIRMessaging.messaging().subscribe(toTopic: Topics.newItems.rawValue)
-            }
-        }
-    }
 }
-

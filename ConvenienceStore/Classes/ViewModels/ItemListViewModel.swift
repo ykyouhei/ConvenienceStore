@@ -15,7 +15,7 @@ internal final class ItemListViewModel<T: Item> {
     
     // MAKR: Types
     
-    typealias QueryBlock = (_ ref: FIRDatabaseReference) -> FIRDatabaseQuery
+    typealias QueryBlock = (_ ref: DatabaseReference) -> DatabaseQuery
     
     typealias FilterBlock = (T) -> Bool
     
@@ -29,10 +29,10 @@ internal final class ItemListViewModel<T: Item> {
         return true
     }
     
-    private lazy var fbReference: FIRDatabaseReference = {
+    private lazy var fbReference: DatabaseReference = {
         let index = T.dataBasePath.index(after: T.dataBasePath.startIndex)
         let path  = T.dataBasePath.substring(from: index)
-        let ref   =  FIRDatabase.database().reference().child(path)
+        let ref   =  Database.database().reference().child(path)
         ref.keepSynced(true)
         return ref
     }()
@@ -57,7 +57,7 @@ internal final class ItemListViewModel<T: Item> {
                 of: .value,
                 with: { snapshot in
                     self.items = snapshot.children.flatMap { snap -> T? in
-                        guard let json = (snap as? FIRDataSnapshot)?.value as? [String : Any] else {
+                        guard let json = (snap as? DataSnapshot)?.value as? [String : Any] else {
                             return nil
                         }
                         return T(json: json)

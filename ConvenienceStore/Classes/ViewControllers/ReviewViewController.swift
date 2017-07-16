@@ -75,12 +75,12 @@ internal final class ReviewViewController: XibBaseViewController {
     
     // MARK: Actions
     
-    func didTapCancelButton(_ sender: UIBarButtonItem) {
+    @objc func didTapCancelButton(_ sender: UIBarButtonItem) {
         delegate?.reviewViewControllerDidTapCancel(self)
     }
     
-    func didTapSendButton(_ sender: UIBarButtonItem) {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+    @objc func didTapSendButton(_ sender: UIBarButtonItem) {
+        guard let uid = Auth.auth().currentUser?.uid else {
             SVProgressHUD.showError(withStatus: "")
             delegate?.reviewViewControllerDidTapCancel(self)
             return

@@ -78,10 +78,10 @@ internal final class ItemDetailViewController<T: Item>:
     init(item: T) {
         self.item = item
         
-        FIRAnalytics.logEvent(withName: kFIREventViewItem,
+        Analytics.logEvent(AnalyticsEventViewItem,
                               parameters: [
-                                kFIRParameterItemID   : NSString(string: item.id),
-                                kFIRParameterItemName : NSString(string: item.title)
+                                AnalyticsParameterItemID   : NSString(string: item.id),
+                                AnalyticsParameterItemName : NSString(string: item.title)
                               ])
         
         super.init()
@@ -125,11 +125,11 @@ internal final class ItemDetailViewController<T: Item>:
         }
     }
     
-    func didTapCloseButton(_ sender: UIBarButtonItem) {
+    @objc func didTapCloseButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     
-    func didTapWriteButton(_ sender: UIBarButtonItem) {
+    @objc func didTapWriteButton(_ sender: UIBarButtonItem) {
         showReviewVC()
     }
     
@@ -309,11 +309,11 @@ internal final class ItemDetailViewController<T: Item>:
     }
     
     func reviewViewController(_ vc: ReviewViewController, shouldSendReview review: Review) {
-        FIRAnalytics.logEvent(withName: kFIREventPostScore,
+        Analytics.logEvent(AnalyticsEventPostScore,
                               parameters: [
-                                kFIRParameterItemID   : NSString(string: item.id),
-                                kFIRParameterItemName : NSString(string: item.title),
-                                kFIRParameterScore : NSNumber(value: review.rating)
+                                AnalyticsParameterItemID   : NSString(string: item.id),
+                                AnalyticsParameterItemName : NSString(string: item.title),
+                                AnalyticsParameterScore : NSNumber(value: review.rating)
                               ])
         
         ReviewManager.send(review: review, for: item)

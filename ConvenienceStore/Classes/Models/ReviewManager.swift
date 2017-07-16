@@ -15,8 +15,8 @@ internal final class ReviewManager {
     
     // MARK: Constants
     
-    static let baseReference: FIRDatabaseReference = {
-        let ref = FIRDatabase.database().reference().child("reviews")
+    static let baseReference: DatabaseReference = {
+        let ref = Database.database().reference().child("reviews")
         ref.keepSynced(true)
         return ref
     }()
