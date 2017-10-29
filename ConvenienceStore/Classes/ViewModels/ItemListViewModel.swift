@@ -31,7 +31,7 @@ internal final class ItemListViewModel<T: Item> {
     
     private lazy var fbReference: DatabaseReference = {
         let index = T.dataBasePath.index(after: T.dataBasePath.startIndex)
-        let path  = T.dataBasePath.substring(from: index)
+        let path  = String(T.dataBasePath[index...])
         let ref   =  Database.database().reference().child(path)
         ref.keepSynced(true)
         return ref

@@ -67,7 +67,7 @@ internal final class ItemDetailTableViewCell: UITableViewCell {
     }
     
     
-    func update<T: Item>(item: T, reviewList: ReviewListViewModel<T>) {
+    func update<T>(item: T, reviewList: ReviewListViewModel<T>) {
         detailImageView.kf.setImage(with: item.imageURL)
         titleLabel.text = item.title
         priceLabel.text = item.taxIncludedPriceString

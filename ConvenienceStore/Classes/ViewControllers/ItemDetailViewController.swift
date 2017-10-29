@@ -102,11 +102,11 @@ internal final class ItemDetailViewController<T: Item>:
            _ = navigationController?.popViewController(animated: true)
             
         case .changed:
-            Hero.shared.update(progress: Double(progress))
+            Hero.shared.update(progress)
             
         default:
             progress + sender.velocity(in: nil).x / view.bounds.width > 0.3 ?
-                Hero.shared.end() :
+                Hero.shared.finish() :
                 Hero.shared.cancel()
         }
     }
@@ -221,7 +221,7 @@ internal final class ItemDetailViewController<T: Item>:
             if isTransition {
                 log.debug("--- isTransition\(scrollView.contentSize) ---")
                 let progress = (-scrollView.contentOffset.y - topLayoutGuide.length) / (scrollView.bounds.height * 0.75)
-                Hero.shared.update(progress: Double(progress))
+                Hero.shared.update(progress)
             } else if !scrollView.isDecelerating && scrollView.isDragging {
                 log.debug("---- start ----")
                 isTransition = true
@@ -238,7 +238,7 @@ internal final class ItemDetailViewController<T: Item>:
         if isTransition {
             log.debug("---- end ----")
             isTransition = false
-            Hero.shared.end()
+            Hero.shared.finish()
         }
     }
     
