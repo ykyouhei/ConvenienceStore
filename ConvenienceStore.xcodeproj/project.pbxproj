@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26BA86A6A0498C1E26E98EB5 /* Pods_ConvenienceStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8547EBAD7C18C58A8B4FFF /* Pods_ConvenienceStore.framework */; };
 		4104FCFD1E4718CC00BB9573 /* HeroModifier+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104FCFC1E4718CC00BB9573 /* HeroModifier+Default.swift */; };
 		410728441E436A4C00F530B3 /* GenerateFamilyMartItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410728431E436A4C00F530B3 /* GenerateFamilyMartItems.swift */; };
 		410728461E4380A300F530B3 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410728451E4380A300F530B3 /* CommonFunctions.swift */; };
@@ -60,6 +59,22 @@
 		417FFDF01E4FECED00C6F6CD /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */; };
 		417FFDF11E4FECED00C6F6CD /* ItemDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */; };
 		419026C91E4724AF008EB18A /* Item+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419026C81E4724AF008EB18A /* Item+Presentation.swift */; };
+		41C9B6F31FB884880025FB2A /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6E31FB884820025FB2A /* leveldb-library.framework */; };
+		41C9B6F41FB884880025FB2A /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6E41FB884820025FB2A /* FirebaseCoreDiagnostics.framework */; };
+		41C9B6F51FB884880025FB2A /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6E51FB884820025FB2A /* Protobuf.framework */; };
+		41C9B6F61FB884880025FB2A /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6E61FB884830025FB2A /* GoogleMobileAds.framework */; };
+		41C9B6F71FB884880025FB2A /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6E71FB884840025FB2A /* FirebaseAuth.framework */; };
+		41C9B6F81FB884880025FB2A /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6E81FB884840025FB2A /* FirebaseNanoPB.framework */; };
+		41C9B6F91FB884880025FB2A /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6E91FB884840025FB2A /* GTMSessionFetcher.framework */; };
+		41C9B6FA1FB884880025FB2A /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6EA1FB884850025FB2A /* nanopb.framework */; };
+		41C9B6FB1FB884880025FB2A /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6EB1FB884850025FB2A /* FirebaseMessaging.framework */; };
+		41C9B6FC1FB884880025FB2A /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6EC1FB884850025FB2A /* FirebaseDatabase.framework */; };
+		41C9B6FD1FB884880025FB2A /* FirebaseCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6ED1FB884860025FB2A /* FirebaseCrash.framework */; };
+		41C9B6FE1FB884880025FB2A /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6EE1FB884860025FB2A /* Protobuf.framework */; };
+		41C9B6FF1FB884880025FB2A /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6EF1FB884870025FB2A /* FirebaseCore.framework */; };
+		41C9B7001FB884880025FB2A /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6F01FB884870025FB2A /* FirebaseInstanceID.framework */; };
+		41C9B7011FB884880025FB2A /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6F11FB884870025FB2A /* FirebaseAnalytics.framework */; };
+		41C9B7021FB884880025FB2A /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6F21FB884870025FB2A /* GoogleToolboxForMac.framework */; };
 		41DB233F1E3C831B00FDD28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DB233E1E3C831B00FDD28D /* Assets.xcassets */; };
 		41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB23401E3C831B00FDD28D /* LaunchScreen.storyboard */; };
 		41DB23671E3C86E000FDD28D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41DB23661E3C86E000FDD28D /* GoogleService-Info.plist */; };
@@ -73,7 +88,6 @@
 		41DB23D61E3D8B5100FDD28D /* GenerateSevenItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23D51E3D8B5100FDD28D /* GenerateSevenItems.swift */; };
 		41DB23D81E3D9AEE00FDD28D /* ItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23D71E3D9AEE00FDD28D /* ItemsCollectionViewController.swift */; };
 		41DB23DA1E3DA32A00FDD28D /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23D91E3DA32A00FDD28D /* RootTabBarController.swift */; };
-		41DB23DD1E3DA47800FDD28D /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23DB1E3DA47800FDD28D /* IGListKit.framework */; };
 		41DB23DE1E3DA47800FDD28D /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */; };
 		41DB23E11E3DD70500FDD28D /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23E01E3DD70500FDD28D /* ItemListViewModel.swift */; };
 		41DB23E41E3DD8C100FDD28D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */; };
@@ -83,7 +97,6 @@
 		41E5DAB11E5992AE00E7999A /* GenerateLawsonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5DAB01E5992AE00E7999A /* GenerateLawsonItems.swift */; };
 		41E5DAB41E59955D00E7999A /* LawsonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5DAB21E59932800E7999A /* LawsonItem.swift */; };
 		41E5DAB51E59955D00E7999A /* LawsonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5DAB21E59932800E7999A /* LawsonItem.swift */; };
-		D8AFA0DF5B91750298304E77 /* Pods_ConvenienceStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7D2737311F8460A97D56A9 /* Pods_ConvenienceStore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +144,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1AF88D65C027C878A70CCD2E /* Pods-ConvenienceStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenienceStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConvenienceStore/Pods-ConvenienceStore.release.xcconfig"; sourceTree = "<group>"; };
 		4104FCFC1E4718CC00BB9573 /* HeroModifier+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroModifier+Default.swift"; sourceTree = "<group>"; };
 		410728431E436A4C00F530B3 /* GenerateFamilyMartItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateFamilyMartItems.swift; sourceTree = "<group>"; };
 		410728451E4380A300F530B3 /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
@@ -178,10 +190,27 @@
 		414A19EF1E455BC800AEE6D2 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		416E164D1E58308D00D683EE /* TimeInterval+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Format.swift"; sourceTree = "<group>"; };
 		416E164F1E58475F00D683EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		41729FAA1FB8824F00CC5359 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = Firebase/module.modulemap; sourceTree = SOURCE_ROOT; };
 		417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
 		417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
 		417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailTableViewCell.xib; sourceTree = "<group>"; };
 		419026C81E4724AF008EB18A /* Item+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+Presentation.swift"; sourceTree = "<group>"; };
+		41C9B6E31FB884820025FB2A /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "Firebase/Database/leveldb-library.framework"; sourceTree = "<group>"; };
+		41C9B6E41FB884820025FB2A /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Firebase/Analytics/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		41C9B6E51FB884820025FB2A /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Firebase/Messaging/Protobuf.framework; sourceTree = "<group>"; };
+		41C9B6E61FB884830025FB2A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Firebase/AdMob/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		41C9B6E71FB884840025FB2A /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Firebase/Auth/FirebaseAuth.framework; sourceTree = "<group>"; };
+		41C9B6E81FB884840025FB2A /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseNanoPB.framework; path = Firebase/Analytics/FirebaseNanoPB.framework; sourceTree = "<group>"; };
+		41C9B6E91FB884840025FB2A /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = Firebase/Auth/GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		41C9B6EA1FB884850025FB2A /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = Firebase/Analytics/nanopb.framework; sourceTree = "<group>"; };
+		41C9B6EB1FB884850025FB2A /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = Firebase/Messaging/FirebaseMessaging.framework; sourceTree = "<group>"; };
+		41C9B6EC1FB884850025FB2A /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Firebase/Database/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		41C9B6ED1FB884860025FB2A /* FirebaseCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCrash.framework; path = Firebase/Crash/FirebaseCrash.framework; sourceTree = "<group>"; };
+		41C9B6EE1FB884860025FB2A /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Firebase/Crash/Protobuf.framework; sourceTree = "<group>"; };
+		41C9B6EF1FB884870025FB2A /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Firebase/Analytics/FirebaseCore.framework; sourceTree = "<group>"; };
+		41C9B6F01FB884870025FB2A /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Firebase/Analytics/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		41C9B6F11FB884870025FB2A /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Firebase/Analytics/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		41C9B6F21FB884870025FB2A /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Firebase/Analytics/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
 		41DB23341E3C831B00FDD28D /* ConvenienceStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvenienceStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DB233E1E3C831B00FDD28D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41DB23411E3C831B00FDD28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -206,10 +235,6 @@
 		41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		41E5DAB01E5992AE00E7999A /* GenerateLawsonItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateLawsonItems.swift; sourceTree = "<group>"; };
 		41E5DAB21E59932800E7999A /* LawsonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawsonItem.swift; sourceTree = "<group>"; };
-		7E8257D6735767DE09E26FFF /* Pods-ConvenienceStore.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenienceStore.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ConvenienceStore/Pods-ConvenienceStore.adhoc.xcconfig"; sourceTree = "<group>"; };
-		8D7D2737311F8460A97D56A9 /* Pods_ConvenienceStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvenienceStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B8547EBAD7C18C58A8B4FFF /* Pods_ConvenienceStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvenienceStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0E124740429E75E3D447A7C /* Pods-ConvenienceStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenienceStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConvenienceStore/Pods-ConvenienceStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,18 +260,31 @@
 				41DB23E81E3DE6DD00FDD28D /* Kingfisher.framework in Frameworks */,
 				414A19E61E454A3800AEE6D2 /* then.framework in Frameworks */,
 				41402EC21E44D48B00031B4D /* Core_iOS.framework in Frameworks */,
+				41C9B7011FB884880025FB2A /* FirebaseAnalytics.framework in Frameworks */,
+				41C9B6F91FB884880025FB2A /* GTMSessionFetcher.framework in Frameworks */,
+				41C9B6FD1FB884880025FB2A /* FirebaseCrash.framework in Frameworks */,
 				41199A531E476E8300559A2D /* SwiftyUserDefaults.framework in Frameworks */,
+				41C9B6F31FB884880025FB2A /* leveldb-library.framework in Frameworks */,
+				41C9B6FC1FB884880025FB2A /* FirebaseDatabase.framework in Frameworks */,
 				414966B71E50A26100259AD1 /* SwiftyConfiguration.framework in Frameworks */,
 				41DB23E41E3DD8C100FDD28D /* SwiftyJSON.framework in Frameworks */,
 				41DB23EA1E3F7E5200FDD28D /* Hero.framework in Frameworks */,
-				41DB23DD1E3DA47800FDD28D /* IGListKit.framework in Frameworks */,
+				41C9B6FB1FB884880025FB2A /* FirebaseMessaging.framework in Frameworks */,
+				41C9B7001FB884880025FB2A /* FirebaseInstanceID.framework in Frameworks */,
+				41C9B6FA1FB884880025FB2A /* nanopb.framework in Frameworks */,
+				41C9B6FF1FB884880025FB2A /* FirebaseCore.framework in Frameworks */,
+				41C9B6F71FB884880025FB2A /* FirebaseAuth.framework in Frameworks */,
 				414966BE1E52010E00259AD1 /* Realm.framework in Frameworks */,
 				41385A5F1E46F79D009C24C6 /* SVProgressHUD.framework in Frameworks */,
 				412288C41E506B42009F0AD5 /* Typist.framework in Frameworks */,
+				41C9B7021FB884880025FB2A /* GoogleToolboxForMac.framework in Frameworks */,
+				41C9B6F41FB884880025FB2A /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				41C9B6F81FB884880025FB2A /* FirebaseNanoPB.framework in Frameworks */,
 				41DB23DE1E3DA47800FDD28D /* SwiftyBeaver.framework in Frameworks */,
-				D8AFA0DF5B91750298304E77 /* Pods_ConvenienceStore.framework in Frameworks */,
 				414966BF1E52010E00259AD1 /* RealmSwift.framework in Frameworks */,
-				26BA86A6A0498C1E26E98EB5 /* Pods_ConvenienceStore.framework in Frameworks */,
+				41C9B6FE1FB884880025FB2A /* Protobuf.framework in Frameworks */,
+				41C9B6F61FB884880025FB2A /* GoogleMobileAds.framework in Frameworks */,
+				41C9B6F51FB884880025FB2A /* Protobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +304,7 @@
 		01D67F93010082E14706732D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41729FA91FB87FA100CC5359 /* Firebase */,
 				414966BC1E52010E00259AD1 /* Realm.framework */,
 				414966BD1E52010E00259AD1 /* RealmSwift.framework */,
 				414966B61E50A26100259AD1 /* SwiftyConfiguration.framework */,
@@ -275,7 +314,6 @@
 				41DB23E91E3F7E5200FDD28D /* Hero.framework */,
 				41DB23DB1E3DA47800FDD28D /* IGListKit.framework */,
 				41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */,
-				8D7D2737311F8460A97D56A9 /* Pods_ConvenienceStore.framework */,
 				41385A5E1E46F79D009C24C6 /* SVProgressHUD.framework */,
 				41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */,
 				41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */,
@@ -285,20 +323,9 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		0F5DB8E34A4C18D853DFE4FD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C0E124740429E75E3D447A7C /* Pods-ConvenienceStore.debug.xcconfig */,
-				1AF88D65C027C878A70CCD2E /* Pods-ConvenienceStore.release.xcconfig */,
-				7E8257D6735767DE09E26FFF /* Pods-ConvenienceStore.adhoc.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		3D3803F4549EB75E403EAAEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B8547EBAD7C18C58A8B4FFF /* Pods_ConvenienceStore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -362,6 +389,29 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		41729FA91FB87FA100CC5359 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				41C9B6F11FB884870025FB2A /* FirebaseAnalytics.framework */,
+				41C9B6E71FB884840025FB2A /* FirebaseAuth.framework */,
+				41C9B6EF1FB884870025FB2A /* FirebaseCore.framework */,
+				41C9B6E41FB884820025FB2A /* FirebaseCoreDiagnostics.framework */,
+				41C9B6ED1FB884860025FB2A /* FirebaseCrash.framework */,
+				41C9B6EC1FB884850025FB2A /* FirebaseDatabase.framework */,
+				41C9B6F01FB884870025FB2A /* FirebaseInstanceID.framework */,
+				41C9B6EB1FB884850025FB2A /* FirebaseMessaging.framework */,
+				41C9B6E81FB884840025FB2A /* FirebaseNanoPB.framework */,
+				41C9B6E61FB884830025FB2A /* GoogleMobileAds.framework */,
+				41C9B6F21FB884870025FB2A /* GoogleToolboxForMac.framework */,
+				41C9B6E91FB884840025FB2A /* GTMSessionFetcher.framework */,
+				41C9B6E31FB884820025FB2A /* leveldb-library.framework */,
+				41C9B6EA1FB884850025FB2A /* nanopb.framework */,
+				41C9B6EE1FB884860025FB2A /* Protobuf.framework */,
+				41C9B6E51FB884820025FB2A /* Protobuf.framework */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		41DB232B1E3C831B00FDD28D = {
 			isa = PBXGroup;
 			children = (
@@ -371,7 +421,6 @@
 				41402EBC1E44D48A00031B4D /* Core_iOS */,
 				41402ECD1E44D4B500031B4D /* Core_macOS */,
 				41DB23351E3C831B00FDD28D /* Products */,
-				0F5DB8E34A4C18D853DFE4FD /* Pods */,
 				3D3803F4549EB75E403EAAEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -468,6 +517,7 @@
 		41DB23601E3C865000FDD28D /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				41729FAA1FB8824F00CC5359 /* module.modulemap */,
 				4134EA201E4237EF0092A6EF /* production.entitlements */,
 				4134EA1F1E4235560092A6EF /* development.entitlements */,
 				41DB23661E3C86E000FDD28D /* GoogleService-Info.plist */,
@@ -563,14 +613,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41DB23461E3C831B00FDD28D /* Build configuration list for PBXNativeTarget "ConvenienceStore" */;
 			buildPhases = (
-				3D261744E33D9F425847ACFC /* [CP] Check Pods Manifest.lock */,
 				414A19EC1E455AB900AEE6D2 /* Swiftgen */,
 				41DB23301E3C831B00FDD28D /* Sources */,
 				41DB23311E3C831B00FDD28D /* Frameworks */,
 				41DB23321E3C831B00FDD28D /* Resources */,
 				41DB235F1E3C848500FDD28D /* Embed Frameworks */,
-				B5954B7C2D1BA24055847704 /* [CP] Embed Pods Frameworks */,
-				D3615B35C7BEE8762FB0BBA7 /* [CP] Copy Pods Resources */,
 				41DB23DF1E3DC40500FDD28D /* Carthage */,
 				416E16511E58481400D683EE /* Settings.bundle */,
 				41E5DAAA1E588C8A00E7999A /* SymbolUpload */,
@@ -710,21 +757,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3D261744E33D9F425847ACFC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		414A19EC1E455AB900AEE6D2 /* Swiftgen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -737,7 +769,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/swiftgen strings -t dot-syntax-swift3 \"${SRCROOT}/ConvenienceStore/Localizable.strings\" > \"${SRCROOT}/ConvenienceStore/L10n.swift\"";
+			shellScript = "/usr/local/bin/swiftgen strings -t structured-swift4 \"${SRCROOT}/ConvenienceStore/Localizable.strings\" > \"${SRCROOT}/ConvenienceStore/L10n.swift\"";
 		};
 		416E16511E58481400D683EE /* Settings.bundle */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -759,7 +791,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/IGListKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
@@ -792,37 +823,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE=\"${SRCROOT}/ConvenienceStore-bdd9d84dcd00.json\"\n\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=\"1:924697346732:ios:0ae443e7a2b62ae0\"\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${JSON_FILE}\"";
-		};
-		B5954B7C2D1BA24055847704 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConvenienceStore/Pods-ConvenienceStore-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D3615B35C7BEE8762FB0BBA7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConvenienceStore/Pods-ConvenienceStore-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE=\"${SRCROOT}/ConvenienceStore-bdd9d84dcd00.json\"\n\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=\"1:924697346732:ios:0ae443e7a2b62ae0\"\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PROJECT_DIR}\"/Firebase/Crash/upload-sym \"${JSON_FILE}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -974,7 +975,6 @@
 		};
 		41199A481E47666700559A2D /* AdHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E8257D6735767DE09E26FFF /* Pods-ConvenienceStore.adhoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -986,15 +986,26 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/Messaging",
+					"$(PROJECT_DIR)/Firebase/AdMob",
+					"$(PROJECT_DIR)/Firebase/Auth",
+					"$(PROJECT_DIR)/Firebase/Crash",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ConvenienceStore/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.ConvenienceStore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d5cfb0b7-5c86-45dc-b64e-7292a97438d3";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.kyo--hei.ConvenienceStore";
+				PROVISIONING_PROFILE = "c4fac37d-2485-412d-b05d-b715f8b1220b";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.kyo--hei.ConvenienceStore";
 				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Firebase";
 			};
 			name = AdHoc;
 		};
@@ -1280,7 +1291,6 @@
 		};
 		41DB23471E3C831B00FDD28D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0E124740429E75E3D447A7C /* Pods-ConvenienceStore.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1292,23 +1302,33 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/Messaging",
+					"$(PROJECT_DIR)/Firebase/AdMob",
+					"$(PROJECT_DIR)/Firebase/Auth",
+					"$(PROJECT_DIR)/Firebase/Crash",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ConvenienceStore/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.ConvenienceStore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de28eafa-d431-43fd-b677-539dc6439c71";
+				PROVISIONING_PROFILE = "25a52ad8-eeba-44e7-82d6-1b3df732c8d2";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.kyo--hei.ConvenienceStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Firebase";
 			};
 			name = Debug;
 		};
 		41DB23481E3C831B00FDD28D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AF88D65C027C878A70CCD2E /* Pods-ConvenienceStore.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1320,15 +1340,26 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/Messaging",
+					"$(PROJECT_DIR)/Firebase/AdMob",
+					"$(PROJECT_DIR)/Firebase/Auth",
+					"$(PROJECT_DIR)/Firebase/Crash",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ConvenienceStore/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.ConvenienceStore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cfc29d39-03f9-4776-8458-dddabc90276b";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.kyo--hei.ConvenienceStore";
 				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Firebase";
 			};
 			name = Release;
 		};
