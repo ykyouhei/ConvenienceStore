@@ -53,6 +53,7 @@
 		414A19E91E4551B400AEE6D2 /* StoreInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19E81E4551B400AEE6D2 /* StoreInformation.swift */; };
 		414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 414A19EA1E45590300AEE6D2 /* Localizable.strings */; };
 		414A19F01E455BC800AEE6D2 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19EF1E455BC800AEE6D2 /* L10n.swift */; };
+		415DD5B61FC70AEB0012D439 /* GoogleService-Info-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 415DD5B51FC70AEB0012D439 /* GoogleService-Info-Debug.plist */; };
 		416E164E1E58308D00D683EE /* TimeInterval+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416E164D1E58308D00D683EE /* TimeInterval+Format.swift */; };
 		416E16501E58475F00D683EE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 416E164F1E58475F00D683EE /* Settings.bundle */; };
 		417FFDED1E4FEAB900C6F6CD /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */; };
@@ -77,7 +78,7 @@
 		41C9B7021FB884880025FB2A /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C9B6F21FB884870025FB2A /* GoogleToolboxForMac.framework */; };
 		41DB233F1E3C831B00FDD28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DB233E1E3C831B00FDD28D /* Assets.xcassets */; };
 		41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DB23401E3C831B00FDD28D /* LaunchScreen.storyboard */; };
-		41DB23671E3C86E000FDD28D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41DB23661E3C86E000FDD28D /* GoogleService-Info.plist */; };
+		41DB23671E3C86E000FDD28D /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41DB23661E3C86E000FDD28D /* GoogleService-Info-Release.plist */; };
 		41DB23871E3C8B8000FDD28D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23861E3C8B8000FDD28D /* main.swift */; };
 		41DB23A31E3C8C6300FDD28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23A21E3C8C6300FDD28D /* AppDelegate.swift */; };
 		41DB23B91E3C973800FDD28D /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23B71E3C971000FDD28D /* Kanna.framework */; };
@@ -188,6 +189,7 @@
 		414A19E81E4551B400AEE6D2 /* StoreInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreInformation.swift; sourceTree = "<group>"; };
 		414A19EA1E45590300AEE6D2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		414A19EF1E455BC800AEE6D2 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		415DD5B51FC70AEB0012D439 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = SOURCE_ROOT; };
 		416E164D1E58308D00D683EE /* TimeInterval+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Format.swift"; sourceTree = "<group>"; };
 		416E164F1E58475F00D683EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		41729FAA1FB8824F00CC5359 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = Firebase/module.modulemap; sourceTree = SOURCE_ROOT; };
@@ -215,7 +217,7 @@
 		41DB233E1E3C831B00FDD28D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41DB23411E3C831B00FDD28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41DB23611E3C868900FDD28D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41DB23661E3C86E000FDD28D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		41DB23661E3C86E000FDD28D /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = SOURCE_ROOT; };
 		41DB23791E3C8B4F00FDD28D /* Batch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Batch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DB23821E3C8B5000FDD28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41DB23861E3C8B8000FDD28D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -517,11 +519,12 @@
 		41DB23601E3C865000FDD28D /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				4134EA1F1E4235560092A6EF /* development.entitlements */,
+				415DD5B51FC70AEB0012D439 /* GoogleService-Info-Debug.plist */,
+				41DB23661E3C86E000FDD28D /* GoogleService-Info-Release.plist */,
+				41DB23611E3C868900FDD28D /* Info.plist */,
 				41729FAA1FB8824F00CC5359 /* module.modulemap */,
 				4134EA201E4237EF0092A6EF /* production.entitlements */,
-				4134EA1F1E4235560092A6EF /* development.entitlements */,
-				41DB23661E3C86E000FDD28D /* GoogleService-Info.plist */,
-				41DB23611E3C868900FDD28D /* Info.plist */,
 				416E164F1E58475F00D683EE /* Settings.bundle */,
 			);
 			path = SupportingFiles;
@@ -620,7 +623,7 @@
 				41DB235F1E3C848500FDD28D /* Embed Frameworks */,
 				41DB23DF1E3DC40500FDD28D /* Carthage */,
 				416E16511E58481400D683EE /* Settings.bundle */,
-				41E5DAAA1E588C8A00E7999A /* SymbolUpload */,
+				415DD5B41FC709B60012D439 /* Run Script [Firebase] */,
 			);
 			buildRules = (
 			);
@@ -736,11 +739,12 @@
 				41385A5B1E46E8F6009C24C6 /* ItemsCollectionViewController.xib in Resources */,
 				412288BE1E504EB0009F0AD5 /* ReviewViewController.xib in Resources */,
 				41199A4F1E476AE300559A2D /* SelectRegionViewController.xib in Resources */,
+				415DD5B61FC70AEB0012D439 /* GoogleService-Info-Debug.plist in Resources */,
 				416E16501E58475F00D683EE /* Settings.bundle in Resources */,
 				41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */,
 				417FFDF11E4FECED00C6F6CD /* ItemDetailTableViewCell.xib in Resources */,
 				41385A631E46FAD0009C24C6 /* ItemCollectionViewCell.xib in Resources */,
-				41DB23671E3C86E000FDD28D /* GoogleService-Info.plist in Resources */,
+				41DB23671E3C86E000FDD28D /* GoogleService-Info-Release.plist in Resources */,
 				41DB233F1E3C831B00FDD28D /* Assets.xcassets in Resources */,
 				41385A651E46FD45009C24C6 /* ItemDetailViewController.xib in Resources */,
 				412288CA1E507D8C009F0AD5 /* ReviewTableViewCell.xib in Resources */,
@@ -770,6 +774,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/swiftgen strings -t structured-swift4 \"${SRCROOT}/ConvenienceStore/Localizable.strings\" > \"${SRCROOT}/ConvenienceStore/L10n.swift\"";
+		};
+		415DD5B41FC709B60012D439 /* Run Script [Firebase] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script [Firebase]";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    cp \"${PROJECT_DIR}//GoogleService-Info-Debug.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\n    echo \"Debug GoogleService-Info copied.\"\nelif [ \"${CONFIGURATION}\" = \"AdHoc\" ]; then\n    cp \"${PROJECT_DIR}/GoogleService-Info-Debug.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\n    echo \"Debug GoogleService-Info copied.\"\nelif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    cp \"${PROJECT_DIR}/GoogleService-Info-Release.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\n    echo \"Release GoogleService-Info copied.\"\nfi";
 		};
 		416E16511E58481400D683EE /* Settings.bundle */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -810,20 +828,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		41E5DAAA1E588C8A00E7999A /* SymbolUpload */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SymbolUpload;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE=\"${SRCROOT}/ConvenienceStore-bdd9d84dcd00.json\"\n\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=\"1:924697346732:ios:0ae443e7a2b62ae0\"\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PROJECT_DIR}\"/Firebase/Crash/upload-sym \"${JSON_FILE}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1000,10 +1004,10 @@
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.ConvenienceStore";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.ConvenienceStore.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c4fac37d-2485-412d-b05d-b715f8b1220b";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.kyo--hei.ConvenienceStore";
+				PROVISIONING_PROFILE = "4aaa3a62-ea11-4e22-bdf8-21cc3cc5bc5c";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.kyo--hei.ConvenienceStore.dev";
 				SWIFT_VERSION = 4.0;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Firebase";
 			};
@@ -1317,10 +1321,10 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.ConvenienceStore";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.ConvenienceStore.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "25a52ad8-eeba-44e7-82d6-1b3df732c8d2";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.kyo--hei.ConvenienceStore";
+				PROVISIONING_PROFILE = "1185db8b-daf9-484c-934d-ad816c01e48c";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.kyo--hei.ConvenienceStore.dev";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Firebase";
