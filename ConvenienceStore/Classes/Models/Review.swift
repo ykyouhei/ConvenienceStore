@@ -59,7 +59,7 @@ internal struct Review: Equatable, CustomStringConvertible {
         if let createTime = createTime {
             j["createTime"] = createTime
         } else {
-            j["createTime"] = FIRServerValue.timestamp()
+            j["createTime"] = ServerValue.timestamp()
         }
         
         return j

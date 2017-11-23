@@ -119,7 +119,7 @@ internal final class ItemsCollectionViewController<T: Item>:
     }
     
     
-    func reloadList(sender: UIRefreshControl? = nil) {
+    @objc func reloadList(sender: UIRefreshControl? = nil) {
         SVProgressHUD.show()
         sender?.beginRefreshing()
         

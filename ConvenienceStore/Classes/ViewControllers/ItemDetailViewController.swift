@@ -78,10 +78,10 @@ internal final class ItemDetailViewController<T: Item>:
     init(item: T) {
         self.item = item
         
-        FIRAnalytics.logEvent(withName: kFIREventViewItem,
+        Analytics.logEvent(AnalyticsEventViewItem,
                               parameters: [
-                                kFIRParameterItemID   : NSString(string: item.id),
-                                kFIRParameterItemName : NSString(string: item.title)
+                                AnalyticsParameterItemID   : NSString(string: item.id),
+                                AnalyticsParameterItemName : NSString(string: item.title)
                               ])
         
         super.init()
@@ -102,11 +102,11 @@ internal final class ItemDetailViewController<T: Item>:
            _ = navigationController?.popViewController(animated: true)
             
         case .changed:
-            Hero.shared.update(progress: Double(progress))
+            Hero.shared.update(progress)
             
         default:
             progress + sender.velocity(in: nil).x / view.bounds.width > 0.3 ?
-                Hero.shared.end() :
+                Hero.shared.finish() :
                 Hero.shared.cancel()
         }
     }
@@ -125,11 +125,11 @@ internal final class ItemDetailViewController<T: Item>:
         }
     }
     
-    func didTapCloseButton(_ sender: UIBarButtonItem) {
+    @objc func didTapCloseButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     
-    func didTapWriteButton(_ sender: UIBarButtonItem) {
+    @objc func didTapWriteButton(_ sender: UIBarButtonItem) {
         showReviewVC()
     }
     
@@ -221,7 +221,7 @@ internal final class ItemDetailViewController<T: Item>:
             if isTransition {
                 log.debug("--- isTransition\(scrollView.contentSize) ---")
                 let progress = (-scrollView.contentOffset.y - topLayoutGuide.length) / (scrollView.bounds.height * 0.75)
-                Hero.shared.update(progress: Double(progress))
+                Hero.shared.update(progress)
             } else if !scrollView.isDecelerating && scrollView.isDragging {
                 log.debug("---- start ----")
                 isTransition = true
@@ -238,7 +238,7 @@ internal final class ItemDetailViewController<T: Item>:
         if isTransition {
             log.debug("---- end ----")
             isTransition = false
-            Hero.shared.end()
+            Hero.shared.finish()
         }
     }
     
@@ -309,11 +309,11 @@ internal final class ItemDetailViewController<T: Item>:
     }
     
     func reviewViewController(_ vc: ReviewViewController, shouldSendReview review: Review) {
-        FIRAnalytics.logEvent(withName: kFIREventPostScore,
+        Analytics.logEvent(AnalyticsEventPostScore,
                               parameters: [
-                                kFIRParameterItemID   : NSString(string: item.id),
-                                kFIRParameterItemName : NSString(string: item.title),
-                                kFIRParameterScore : NSNumber(value: review.rating)
+                                AnalyticsParameterItemID   : NSString(string: item.id),
+                                AnalyticsParameterItemName : NSString(string: item.title),
+                                AnalyticsParameterScore : NSNumber(value: review.rating)
                               ])
         
         ReviewManager.send(review: review, for: item)

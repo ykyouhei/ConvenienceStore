@@ -13,7 +13,7 @@ extension NSObject {
     @nonobjc class var className: String {
         let name = String(describing: self)
         let regex = try! NSRegularExpression(pattern: "<.+>", options: .allowCommentsAndWhitespace)
-        return regex.stringByReplacingMatches(in: name, options: [], range: NSMakeRange(0, name.characters.count), withTemplate: "")
+        return regex.stringByReplacingMatches(in: name, options: [], range: NSMakeRange(0, name.count), withTemplate: "")
     }
     
     @nonobjc var className: String {

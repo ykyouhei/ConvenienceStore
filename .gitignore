@@ -32,6 +32,9 @@ xcuserdata/
 GoogleService-Info.plist
 ConvenienceStore-*.json
 
+## Firebase SDK
+Firebase/
+
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace

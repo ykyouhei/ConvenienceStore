@@ -23,7 +23,7 @@ func generateLawsonItems() -> [LawsonItem] {
     
     var items = [LawsonItem]()
     
-    for itemDoc in doc.xpath("//ul[@class='col-5 heightLineParent']/*") {
+    for itemDoc in doc.xpath("//ul[@class='col-3 heightLineParent']/*") {
         let taxPriceRaw  = itemDoc.at_xpath("*/p[@class='price']/span[1]")!.text!
         let launchRaw    = itemDoc.at_xpath("*/p[@class='date']/span")!.text!
         let linkRaw      = itemDoc.at_xpath("a")!.toHTML!
@@ -37,7 +37,7 @@ func generateLawsonItems() -> [LawsonItem] {
         let detailDoc    = HTML(url: link, encoding: .utf8)!
         let imageHTMLRaw = detailDoc.at_xpath("//div[@class='leftBlock']//img")!.toHTML!
         let imageURL     = URL(string: "src=\"([^\"]+)\"".r!.findFirst(in: imageHTMLRaw)!.group(at: 1)!)!
-        let text         = detailDoc.at_xpath("//div[@class='rightBlock']/p[@class='text']")!.text!
+        let text         = detailDoc.at_xpath("//div[@class='rightBlock']/p[@class='text']")?.text ?? ""
         
         let dateGroup  = "([0-9]+)\\.([0-9]+)\\.([0-9]+)".r!.findFirst(in: launchRaw)
         let d = (year: Int(dateGroup!.group(at: 1)!)!,
