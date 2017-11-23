@@ -15,7 +15,7 @@ internal final class ReviewListViewModel<T: Item> {
     
     // MARK: Properties
     
-    private let reference: FIRDatabaseReference
+    private let reference: DatabaseReference
     
     private let reportedReviewIds: [String]
     
@@ -32,7 +32,7 @@ internal final class ReviewListViewModel<T: Item> {
     // MARK: Initializer
     
     init(item: T, reportedReviewIds: [String]) {
-        self.reference = FIRDatabase.database().reference()
+        self.reference = Database.database().reference()
             .child("reviews")
             .child(item.id)
         self.reference.keepSynced(true)
@@ -50,7 +50,7 @@ internal final class ReviewListViewModel<T: Item> {
                 of: .value,
                 with: { snapshot in
                     self.allReviews = snapshot.children.reversed().flatMap { snap -> Review? in
-                        guard let json = (snap as? FIRDataSnapshot)?.value as? [String : Any] else {
+                        guard let json = (snap as? DataSnapshot)?.value as? [String : Any] else {
                             return nil
                         }
                         return Review(json: json)
@@ -82,7 +82,7 @@ internal final class ReviewListViewModel<T: Item> {
     // MARK: Presentation
     
     func reviewForCurrentUser() -> Review? {
-        guard let currentUid = FIRAuth.auth()?.currentUser?.uid else { return nil }
+        guard let currentUid = Auth.auth().currentUser?.uid else { return nil }
         return allReviews.filter{ $0.uid == currentUid }.first
     }
     

@@ -82,7 +82,7 @@ func generateSevenItems() -> [SevenElevenItem] {
                 id: id,
                 title: title,
                 text: text,
-                imageURL: URL(string: baseURL + imagePath)!,
+                imageURL: URL(string: imagePath)!,
                 detailURL: detailURL,
                 taxIncludedPrice: taxPrice,
                 taxExcludedPrice: nonTaxPrice,

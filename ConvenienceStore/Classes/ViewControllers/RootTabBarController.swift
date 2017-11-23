@@ -16,9 +16,9 @@ internal final class RootTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FIRAuth.auth()?.signInAnonymously { user, error in
-            log.debug("\(user?.uid)")
-            log.debug("\(error)")
+        Auth.auth().signInAnonymously { user, error in
+            log.debug("\(String(describing: user?.uid))")
+            log.debug("\(String(describing: error))")
         }
         
         setupViewControllers()

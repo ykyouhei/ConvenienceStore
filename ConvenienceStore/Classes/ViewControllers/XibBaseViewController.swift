@@ -41,7 +41,7 @@ internal class XibBaseViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        FIRAnalytics.setScreenName(screenName, screenClass: String(describing: type(of: self)))
+        Analytics.setScreenName(screenName, screenClass: String(describing: type(of: self)))
     }
     
     let showError: (Error) -> Void = { error in

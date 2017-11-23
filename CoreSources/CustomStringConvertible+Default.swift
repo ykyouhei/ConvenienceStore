@@ -11,7 +11,7 @@ import Foundation
 public extension CustomStringConvertible {
     
     public var description : String {
-        let type = "\(type(of: self))"
+        let type = "\(Swift.type(of: self))"
         let selfMirror = Mirror(reflecting: self)
         let property = selfMirror.children.reduce("") {
             $1.label != nil ? $0 + "    \($1.label!) = \($1.value)\n" : $0

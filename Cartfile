@@ -1,11 +1,10 @@
 # App
-github "Instagram/IGListKit" ~> 2.0.0
 github "SwiftyBeaver/SwiftyBeaver"
 github "SwiftyJSON/SwiftyJSON"
 github "onevcat/Kingfisher"
 github "lkzhao/Hero"
-github "marketplacer/Cosmos" ~> 8.0
-github "ykyouhei/then" ~> 2.0
+github "marketplacer/Cosmos"
+github "freshOS/then"
 github "SVProgressHUD/SVProgressHUD"
 github "radex/SwiftyUserDefaults"
 github "totocaster/Typist"
@@ -13,6 +12,6 @@ github "ykyouhei/SwiftyConfiguration"
 github "realm/realm-cocoa"
 
 # Batch
-github "tid-kijyun/Kanna"    ~> 2.1.0
-github "crossroadlabs/Regex" ~> 1.0.0
+github "tid-kijyun/Kanna"
+github "crossroadlabs/Regex"
 

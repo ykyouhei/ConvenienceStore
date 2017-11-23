@@ -10,12 +10,12 @@ import Foundation
 import Regex
 
 
-//let familyMartItems  = generateFamilyMartItems()
-//let sevenElevenItems = generateSevenItems()
+let familyMartItems  = generateFamilyMartItems()
+let sevenElevenItems = generateSevenItems()
 let lawsonItems = generateLawsonItems()
 //
-//sendJSON(with: sevenElevenItems)
-//sendJSON(with: familyMartItems)
-sendJSON(with: lawsonItems, pushEnabled: false)
+sendJSON(with: sevenElevenItems, pushEnabled: true)
+sendJSON(with: familyMartItems, pushEnabled: true)
+sendJSON(with: lawsonItems, pushEnabled: true)
 
 print("~~~~~ end ~~~~~~~")

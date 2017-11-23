@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 /// 報告済みレビュー
+@objcMembers
 internal final class ReportedReview: Object {
     
     private(set) dynamic var reviewId = ""
