@@ -9,7 +9,7 @@
 import Foundation
 
 /// コンビニの商品用プロトコル
-public protocol Item: CustomStringConvertible, Hashable {
+public protocol Item: CustomStringConvertible, Hashable, Codable {
     
     /// Firebase Realtime Database のパス
     static var dataBasePath: String { get }
@@ -38,30 +38,9 @@ public protocol Item: CustomStringConvertible, Hashable {
     /// 発売日
     var launchDate: Int { get }
     
-    /// Firebase上でのJSON
-    var json: [String : Any] { get }
-    
-    /// JSONからオブジェクトを生成する
-    ///
-    /// - Parameter json: JSON
-    init(json: [String : Any])
-    
 }
 
-public extension Item {
-    
-    public var baseJSON: [String : Any] {
-        return [
-            "id"                : id,
-            "title"             : title,
-            "text"              : text,
-            "imageURL"          : imageURL.absoluteString,
-            "detailURL"         : detailURL.absoluteString,
-            "taxIncludedPrice"  : taxIncludedPrice,
-            "taxExcludedPrice"  : taxExcludedPrice,
-            "launchDate"        : launchDate
-        ]
-    }
+extension Item {
     
     public var hashValue: Int {
         return Int(id)!

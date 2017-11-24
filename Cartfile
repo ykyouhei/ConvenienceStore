@@ -10,8 +10,9 @@ github "radex/SwiftyUserDefaults"
 github "totocaster/Typist"
 github "ykyouhei/SwiftyConfiguration"
 github "realm/realm-cocoa"
+github "xhamr/fave-button"
 
-# Batch
+#c Batch
 github "tid-kijyun/Kanna"
 github "crossroadlabs/Regex"
 

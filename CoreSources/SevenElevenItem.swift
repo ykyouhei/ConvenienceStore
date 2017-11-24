@@ -18,7 +18,7 @@ public struct SevenElevenItem: Item {
     
     // MARK: Types
     
-    public enum Area: Int {
+    public enum Area: Int, Codable {
         case 北海道
         case 東北
         case 関東
@@ -58,15 +58,6 @@ public struct SevenElevenItem: Item {
     public let areas: Set<Area>
     
     
-    // MARK: Computed Properties
-    
-    public var json: [String : Any] {
-        var builder = baseJSON
-        builder["areas"] = areas.map { $0.rawValue }
-        return builder
-    }
-    
-    
     // MARK: Initializer
     
     public init(id: String,
@@ -87,18 +78,6 @@ public struct SevenElevenItem: Item {
         self.taxExcludedPrice  = taxExcludedPrice
         self.launchDate        = launchDate      
         self.areas             = areas
-    }
-    
-    public init(json: [String : Any]) {
-        self.id                = json["id"] as! String
-        self.title             = json["title"] as! String
-        self.text              = json["text"] as! String
-        self.imageURL          = URL(string: (json["imageURL"] as! String))!
-        self.detailURL         = URL(string: (json["detailURL"] as! String))!
-        self.taxIncludedPrice  = json["taxIncludedPrice"] as! Int
-        self.taxExcludedPrice  = json["taxExcludedPrice"] as! Int
-        self.launchDate        = json["launchDate"] as! Int
-        self.areas             = Set((json["areas"] as! [Int]).map({ Area(rawValue: $0)! }))
     }
     
 }

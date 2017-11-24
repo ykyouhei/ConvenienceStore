@@ -38,15 +38,6 @@ public struct FamilyMartItem: Item {
     public let category: String
     
     
-    // MARK: Computed Properties
-    
-    public var json: [String : Any] {
-        var builder = baseJSON
-        builder["category"] = category
-        return builder
-    }
-    
-    
     // MARK: Initializer
     
     public init(id: String,
@@ -69,17 +60,4 @@ public struct FamilyMartItem: Item {
         self.category          = category        
     }                            
                 
-    
-    public init(json: [String : Any]) {
-        self.id                = json["id"] as! String
-        self.title             = json["title"] as! String
-        self.text              = json["text"] as! String
-        self.imageURL          = URL(string: (json["imageURL"] as! String))!
-        self.detailURL         = URL(string: (json["detailURL"] as! String))!
-        self.taxIncludedPrice  = json["taxIncludedPrice"] as! Int
-        self.taxExcludedPrice  = json["taxExcludedPrice"] as! Int
-        self.launchDate        = json["launchDate"] as! Int
-        self.category          = json["category"] as! String
-    }
-    
 }

@@ -19,6 +19,7 @@ internal final class ItemListViewModel<T: Item> {
     
     typealias FilterBlock = (T) -> Bool
     
+
     // MARK: Properties
     
     var queryBlock: QueryBlock = { ref in
@@ -39,7 +40,7 @@ internal final class ItemListViewModel<T: Item> {
     
     private(set) var items: [T]
     
-    
+
     // MARK: Initializer
     
     init() {
@@ -57,10 +58,13 @@ internal final class ItemListViewModel<T: Item> {
                 of: .value,
                 with: { snapshot in
                     self.items = snapshot.children.flatMap { snap -> T? in
-                        guard let json = (snap as? DataSnapshot)?.value as? [String : Any] else {
-                            return nil
+                        guard let json = (snap as? DataSnapshot)?.value,
+                              let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []),
+                              let item = try? JSONDecoder().decode(T.self, from: jsonData) else {
+                                return nil
                         }
-                        return T(json: json)
+                        
+                        return item
                     }
                     
                     log.verbose(self.items)
