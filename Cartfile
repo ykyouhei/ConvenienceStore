@@ -7,6 +7,7 @@ github "SVProgressHUD/SVProgressHUD"
 github "radex/SwiftyUserDefaults"
 github "ykyouhei/SwiftyConfiguration"
 github "realm/realm-cocoa"
+github "rs/SDWebImage"
 
 #c Batch
 github "tid-kijyun/Kanna"
