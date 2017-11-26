@@ -13,6 +13,7 @@ import Core_iOS
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
+import SwiftyUserDefaults
 
 import SwiftyBeaver
 
@@ -40,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerUserNotification(for: application)
         
         setupRootViewController()
+        
+        Defaults[.appLaunchCount] += 1
         
         return true
     }

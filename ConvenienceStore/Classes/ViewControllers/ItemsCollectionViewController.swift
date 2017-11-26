@@ -11,11 +11,14 @@ import Firebase
 import Hero
 import Core_iOS
 import SVProgressHUD
+import SwiftyUserDefaults
 
 internal final class ItemsCollectionViewController<T: Item>:
     XibBaseViewController,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
+    ItemDetailViewControllerDelegate,
+    ItemCollectionViewCellDelegate,
     AdPresentable where T: StoreInformation
 {
     
@@ -72,9 +75,33 @@ internal final class ItemsCollectionViewController<T: Item>:
         reloadList()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if Defaults[.itemViewCount] > 5 {
+            if #available(iOS 10.3, *) {
+                SKStoreReviewController.requestReview()
+            }
+        }
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         guard isViewLoaded else { return }
         updateCollectionViewLayout(frameWidth: size.width)
+    }
+    
+    
+    // MARK: Navigation
+    
+    private func showItemDetail(item: T, likeInfo: (count: Int, isLiked: Bool)) {
+        let detailVM = ItemDetailViewModel(item: item, likeInfo: likeInfo)
+        let detailVC = ItemDetailViewController(viewModel: detailVM)
+        let navigation = UINavigationController(rootViewController: detailVC)
+        
+        detailVC.delegate = self
+        navigation.isHeroEnabled = true
+        
+        present(navigation, animated: true)
     }
     
     
@@ -124,7 +151,7 @@ internal final class ItemsCollectionViewController<T: Item>:
         sender?.beginRefreshing()
         
         itemList
-            .fetch()
+            .updateItems()
             .onError(showError)
             .finally{
                 SVProgressHUD.dismiss()
@@ -141,15 +168,17 @@ internal final class ItemsCollectionViewController<T: Item>:
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemList.items.count
+        return itemList.itemsCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = itemList.items[indexPath.item]
+        let item = itemList.items(at: indexPath)
+        let likeInfo = itemList.likeInfo(at: indexPath)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName,
                                                       for: indexPath) as! ItemCollectionViewCell
         
-        cell.apply(item)
+        cell.delegate = self
+        cell.apply(item, likeCount: likeInfo.count, isLiked: likeInfo.isLiked)
         
         return cell
     }
@@ -158,15 +187,35 @@ internal final class ItemsCollectionViewController<T: Item>:
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = itemList.items[indexPath.item]
-        let detailVC = ItemDetailViewController(item: item)
-        let navigation = UINavigationController(rootViewController: detailVC)
+        let item = itemList.items(at: indexPath)
+        let likeInfo = itemList.likeInfo(at: indexPath)
         
-        navigation.isHeroEnabled = true
+        showItemDetail(item: item, likeInfo: likeInfo)
+    }
+    
+    
+    // MARK: - ItemDetailViewControllerDelegate
+    
+    func itemDetailViewControllerShouldClose(_ vc: UIViewController) {
+        if let selectedIndexPaths = collectionView.indexPathsForSelectedItems {
+            collectionView.reloadItems(at: selectedIndexPaths)
+        }
+        vc.dismiss(animated: true)
+    }
+    
+    
+    // MARK: - ItemCollectionViewCellDelegate
+    
+    func itemCollectionViewCellDidLike(_ cell: ItemCollectionViewCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else {
+            return
+        }
         
-        present(navigation, animated: true)
-        
-        collectionView.deselectItem(at: indexPath, animated: false)
+        itemList.likeItem(at: indexPath)
+            .then { _ in
+                SVProgressHUD.dismiss()
+                self.collectionView.reloadItems(at: [indexPath])
+            }
     }
     
 }

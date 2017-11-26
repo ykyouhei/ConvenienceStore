@@ -1,16 +1,12 @@
 # App
 github "SwiftyBeaver/SwiftyBeaver"
-github "SwiftyJSON/SwiftyJSON"
 github "onevcat/Kingfisher"
 github "lkzhao/Hero"
-github "marketplacer/Cosmos"
 github "freshOS/then"
 github "SVProgressHUD/SVProgressHUD"
 github "radex/SwiftyUserDefaults"
-github "totocaster/Typist"
 github "ykyouhei/SwiftyConfiguration"
 github "realm/realm-cocoa"
-github "xhamr/fave-button"
 
 #c Batch
 github "tid-kijyun/Kanna"

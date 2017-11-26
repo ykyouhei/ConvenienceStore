@@ -10,18 +10,11 @@
 		4104FCFD1E4718CC00BB9573 /* HeroModifier+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104FCFC1E4718CC00BB9573 /* HeroModifier+Default.swift */; };
 		410728441E436A4C00F530B3 /* GenerateFamilyMartItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410728431E436A4C00F530B3 /* GenerateFamilyMartItems.swift */; };
 		410728461E4380A300F530B3 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410728451E4380A300F530B3 /* CommonFunctions.swift */; };
-		41199A4E1E476AE300559A2D /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41199A4C1E476AE300559A2D /* SelectRegionViewController.swift */; };
-		41199A4F1E476AE300559A2D /* SelectRegionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41199A4D1E476AE300559A2D /* SelectRegionViewController.xib */; };
 		41199A511E476E6700559A2D /* DefaultsKeys+AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41199A501E476E6700559A2D /* DefaultsKeys+AppData.swift */; };
 		41199A531E476E8300559A2D /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41199A521E476E8300559A2D /* SwiftyUserDefaults.framework */; };
-		412288BD1E504EB0009F0AD5 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288BB1E504EB0009F0AD5 /* ReviewViewController.swift */; };
-		412288BE1E504EB0009F0AD5 /* ReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412288BC1E504EB0009F0AD5 /* ReviewViewController.xib */; };
-		412288C01E505FB2009F0AD5 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288BF1E505FB2009F0AD5 /* Review.swift */; };
-		412288C21E5063A3009F0AD5 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288C11E5063A3009F0AD5 /* ReviewManager.swift */; };
-		412288C41E506B42009F0AD5 /* Typist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412288C31E506B42009F0AD5 /* Typist.framework */; };
-		412288C61E506F22009F0AD5 /* ReviewListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288C51E506F22009F0AD5 /* ReviewListViewModel.swift */; };
-		412288C91E507D8C009F0AD5 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412288C71E507D8C009F0AD5 /* ReviewTableViewCell.swift */; };
-		412288CA1E507D8C009F0AD5 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412288C81E507D8C009F0AD5 /* ReviewTableViewCell.xib */; };
+		412B45741FC8E59C00032F39 /* ItemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B45731FC8E59C00032F39 /* ItemInteractor.swift */; };
+		412B45761FC8E92F00032F39 /* LikeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B45751FC8E92F00032F39 /* LikeInteractor.swift */; };
+		412B457B1FCA3E8E00032F39 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B457A1FCA3E8E00032F39 /* ItemDetailViewModel.swift */; };
 		41385A5B1E46E8F6009C24C6 /* ItemsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41385A5A1E46E8F6009C24C6 /* ItemsCollectionViewController.xib */; };
 		41385A5D1E46F104009C24C6 /* XibBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41385A5C1E46F104009C24C6 /* XibBaseViewController.swift */; };
 		41385A5F1E46F79D009C24C6 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41385A5E1E46F79D009C24C6 /* SVProgressHUD.framework */; };
@@ -48,7 +41,6 @@
 		414966BB1E50A4F400259AD1 /* AdPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414966BA1E50A4F400259AD1 /* AdPresentable.swift */; };
 		414966BE1E52010E00259AD1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414966BC1E52010E00259AD1 /* Realm.framework */; };
 		414966BF1E52010E00259AD1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414966BD1E52010E00259AD1 /* RealmSwift.framework */; };
-		414966C21E52023200259AD1 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414966C11E52023200259AD1 /* Report.swift */; };
 		414A19E61E454A3800AEE6D2 /* then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414A19E51E454A3800AEE6D2 /* then.framework */; };
 		414A19E91E4551B400AEE6D2 /* StoreInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A19E81E4551B400AEE6D2 /* StoreInformation.swift */; };
 		414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 414A19EA1E45590300AEE6D2 /* Localizable.strings */; };
@@ -56,7 +48,6 @@
 		415DD5B61FC70AEB0012D439 /* GoogleService-Info-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 415DD5B51FC70AEB0012D439 /* GoogleService-Info-Debug.plist */; };
 		416E164E1E58308D00D683EE /* TimeInterval+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416E164D1E58308D00D683EE /* TimeInterval+Format.swift */; };
 		416E16501E58475F00D683EE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 416E164F1E58475F00D683EE /* Settings.bundle */; };
-		417FFDED1E4FEAB900C6F6CD /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */; };
 		417FFDF01E4FECED00C6F6CD /* ItemDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */; };
 		417FFDF11E4FECED00C6F6CD /* ItemDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */; };
 		419026C91E4724AF008EB18A /* Item+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419026C81E4724AF008EB18A /* Item+Presentation.swift */; };
@@ -91,7 +82,6 @@
 		41DB23DA1E3DA32A00FDD28D /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23D91E3DA32A00FDD28D /* RootTabBarController.swift */; };
 		41DB23DE1E3DA47800FDD28D /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */; };
 		41DB23E11E3DD70500FDD28D /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23E01E3DD70500FDD28D /* ItemListViewModel.swift */; };
-		41DB23E41E3DD8C100FDD28D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */; };
 		41DB23E81E3DE6DD00FDD28D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */; };
 		41DB23EA1E3F7E5200FDD28D /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB23E91E3F7E5200FDD28D /* Hero.framework */; };
 		41DB23EC1E3F7ECA00FDD28D /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */; };
@@ -148,18 +138,11 @@
 		4104FCFC1E4718CC00BB9573 /* HeroModifier+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroModifier+Default.swift"; sourceTree = "<group>"; };
 		410728431E436A4C00F530B3 /* GenerateFamilyMartItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateFamilyMartItems.swift; sourceTree = "<group>"; };
 		410728451E4380A300F530B3 /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
-		41199A4C1E476AE300559A2D /* SelectRegionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
-		41199A4D1E476AE300559A2D /* SelectRegionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectRegionViewController.xib; sourceTree = "<group>"; };
 		41199A501E476E6700559A2D /* DefaultsKeys+AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultsKeys+AppData.swift"; sourceTree = "<group>"; };
 		41199A521E476E8300559A2D /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
-		412288BB1E504EB0009F0AD5 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
-		412288BC1E504EB0009F0AD5 /* ReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewViewController.xib; sourceTree = "<group>"; };
-		412288BF1E505FB2009F0AD5 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
-		412288C11E5063A3009F0AD5 /* ReviewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
-		412288C31E506B42009F0AD5 /* Typist.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Typist.framework; path = Carthage/Build/iOS/Typist.framework; sourceTree = "<group>"; };
-		412288C51E506F22009F0AD5 /* ReviewListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewListViewModel.swift; sourceTree = "<group>"; };
-		412288C71E507D8C009F0AD5 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
-		412288C81E507D8C009F0AD5 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
+		412B45731FC8E59C00032F39 /* ItemInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInteractor.swift; sourceTree = "<group>"; };
+		412B45751FC8E92F00032F39 /* LikeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInteractor.swift; sourceTree = "<group>"; };
+		412B457A1FCA3E8E00032F39 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		4134EA1F1E4235560092A6EF /* development.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = development.entitlements; sourceTree = "<group>"; };
 		4134EA201E4237EF0092A6EF /* production.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = production.entitlements; sourceTree = "<group>"; };
 		41385A5A1E46E8F6009C24C6 /* ItemsCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsCollectionViewController.xib; sourceTree = "<group>"; };
@@ -184,7 +167,6 @@
 		414966BA1E50A4F400259AD1 /* AdPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdPresentable.swift; sourceTree = "<group>"; };
 		414966BC1E52010E00259AD1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		414966BD1E52010E00259AD1 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		414966C11E52023200259AD1 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		414A19E51E454A3800AEE6D2 /* then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = then.framework; path = Carthage/Build/iOS/then.framework; sourceTree = "<group>"; };
 		414A19E81E4551B400AEE6D2 /* StoreInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreInformation.swift; sourceTree = "<group>"; };
 		414A19EA1E45590300AEE6D2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -193,7 +175,6 @@
 		416E164D1E58308D00D683EE /* TimeInterval+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Format.swift"; sourceTree = "<group>"; };
 		416E164F1E58475F00D683EE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		41729FAA1FB8824F00CC5359 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = Firebase/module.modulemap; sourceTree = SOURCE_ROOT; };
-		417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
 		417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewCell.swift; sourceTree = "<group>"; };
 		417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailTableViewCell.xib; sourceTree = "<group>"; };
 		419026C81E4724AF008EB18A /* Item+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+Presentation.swift"; sourceTree = "<group>"; };
@@ -228,10 +209,8 @@
 		41DB23D51E3D8B5100FDD28D /* GenerateSevenItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateSevenItems.swift; sourceTree = "<group>"; };
 		41DB23D71E3D9AEE00FDD28D /* ItemsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewController.swift; sourceTree = "<group>"; };
 		41DB23D91E3DA32A00FDD28D /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
-		41DB23DB1E3DA47800FDD28D /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = Carthage/Build/iOS/IGListKit.framework; sourceTree = "<group>"; };
 		41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		41DB23E01E3DD70500FDD28D /* ItemListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListViewModel.swift; sourceTree = "<group>"; };
-		41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		41DB23E91E3F7E5200FDD28D /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 		41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
@@ -258,7 +237,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				417FFDED1E4FEAB900C6F6CD /* Cosmos.framework in Frameworks */,
 				41DB23E81E3DE6DD00FDD28D /* Kingfisher.framework in Frameworks */,
 				414A19E61E454A3800AEE6D2 /* then.framework in Frameworks */,
 				41402EC21E44D48B00031B4D /* Core_iOS.framework in Frameworks */,
@@ -269,7 +247,6 @@
 				41C9B6F31FB884880025FB2A /* leveldb-library.framework in Frameworks */,
 				41C9B6FC1FB884880025FB2A /* FirebaseDatabase.framework in Frameworks */,
 				414966B71E50A26100259AD1 /* SwiftyConfiguration.framework in Frameworks */,
-				41DB23E41E3DD8C100FDD28D /* SwiftyJSON.framework in Frameworks */,
 				41DB23EA1E3F7E5200FDD28D /* Hero.framework in Frameworks */,
 				41C9B6FB1FB884880025FB2A /* FirebaseMessaging.framework in Frameworks */,
 				41C9B7001FB884880025FB2A /* FirebaseInstanceID.framework in Frameworks */,
@@ -278,7 +255,6 @@
 				41C9B6F71FB884880025FB2A /* FirebaseAuth.framework in Frameworks */,
 				414966BE1E52010E00259AD1 /* Realm.framework in Frameworks */,
 				41385A5F1E46F79D009C24C6 /* SVProgressHUD.framework in Frameworks */,
-				412288C41E506B42009F0AD5 /* Typist.framework in Frameworks */,
 				41C9B7021FB884880025FB2A /* GoogleToolboxForMac.framework in Frameworks */,
 				41C9B6F41FB884880025FB2A /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				41C9B6F81FB884880025FB2A /* FirebaseNanoPB.framework in Frameworks */,
@@ -310,15 +286,11 @@
 				414966BC1E52010E00259AD1 /* Realm.framework */,
 				414966BD1E52010E00259AD1 /* RealmSwift.framework */,
 				414966B61E50A26100259AD1 /* SwiftyConfiguration.framework */,
-				412288C31E506B42009F0AD5 /* Typist.framework */,
-				417FFDEC1E4FEAB900C6F6CD /* Cosmos.framework */,
 				41199A521E476E8300559A2D /* SwiftyUserDefaults.framework */,
 				41DB23E91E3F7E5200FDD28D /* Hero.framework */,
-				41DB23DB1E3DA47800FDD28D /* IGListKit.framework */,
 				41DB23E71E3DE6DD00FDD28D /* Kingfisher.framework */,
 				41385A5E1E46F79D009C24C6 /* SVProgressHUD.framework */,
 				41DB23DC1E3DA47800FDD28D /* SwiftyBeaver.framework */,
-				41DB23E31E3DD8C100FDD28D /* SwiftyJSON.framework */,
 				414A19E51E454A3800AEE6D2 /* then.framework */,
 			);
 			name = Frameworks;
@@ -377,7 +349,6 @@
 		414966C01E5201D500259AD1 /* RealmEntity */ = {
 			isa = PBXGroup;
 			children = (
-				414966C11E52023200259AD1 /* Report.swift */,
 			);
 			path = RealmEntity;
 			sourceTree = "<group>";
@@ -457,10 +428,10 @@
 			children = (
 				41DB23A21E3C8C6300FDD28D /* AppDelegate.swift */,
 				41385A661E470193009C24C6 /* ClassName.swift */,
-				414966C01E5201D500259AD1 /* RealmEntity */,
 				4104FCFB1E47188300BB9573 /* Extensions */,
 				41DB234C1E3C842800FDD28D /* Models */,
 				414A19E71E45516700AEE6D2 /* Protocols */,
+				414966C01E5201D500259AD1 /* RealmEntity */,
 				41DB234A1E3C841100FDD28D /* ViewControllers */,
 				41DB234D1E3C842D00FDD28D /* ViewModels */,
 				41DB234B1E3C841F00FDD28D /* Views */,
@@ -477,10 +448,6 @@
 				41DB23D91E3DA32A00FDD28D /* RootTabBarController.swift */,
 				41DB23EB1E3F7ECA00FDD28D /* ItemDetailViewController.swift */,
 				41385A641E46FD45009C24C6 /* ItemDetailViewController.xib */,
-				41199A4C1E476AE300559A2D /* SelectRegionViewController.swift */,
-				41199A4D1E476AE300559A2D /* SelectRegionViewController.xib */,
-				412288BB1E504EB0009F0AD5 /* ReviewViewController.swift */,
-				412288BC1E504EB0009F0AD5 /* ReviewViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -492,8 +459,6 @@
 				41385A611E46FAD0009C24C6 /* ItemCollectionViewCell.xib */,
 				417FFDEE1E4FECED00C6F6CD /* ItemDetailTableViewCell.swift */,
 				417FFDEF1E4FECED00C6F6CD /* ItemDetailTableViewCell.xib */,
-				412288C71E507D8C009F0AD5 /* ReviewTableViewCell.swift */,
-				412288C81E507D8C009F0AD5 /* ReviewTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -501,8 +466,8 @@
 		41DB234C1E3C842800FDD28D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				412288BF1E505FB2009F0AD5 /* Review.swift */,
-				412288C11E5063A3009F0AD5 /* ReviewManager.swift */,
+				412B45731FC8E59C00032F39 /* ItemInteractor.swift */,
+				412B45751FC8E92F00032F39 /* LikeInteractor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -511,7 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				41DB23E01E3DD70500FDD28D /* ItemListViewModel.swift */,
-				412288C51E506F22009F0AD5 /* ReviewListViewModel.swift */,
+				412B457A1FCA3E8E00032F39 /* ItemDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -737,8 +702,6 @@
 			files = (
 				414A19EB1E45590300AEE6D2 /* Localizable.strings in Resources */,
 				41385A5B1E46E8F6009C24C6 /* ItemsCollectionViewController.xib in Resources */,
-				412288BE1E504EB0009F0AD5 /* ReviewViewController.xib in Resources */,
-				41199A4F1E476AE300559A2D /* SelectRegionViewController.xib in Resources */,
 				415DD5B61FC70AEB0012D439 /* GoogleService-Info-Debug.plist in Resources */,
 				416E16501E58475F00D683EE /* Settings.bundle in Resources */,
 				41DB23421E3C831B00FDD28D /* LaunchScreen.storyboard in Resources */,
@@ -747,7 +710,6 @@
 				41DB23671E3C86E000FDD28D /* GoogleService-Info-Release.plist in Resources */,
 				41DB233F1E3C831B00FDD28D /* Assets.xcassets in Resources */,
 				41385A651E46FD45009C24C6 /* ItemDetailViewController.xib in Resources */,
-				412288CA1E507D8C009F0AD5 /* ReviewTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,14 +772,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/then.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Cosmos.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Typist.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyConfiguration.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
@@ -862,15 +821,12 @@
 			files = (
 				414A19F01E455BC800AEE6D2 /* L10n.swift in Sources */,
 				41199A511E476E6700559A2D /* DefaultsKeys+AppData.swift in Sources */,
-				412288C01E505FB2009F0AD5 /* Review.swift in Sources */,
 				41DB23A31E3C8C6300FDD28D /* AppDelegate.swift in Sources */,
 				416E164E1E58308D00D683EE /* TimeInterval+Format.swift in Sources */,
 				4104FCFD1E4718CC00BB9573 /* HeroModifier+Default.swift in Sources */,
 				41DB23E11E3DD70500FDD28D /* ItemListViewModel.swift in Sources */,
+				412B457B1FCA3E8E00032F39 /* ItemDetailViewModel.swift in Sources */,
 				41385A5D1E46F104009C24C6 /* XibBaseViewController.swift in Sources */,
-				412288BD1E504EB0009F0AD5 /* ReviewViewController.swift in Sources */,
-				41199A4E1E476AE300559A2D /* SelectRegionViewController.swift in Sources */,
-				414966C21E52023200259AD1 /* Report.swift in Sources */,
 				41DB23EC1E3F7ECA00FDD28D /* ItemDetailViewController.swift in Sources */,
 				41385A621E46FAD0009C24C6 /* ItemCollectionViewCell.swift in Sources */,
 				414966B91E50A2A000259AD1 /* PlistKeys.swift in Sources */,
@@ -878,12 +834,11 @@
 				417FFDF01E4FECED00C6F6CD /* ItemDetailTableViewCell.swift in Sources */,
 				419026C91E4724AF008EB18A /* Item+Presentation.swift in Sources */,
 				41385A671E470193009C24C6 /* ClassName.swift in Sources */,
-				412288C21E5063A3009F0AD5 /* ReviewManager.swift in Sources */,
+				412B45741FC8E59C00032F39 /* ItemInteractor.swift in Sources */,
+				412B45761FC8E92F00032F39 /* LikeInteractor.swift in Sources */,
 				414A19E91E4551B400AEE6D2 /* StoreInformation.swift in Sources */,
-				412288C91E507D8C009F0AD5 /* ReviewTableViewCell.swift in Sources */,
 				41DB23D81E3D9AEE00FDD28D /* ItemsCollectionViewController.swift in Sources */,
 				414966BB1E50A4F400259AD1 /* AdPresentable.swift in Sources */,
-				412288C61E506F22009F0AD5 /* ReviewListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

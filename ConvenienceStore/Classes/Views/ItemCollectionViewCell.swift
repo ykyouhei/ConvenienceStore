@@ -8,12 +8,17 @@
 
 import UIKit
 import Core_iOS
-import FaveButton
+
+internal protocol ItemCollectionViewCellDelegate: class {
+    func itemCollectionViewCellDidLike(_ cell: ItemCollectionViewCell)
+}
 
 /// 商品を表示するCollectionViewCell
 internal final class ItemCollectionViewCell: UICollectionViewCell {
 
     // MARK: Outlet
+    
+    weak var delegate: ItemCollectionViewCellDelegate?
     
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var likeCountLabel: UILabel!
@@ -28,6 +33,8 @@ internal final class ItemCollectionViewCell: UICollectionViewCell {
     // MARK: Actions
     
     @IBAction private func didTapLike(_ sender: UIButton) {
+        guard !sender.isSelected else { return }
+        
         UIView.animate(withDuration: 0.35,
                        delay: 0,
                        usingSpringWithDamping: 0.6,
@@ -39,7 +46,8 @@ internal final class ItemCollectionViewCell: UICollectionViewCell {
                         sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                         sender.isSelected = !sender.isSelected
                        },
-                       completion: { _ in
+                       completion: { [unowned self] _ in
+                        self.delegate?.itemCollectionViewCellDidLike(self)
                        })
     }
     
@@ -77,12 +85,14 @@ internal final class ItemCollectionViewCell: UICollectionViewCell {
             + margin
     }
     
-    func apply<T: Item>(_ item: T) {
+    func apply<T: Item>(_ item: T, likeCount: Int, isLiked: Bool) {
         imageView.kf.setImage(with: item.imageURL)
         
         titleLabel.text  = item.title
         priceLabel.text  = item.taxIncludedPriceString
         launchLabel.text = item.launchDateString
+        likeButton.isSelected = isLiked
+        likeCountLabel.text = "\(likeCount)"
         
         likeButton.heroID = "likeButton" + item.id
         likeCountLabel.heroID = "likeCountLabel" + item.id

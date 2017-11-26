@@ -10,9 +10,7 @@ import UIKit
 import Core_iOS
 
 internal protocol ItemDetailTableViewCellDelegate: class {
-    
-    func itemDetailTableViewCellDidTapReview(_ cell: ItemDetailTableViewCell)
-    
+    func itemDetailTableViewCellDidLike(_ cell: ItemDetailTableViewCell)
 }
 
 internal final class ItemDetailTableViewCell: UITableViewCell {
@@ -21,7 +19,7 @@ internal final class ItemDetailTableViewCell: UITableViewCell {
     
     weak var delegate: ItemDetailTableViewCellDelegate?
     
-    
+
     // MARK: Outlet
     
     @IBOutlet private weak var likeButton: UIButton!
@@ -46,6 +44,8 @@ internal final class ItemDetailTableViewCell: UITableViewCell {
     }
     
     @IBAction private func didTapLike(_ sender: UIButton) {
+        guard !sender.isSelected else { return }
+        
         UIView.animate(withDuration: 0.35,
                        delay: 0,
                        usingSpringWithDamping: 0.6,
@@ -56,18 +56,21 @@ internal final class ItemDetailTableViewCell: UITableViewCell {
                         sender.transform = CGAffineTransform(scaleX: 1.5, y: 1.3)
                         sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                         sender.isSelected = !sender.isSelected
-        },
-                       completion: { _ in
-        })
+                       },
+                       completion: { [unowned self] _ in
+                        self.delegate?.itemDetailTableViewCellDidLike(self)
+                       })
     }
     
     
-    func update<T>(item: T, reviewList: ReviewListViewModel<T>) {
+    func update<T: Item>(item: T, likeCount: Int, isLiked: Bool) {
         detailImageView.kf.setImage(with: item.imageURL)
         titleLabel.text = item.title
         priceLabel.text = item.taxIncludedPriceString
         launchLabel.text = item.launchDateString
         detailLabel.text = item.text
+        likeCountLabel.text = "\(likeCount)"
+        likeButton.isSelected = isLiked
         
         likeButton.heroID = "likeButton" + item.id
         likeCountLabel.heroID = "likeCountLabel" + item.id
