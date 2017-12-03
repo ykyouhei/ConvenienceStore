@@ -42,9 +42,12 @@ func sendJSON<T: Item>(with items: [T], pushEnabled: Bool) where T: PushItem {
         let url = URL(string: Environment.get(.firebaseEndpoint) + "\(T.dataBasePath).json?auth=\(secret)")!
         var r = URLRequest(url: url)
         
+        
         var json = [String : Any]()
         items.forEach {
-            json[$0.id] = $0.json
+            let data = try! JSONEncoder().encode($0)
+            let dic = try! JSONSerialization.jsonObject(with: data, options: [])
+            json[$0.id] = dic
         }
         
         r.httpMethod = "PUT"
