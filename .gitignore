@@ -29,7 +29,7 @@ xcuserdata/
 *.dSYM
 
 ## Config files
-GoogleService-Info.plist
+GoogleService-Info-*.plist
 ConvenienceStore-*.json
 
 ## Firebase SDK

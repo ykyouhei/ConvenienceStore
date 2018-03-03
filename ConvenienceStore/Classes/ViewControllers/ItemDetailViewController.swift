@@ -11,17 +11,20 @@ import Hero
 import Kingfisher
 import Core_iOS
 import SVProgressHUD
-import RealmSwift
 import FirebaseAnalytics
+import SwiftyUserDefaults
 
 private struct CellId {
     static let detail = "detailCell"
-    static let review = "reviewCell"
 }
 
 private enum Section: Int {
     case itemDetail
-    case reviews
+}
+
+
+internal protocol ItemDetailViewControllerDelegate: class {
+    func itemDetailViewControllerShouldClose(_ vc: UIViewController)
 }
 
 internal final class ItemDetailViewController<T: Item>:
@@ -29,18 +32,14 @@ internal final class ItemDetailViewController<T: Item>:
     UITableViewDelegate,
     UITableViewDataSource,
     ItemDetailTableViewCellDelegate,
-    ReviewViewControllerDelegate,
     AdPresentable where T: StoreInformation
 {
     
     // MARK: Properties
     
-    let item: T
+    weak var delegate: ItemDetailViewControllerDelegate?
     
-    private lazy var reviewList: ReviewListViewModel<T> = {
-        let reportedReviewIds = try! Realm().objects(ReportedReview.self).map { $0.reviewId }
-        return ReviewListViewModel(item: self.item, reportedReviewIds: Array(reportedReviewIds))
-    }()
+    private let viewModel: ItemDetailViewModel<T>
     
     private var isTransition = false
     
@@ -59,13 +58,7 @@ internal final class ItemDetailViewController<T: Item>:
             action: #selector(ItemDetailViewController.didTapCloseButton(_:)))
     }()
     
-    private lazy var writeReviewButton: UIBarButtonItem = {
-        return UIBarButtonItem(barButtonSystemItem: .compose,
-                                target: self,
-                                action: #selector(ItemDetailViewController.didTapWriteButton(_:)))
-    }()
-    
-    
+
     // MARK: Computed Properties
     
     var scrollView: UIScrollView? {
@@ -75,13 +68,13 @@ internal final class ItemDetailViewController<T: Item>:
     
     // MARK: Initializer
     
-    init(item: T) {
-        self.item = item
-        
+    init(viewModel: ItemDetailViewModel<T>) {
+        self.viewModel = viewModel
+
         Analytics.logEvent(AnalyticsEventViewItem,
                               parameters: [
-                                AnalyticsParameterItemID   : NSString(string: item.id),
-                                AnalyticsParameterItemName : NSString(string: item.title)
+                                AnalyticsParameterItemID   : NSString(string: viewModel.item.id),
+                                AnalyticsParameterItemName : NSString(string: viewModel.item.title)
                               ])
         
         super.init()
@@ -111,29 +104,11 @@ internal final class ItemDetailViewController<T: Item>:
         }
     }
     
-    func reloadList(sender: UIRefreshControl? = nil) {
-        SVProgressHUD.show()
-        sender?.beginRefreshing()
-        
-        reviewList
-            .fetch()
-            .onError(showError)
-            .finally{
-                SVProgressHUD.dismiss()
-                sender?.endRefreshing()
-                self.tableView.reloadData()
-        }
-    }
-    
     @objc func didTapCloseButton(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
+        delegate?.itemDetailViewControllerShouldClose(self)
     }
     
-    @objc func didTapWriteButton(_ sender: UIBarButtonItem) {
-        showReviewVC()
-    }
-    
-    
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -143,8 +118,7 @@ internal final class ItemDetailViewController<T: Item>:
         
         navigationItem.titleView = UIImageView(image: T.logoImage)
         navigationItem.leftBarButtonItem  = closeButton
-        navigationItem.rightBarButtonItem = writeReviewButton
-        
+
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         tableView.tableFooterView = UIView()
@@ -155,7 +129,7 @@ internal final class ItemDetailViewController<T: Item>:
         
         addBannerView()
         
-        reloadList()
+        Defaults[.itemViewCount] += 1
     }
     
     
@@ -171,49 +145,25 @@ internal final class ItemDetailViewController<T: Item>:
     
     private func registerCells() {
         let detailNib = UINib(nibName: ItemDetailTableViewCell.className, bundle: nil)
-        let reviewNib = UINib(nibName: ReviewTableViewCell.className, bundle: nil)
-        
+
         tableView.register(detailNib, forCellReuseIdentifier: CellId.detail)
-        tableView.register(reviewNib, forCellReuseIdentifier: CellId.review)
-        
+
         detailCell = tableView.dequeueReusableCell(withIdentifier: CellId.detail) as! ItemDetailTableViewCell
-        detailCell.update(item: item, reviewList: reviewList)
         detailCell.delegate = self
+        
+        updateDetailCell()
+    }
+    
+    private func updateDetailCell() {
+        detailCell.update(item: viewModel.item,
+                          likeCount: viewModel.likeInfo.count,
+                          isLiked: viewModel.likeInfo.isLiked)
     }
     
     
     // MARK: Navigation
     
-    private func showReviewVC() {
-        let reviewVC = ReviewViewController(review: reviewList.reviewForCurrentUser())
-        let navigation = UINavigationController(rootViewController: reviewVC)
-        navigation.modalPresentationStyle = .formSheet
-        reviewVC.delegate = self
-        present(navigation, animated: true)
-    }
-    
-    private func showReportAlert(_ reportHandler: @escaping () -> Void) {
-        let yesAction = UIAlertAction(
-            title: L10n.Common.Label.yes,
-            style: .destructive) { _ in
-                reportHandler()
-        }
-        let noAction = UIAlertAction(
-            title: L10n.Common.Label.no,
-            style: .default)
-        
-        let alert = UIAlertController(
-            title: L10n.Itemdetail.Label.report,
-            message: L10n.Itemdetail.Label.reportMessage,
-            preferredStyle: .alert)
-        
-        alert.addAction(noAction)
-        alert.addAction(yesAction)
-        
-        present(alert, animated: true)
-    }
-    
-    
+
     // MARK: - UITableViewDelegate
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -225,7 +175,7 @@ internal final class ItemDetailViewController<T: Item>:
             } else if !scrollView.isDecelerating && scrollView.isDragging {
                 log.debug("---- start ----")
                 isTransition = true
-                dismiss(animated: true)
+                delegate?.itemDetailViewControllerShouldClose(self)
             }
         } else if isTransition {
             log.debug("---- cancel ----")
@@ -246,14 +196,13 @@ internal final class ItemDetailViewController<T: Item>:
     // MARK: - UITableViewDelegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = Section(rawValue: section)!
         switch section {
         case .itemDetail: return 1
-        case .reviews:    return reviewList.reviews.count
         }
     }
     
@@ -261,16 +210,16 @@ internal final class ItemDetailViewController<T: Item>:
         let section = Section(rawValue: indexPath.section)!
         switch section {
         case .itemDetail:
-            detailCell.update(item: item, reviewList: reviewList)
+            updateDetailCell()
             return detailCell
-        case .reviews:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: CellId.review,
-                for: indexPath) as! ReviewTableViewCell
-            
-            cell.update(review: reviewList.reviews[indexPath.row])
-            
-            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let section = Section(rawValue: indexPath.section)!
+        switch section {
+        case .itemDetail:
+            return false
         }
     }
     
@@ -279,50 +228,20 @@ internal final class ItemDetailViewController<T: Item>:
         switch section {
         case .itemDetail:
             return nil
-            
-        case .reviews:
-            return [
-                UITableViewRowAction(
-                    style: .destructive,
-                    title: L10n.Itemdetail.Label.report) { _, indexPath in
-                        self.showReportAlert{
-                            ReviewManager.report(for: self.reviewList.remove(at: indexPath.row))
-                            tableView.deleteRows(at: [indexPath], with: .automatic)
-                        }
-                }
-            ]
         }
     }
     
     
-    // MARK: - ItemDetailTableViewCellDelegate
+    // MARK: - ItemDetailCellDelegate
     
-    func itemDetailTableViewCellDidTapReview(_ cell: ItemDetailTableViewCell) {
-        showReviewVC()
-    }
-    
-    
-    // MARK: - ReviewViewControllerDelegate
-    
-    func reviewViewControllerDidTapCancel(_ vc: ReviewViewController) {
-        vc.dismiss(animated: true)
-    }
-    
-    func reviewViewController(_ vc: ReviewViewController, shouldSendReview review: Review) {
-        Analytics.logEvent(AnalyticsEventPostScore,
-                              parameters: [
-                                AnalyticsParameterItemID   : NSString(string: item.id),
-                                AnalyticsParameterItemName : NSString(string: item.title),
-                                AnalyticsParameterScore : NSNumber(value: review.rating)
-                              ])
-        
-        ReviewManager.send(review: review, for: item)
+    func itemDetailTableViewCellDidLike(_ cell: ItemDetailTableViewCell) {
+        SVProgressHUD.show()
+        viewModel.likeItem()
             .onError(showError)
-            .finally{
-                self.dismiss(animated: true)
-                self.reviewList.insert(review: review)
-                self.tableView.reloadData()
+            .finally {
+                self.updateDetailCell()
+                SVProgressHUD.dismiss()
             }
     }
-
+    
 }

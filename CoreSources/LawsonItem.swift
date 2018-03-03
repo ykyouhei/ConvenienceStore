@@ -34,14 +34,7 @@ public struct LawsonItem: Item {
     
     public let launchDate: Int
     
-    
-    // MARK: Computed Properties
-    
-    public var json: [String : Any] {
-        return baseJSON
-    }
-    
-    
+
     // MARK: Initializer
     
     public init(id: String,
@@ -60,18 +53,6 @@ public struct LawsonItem: Item {
         self.taxIncludedPrice  = taxIncludedPrice
         self.taxExcludedPrice  = taxExcludedPrice
         self.launchDate        = launchDate
-    }
-    
-    
-    public init(json: [String : Any]) {
-        self.id                = json["id"] as! String
-        self.title             = json["title"] as! String
-        self.text              = json["text"] as! String
-        self.imageURL          = URL(string: (json["imageURL"] as! String))!
-        self.detailURL         = URL(string: (json["detailURL"] as! String))!
-        self.taxIncludedPrice  = json["taxIncludedPrice"] as! Int
-        self.taxExcludedPrice  = json["taxExcludedPrice"] as! Int
-        self.launchDate        = json["launchDate"] as! Int
     }
     
 }

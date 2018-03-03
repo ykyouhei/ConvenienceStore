@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import Cosmos
 import Core_iOS
 
 internal protocol ItemDetailTableViewCellDelegate: class {
-    
-    func itemDetailTableViewCellDidTapReview(_ cell: ItemDetailTableViewCell)
-    
+    func itemDetailTableViewCellDidLike(_ cell: ItemDetailTableViewCell)
 }
 
 internal final class ItemDetailTableViewCell: UITableViewCell {
@@ -22,9 +19,13 @@ internal final class ItemDetailTableViewCell: UITableViewCell {
     
     weak var delegate: ItemDetailTableViewCellDelegate?
     
-    
+
     // MARK: Outlet
     
+    @IBOutlet private weak var likeButton: UIButton!
+    
+    @IBOutlet private weak var likeCountLabel: UILabel!
+
     @IBOutlet private weak var detailImageView: UIImageView!
     
     @IBOutlet private weak var titleLabel: UILabel!
@@ -35,64 +36,57 @@ internal final class ItemDetailTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var detailLabel: UILabel!
     
-    @IBOutlet private weak var ratingCountLabel: UILabel!
-    
-    @IBOutlet private weak var cosmosView: CosmosView!
-    
-    @IBOutlet private var baseCosmosViews: [CosmosView]!
-    
-    @IBOutlet private var progressView: [UIProgressView]!
-    
-    
-    @IBAction func didTapReviewButton(_ sender: UIButton) {
-        delegate?.itemDetailTableViewCellDidTapReview(self)
-    }
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        baseCosmosViews.enumerated().forEach {
-            $1.rating = Double($0)
-            $1.settings.starSize          = 11
-            $1.settings.starMargin        = 1
-            $1.settings.emptyColor        = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1)
-            $1.settings.emptyBorderColor  = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1)
-            $1.settings.filledColor       = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-            $1.settings.filledBorderColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-        }
+        likeButton.setImage(#imageLiteral(resourceName: "heart_off"), for: .normal)
+        likeButton.setImage(#imageLiteral(resourceName: "heart_on"), for: .selected)
+    }
+    
+    @IBAction private func didTapLike(_ sender: UIButton) {
+        guard !sender.isSelected else { return }
         
-        cosmosView.settings.starSize   = 11
-        cosmosView.settings.starMargin = 1
+        UIView.animate(withDuration: 0.35,
+                       delay: 0,
+                       usingSpringWithDamping: 0.6,
+                       initialSpringVelocity: 0,
+                       options: [],
+                       animations: {
+                        sender.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
+                        sender.transform = CGAffineTransform(scaleX: 1.5, y: 1.3)
+                        sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                        sender.isSelected = !sender.isSelected
+                       },
+                       completion: { [unowned self] _ in
+                        self.delegate?.itemDetailTableViewCellDidLike(self)
+                       })
     }
     
     
-    func update<T>(item: T, reviewList: ReviewListViewModel<T>) {
+    func update<T: Item>(item: T, likeCount: Int, isLiked: Bool) {
         detailImageView.kf.setImage(with: item.imageURL)
         titleLabel.text = item.title
         priceLabel.text = item.taxIncludedPriceString
         launchLabel.text = item.launchDateString
         detailLabel.text = item.text
+        likeCountLabel.text = "\(likeCount)"
+        likeButton.isSelected = isLiked
         
+        likeButton.heroID = "likeButton" + item.id
+        likeCountLabel.heroID = "likeCountLabel" + item.id
         detailImageView.heroID = "image" + item.id
         titleLabel.heroID = "title" + item.id
         priceLabel.heroID = "price" + item.id
         launchLabel.heroID = "launch" + item.id
+        detailLabel.heroID = "detailLabel" + item.id
         
+        likeButton.heroModifiers = [.defaultSpring()]
+        likeCountLabel.heroModifiers = [.defaultSpring()]
         detailImageView.heroModifiers = [.defaultSpring()]
         titleLabel.heroModifiers = [.defaultSpring()]
         priceLabel.heroModifiers = [.defaultSpring()]
         launchLabel.heroModifiers = [.defaultSpring()]
-        detailLabel.heroModifiers = [.translate(x:0, y:100), .scale(0.5), .defaultSpring()]
-        
-        progressView.enumerated().forEach { index, progressView in
-            progressView.progress = reviewList.progress(forRating: Double(index + 1))
-            
-        }
-        
-        cosmosView.rating = reviewList.averageRating()
-    
-        ratingCountLabel.text = L10n.Review.Template.reviewCount(reviewList.numberOfAllReviews())
+        detailLabel.heroModifiers = [.defaultSpring()]
     }
     
 }

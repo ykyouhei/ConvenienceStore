@@ -13,66 +13,51 @@ import then
 
 internal final class ItemListViewModel<T: Item> {
     
-    // MAKR: Types
-    
-    typealias QueryBlock = (_ ref: DatabaseReference) -> DatabaseQuery
-    
-    typealias FilterBlock = (T) -> Bool
-    
     // MARK: Properties
     
-    var queryBlock: QueryBlock = { ref in
-        return ref.queryOrdered(byChild: "launchDate") 
-    }
+    private let itemInteractor = ItemInteractor<T>()
     
-    var filterBlock: FilterBlock = { _ in
-        return true
-    }
+    private let likeInteractor = LikeInteractor.shared
+
+    private var items = [T]()
     
-    private lazy var fbReference: DatabaseReference = {
-        let index = T.dataBasePath.index(after: T.dataBasePath.startIndex)
-        let path  = String(T.dataBasePath[index...])
-        let ref   =  Database.database().reference().child(path)
-        ref.keepSynced(true)
-        return ref
-    }()
-    
-    private(set) var items: [T]
-    
-    
+
     // MARK: Initializer
     
     init() {
-        items = []
     }
     
     
     // MARK: Public Method
     
-    func fetch() -> Promise<[T]> {
-        return Promise { resolve, reject in
-            let ref   = self.queryBlock(self.fbReference)
-            
-            ref.observeSingleEvent(
-                of: .value,
-                with: { snapshot in
-                    self.items = snapshot.children.flatMap { snap -> T? in
-                        guard let json = (snap as? DataSnapshot)?.value as? [String : Any] else {
-                            return nil
-                        }
-                        return T(json: json)
-                    }
-                    
-                    log.verbose(self.items)
-                    
-                    resolve(self.items)
-                },
-                withCancel: { error in
-                    log.error(error)
-                    reject(error)
-            })
-        }
+    func updateItems() -> Promise<Void> {
+        return likeInteractor.updateLikes()
+            .then(itemInteractor.fetchItems())
+            .then { items in
+                self.items = items
+            }
+    }
+    
+    func itemsCount() -> Int {
+        return items.count
+    }
+    
+    func items(at indexPath: IndexPath) -> T {
+        return items[indexPath.row]
+    }
+    
+    func likeInfo(at indexPath: IndexPath) -> (count: Int, isLiked: Bool) {
+        let user = Auth.auth().currentUser!
+        let item = items(at: indexPath)
+        
+        return (count: likeInteractor.likeCount(for: item),
+                isLiked: likeInteractor.isLiked(for: item, by: user))
+    }
+    
+    func likeItem(at indexPath: IndexPath) -> Promise<Int> {
+        let user = Auth.auth().currentUser!
+        let item = items(at: indexPath)
+        return likeInteractor.sendLike(to: item, by: user)
     }
 
 }
-
